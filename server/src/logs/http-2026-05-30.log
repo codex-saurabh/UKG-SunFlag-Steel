@@ -1,0 +1,303 @@
+2026-05-30 09:09:26 [INFO   ] MongoDB connected → localhost / UKG
+2026-05-30 09:09:28 [INFO   ] Indexes ensured — 5 created/verified across 10 collections
+2026-05-30 09:09:28 [INFO   ] [scheduler] ✔ Registered: attendance_live_sync  (*/5 * * * *)
+2026-05-30 09:09:28 [INFO   ] [scheduler] ✔ Registered: leave_sync  (*/30 * * * *)
+2026-05-30 09:09:28 [INFO   ] [scheduler] ✔ Registered: shift_sync  (0 * * * *)
+2026-05-30 09:09:28 [INFO   ] [scheduler] ✔ Registered: employee_sync  (0 1 * * *)
+2026-05-30 09:09:28 [INFO   ] [scheduler] 4 jobs active
+2026-05-30 09:09:28 [INFO   ] ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2026-05-30 09:09:28 [INFO   ]   HR Analytics API  —  http://localhost:5000
+2026-05-30 09:09:28 [INFO   ]   Environment  : development
+2026-05-30 09:09:28 [INFO   ]   MongoDB      : localhost
+2026-05-30 09:09:28 [INFO   ]   UKG API      : 🟡 SEED MODE
+2026-05-30 09:09:28 [INFO   ] ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2026-05-30 09:10:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-05-30 09:15:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-05-30 09:19:58 [INFO   ] User login success  {"email":"admin@steelplant.in","role":"IT_ADMIN"}
+2026-05-30 09:19:58 [HTTP   ] [0mPOST /api/v1/auth/login [32m200[0m 680.875 ms - 474[0m
+2026-05-30 09:20:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-05-30 09:20:01 [HTTP   ] [0mGET /api/v1/attendance/today [36m304[0m 1438.496 ms - -[0m
+2026-05-30 09:20:01 [HTTP   ] [0mGET /api/v1/analytics/dept-rate?month=5&year=2026 [36m304[0m 1795.006 ms - -[0m
+2026-05-30 09:20:01 [HTTP   ] [0mGET /api/v1/analytics/dashboard [32m200[0m 2070.447 ms - 916[0m
+2026-05-30 09:20:01 [HTTP   ] [0mGET /api/v1/analytics/trend?days=30 [32m200[0m 1976.018 ms - 2122[0m
+2026-05-30 09:22:12 [HTTP   ] [0mGET /api/v1/employees/departments [32m200[0m 137.807 ms - 160[0m
+2026-05-30 09:22:12 [HTTP   ] [0mGET /api/v1/attendance/daily?date=2026-05-30&page=1&limit=50 [32m200[0m 151.674 ms - 107[0m
+2026-05-30 09:22:18 [HTTP   ] [0mGET /api/v1/attendance/monthly?month=5&year=2026&page=1&limit=50 [32m200[0m 153.238 ms - 13173[0m
+2026-05-30 09:22:24 [HTTP   ] [0mGET /api/v1/attendance/miss-punch?dateFrom=2026-05-23&dateTo=2026-05-30&page=1&limit=50 [32m200[0m 158.062 ms - 1957[0m
+2026-05-30 09:22:30 [HTTP   ] [0mGET /api/v1/attendance/overtime?dateFrom=2026-04-30&dateTo=2026-05-30&page=1&limit=50 [32m200[0m 88.615 ms - 26[0m
+2026-05-30 09:22:37 [HTTP   ] [0mGET /api/v1/attendance/daily?date=2026-04-30&page=1&limit=50 [32m200[0m 27.953 ms - 16422[0m
+2026-05-30 09:22:37 [HTTP   ] [0mGET /api/v1/attendance/daily?date=2026-03-30&page=1&limit=50 [32m200[0m 5.924 ms - 16489[0m
+2026-05-30 09:22:55 [HTTP   ] [0mGET /api/v1/attendance/monthly?month=4&year=2026&page=1&limit=50 [32m200[0m 5.487 ms - 13234[0m
+2026-05-30 09:22:57 [HTTP   ] [0mGET /api/v1/attendance/monthly?month=3&year=2026&page=1&limit=50 [32m200[0m 4.733 ms - 13214[0m
+2026-05-30 09:22:58 [HTTP   ] [0mGET /api/v1/attendance/monthly?month=2&year=2026&page=1&limit=50 [32m200[0m 4.385 ms - 12995[0m
+2026-05-30 09:23:00 [HTTP   ] [0mGET /api/v1/attendance/monthly?month=1&year=2026&page=1&limit=50 [32m200[0m 2.689 ms - 26[0m
+2026-05-30 09:23:14 [HTTP   ] [0mGET /api/v1/analytics/trend?days=30 [32m200[0m 6.712 ms - 2121[0m
+2026-05-30 09:23:14 [HTTP   ] [0mGET /api/v1/analytics/dept-rate?month=5&year=2026 [36m304[0m 9.546 ms - -[0m
+2026-05-30 09:23:14 [HTTP   ] [0mGET /api/v1/analytics/shift-breakdown?month=5&year=2026 [32m200[0m 157.835 ms - 173[0m
+2026-05-30 09:23:37 [HTTP   ] [0mGET /api/v1/employees?page=1&limit=50 [32m200[0m 19.419 ms - 12823[0m
+2026-05-30 09:23:44 [HTTP   ] [0mGET /api/v1/monitoring/health [32m200[0m 185.654 ms - 573[0m
+2026-05-30 09:23:52 [HTTP   ] [0mGET /api/v1/monitoring/job-logs [32m200[0m 108.851 ms - 19472[0m
+2026-05-30 09:23:52 [HTTP   ] [0mGET /api/v1/monitoring/jobs [32m200[0m 217.822 ms - 1390[0m
+2026-05-30 09:24:02 [HTTP   ] [0mPOST /api/v1/monitoring/jobs/trigger/attendance-live [32m200[0m 0.937 ms - 99[0m
+2026-05-30 09:24:02 [HTTP   ] [0mGET /api/v1/monitoring/jobs [32m200[0m 3.098 ms - 1390[0m
+2026-05-30 09:24:02 [HTTP   ] [0mGET /api/v1/monitoring/job-logs [32m200[0m 4.597 ms - 19472[0m
+2026-05-30 09:24:06 [HTTP   ] [0mPOST /api/v1/monitoring/jobs/trigger/employees [32m200[0m 1.056 ms - 93[0m
+2026-05-30 09:24:06 [HTTP   ] [0mGET /api/v1/monitoring/jobs [32m200[0m 3.982 ms - 1407[0m
+2026-05-30 09:24:06 [HTTP   ] [0mGET /api/v1/monitoring/job-logs [32m200[0m 7.038 ms - 19465[0m
+2026-05-30 09:24:09 [HTTP   ] [0mPOST /api/v1/monitoring/jobs/trigger/leaves [32m200[0m 1.055 ms - 90[0m
+2026-05-30 09:24:09 [HTTP   ] [0mGET /api/v1/monitoring/jobs [32m200[0m 4.002 ms - 1407[0m
+2026-05-30 09:24:09 [HTTP   ] [0mGET /api/v1/monitoring/job-logs [32m200[0m 5.013 ms - 19455[0m
+2026-05-30 09:24:10 [HTTP   ] [0mPOST /api/v1/monitoring/jobs/trigger/shifts [32m200[0m 0.864 ms - 90[0m
+2026-05-30 09:24:10 [HTTP   ] [0mGET /api/v1/monitoring/jobs [32m200[0m 3.122 ms - 1407[0m
+2026-05-30 09:24:10 [HTTP   ] [0mGET /api/v1/monitoring/job-logs [32m200[0m 19.316 ms - 19445[0m
+2026-05-30 09:24:13 [HTTP   ] [0mPOST /api/v1/monitoring/jobs/trigger/attendance-live [32m200[0m 0.745 ms - 99[0m
+2026-05-30 09:24:13 [HTTP   ] [0mGET /api/v1/monitoring/jobs [32m200[0m 2.725 ms - 1407[0m
+2026-05-30 09:24:13 [HTTP   ] [0mGET /api/v1/monitoring/job-logs [32m200[0m 4.319 ms - 19455[0m
+2026-05-30 09:24:18 [HTTP   ] [0mGET /api/v1/monitoring/audit-logs [32m200[0m 216.404 ms - 448[0m
+2026-05-30 09:24:37 [HTTP   ] [0mGET /api/v1/analytics/dashboard [32m200[0m 9.280 ms - 915[0m
+2026-05-30 09:24:37 [HTTP   ] [0mGET /api/v1/analytics/dept-rate?month=5&year=2026 [36m304[0m 10.252 ms - -[0m
+2026-05-30 09:24:37 [HTTP   ] [0mGET /api/v1/attendance/today [36m304[0m 41.568 ms - -[0m
+2026-05-30 09:25:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-05-30 09:25:11 [INFO   ] User login success  {"email":"hr@steelplant.in","role":"HR_ADMIN"}
+2026-05-30 09:25:11 [HTTP   ] [0mPOST /api/v1/auth/login [32m200[0m 74.009 ms - 467[0m
+2026-05-30 09:25:27 [HTTP   ] [0mGET /api/v1/analytics/trend?days=7 [32m200[0m 7.314 ms - 358[0m
+2026-05-30 09:26:35 [INFO   ] User login success  {"email":"timeoffice@steelplant.in","role":"TIME_OFFICE"}
+2026-05-30 09:26:35 [HTTP   ] [0mPOST /api/v1/auth/login [32m200[0m 71.249 ms - 493[0m
+2026-05-30 09:26:45 [HTTP   ] [0mGET /api/v1/attendance/daily?date=2026-06-30&page=1&limit=50 [32m200[0m 4.207 ms - 107[0m
+2026-05-30 09:26:53 [HTTP   ] [0mGET /api/v1/attendance/daily?date=2026-04-30&department=IT&page=1&limit=50 [32m200[0m 227.704 ms - 695[0m
+2026-05-30 09:26:57 [HTTP   ] [0mGET /api/v1/attendance/daily?date=2026-04-30&status=Present&page=1&limit=50 [32m200[0m 6.079 ms - 13972[0m
+2026-05-30 09:26:59 [HTTP   ] [0mGET /api/v1/attendance/daily?date=2026-04-30&status=Absent&page=1&limit=50 [32m200[0m 4.404 ms - 711[0m
+2026-05-30 09:27:00 [HTTP   ] [0mGET /api/v1/attendance/daily?date=2026-04-30&status=Miss+Punch&page=1&limit=50 [32m200[0m 4.858 ms - 107[0m
+2026-05-30 09:27:02 [HTTP   ] [0mGET /api/v1/attendance/daily?date=2026-04-30&status=Leave&page=1&limit=50 [32m200[0m 6.475 ms - 744[0m
+2026-05-30 09:27:06 [HTTP   ] [0mGET /api/v1/attendance/daily?date=2026-04-30&status=Holiday&page=1&limit=50 [32m200[0m 3.792 ms - 107[0m
+2026-05-30 09:27:08 [HTTP   ] [0mGET /api/v1/attendance/daily?date=2026-04-30&status=Week+Off&page=1&limit=50 [33m400[0m 1.083 ms - 292[0m
+2026-05-30 09:27:09 [HTTP   ] [0mGET /api/v1/attendance/daily?date=2026-04-30&status=Week+Off&page=1&limit=50 [33m400[0m 0.607 ms - 292[0m
+2026-05-30 09:27:12 [HTTP   ] [0mGET /api/v1/attendance/daily?date=2026-04-30&shift=A&page=1&limit=50 [32m200[0m 45.218 ms - 4082[0m
+2026-05-30 09:27:14 [HTTP   ] [0mGET /api/v1/attendance/daily?date=2026-04-30&shift=B&page=1&limit=50 [32m200[0m 4.266 ms - 3362[0m
+2026-05-30 09:27:16 [HTTP   ] [0mGET /api/v1/attendance/daily?date=2026-04-30&shift=C&page=1&limit=50 [32m200[0m 21.634 ms - 3395[0m
+2026-05-30 09:27:18 [HTTP   ] [0mGET /api/v1/attendance/daily?date=2026-04-30&shift=G&page=1&limit=50 [32m200[0m 4.022 ms - 5900[0m
+2026-05-30 09:27:24 [HTTP   ] [0mGET /api/v1/attendance/daily?date=2026-04-30&employeeCode=E&page=1&limit=50 [32m200[0m 4.530 ms - 107[0m
+2026-05-30 09:27:24 [HTTP   ] [0mGET /api/v1/attendance/daily?date=2026-04-30&employeeCode=EM&page=1&limit=50 [32m200[0m 3.068 ms - 107[0m
+2026-05-30 09:27:25 [HTTP   ] [0mGET /api/v1/attendance/daily?date=2026-04-30&employeeCode=EMP&page=1&limit=50 [32m200[0m 2.953 ms - 107[0m
+2026-05-30 09:27:32 [HTTP   ] [0mGET /api/v1/attendance/daily?date=2026-04-30&employeeCode=e&page=1&limit=50 [32m200[0m 3.252 ms - 107[0m
+2026-05-30 09:27:39 [HTTP   ] [0mGET /api/v1/attendance/daily?date=2026-04-30&page=1&limit=50 [36m304[0m 4.751 ms - -[0m
+2026-05-30 09:27:45 [HTTP   ] [0mGET /api/v1/attendance/daily?date=2026-04-30&employeeCode=EMP1&page=1&limit=50 [32m200[0m 3.378 ms - 107[0m
+2026-05-30 09:27:45 [HTTP   ] [0mGET /api/v1/attendance/daily?date=2026-04-30&employeeCode=EMP10&page=1&limit=50 [32m200[0m 3.675 ms - 107[0m
+2026-05-30 09:27:46 [HTTP   ] [0mGET /api/v1/attendance/daily?date=2026-04-30&employeeCode=EMP1001&page=1&limit=50 [32m200[0m 3.002 ms - 775[0m
+2026-05-30 09:30:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-05-30 09:30:00 [INFO   ] [scheduler] ▶ Starting: leave_sync
+2026-05-30 09:34:29 [INFO   ] User login success  {"email":"admin@steelplant.in","role":"IT_ADMIN"}
+2026-05-30 09:34:29 [HTTP   ] [0mPOST /api/v1/auth/login [32m200[0m 70.993 ms - 474[0m
+2026-05-30 09:34:29 [HTTP   ] [0mGET /api/v1/attendance/today [36m304[0m 3.344 ms - -[0m
+2026-05-30 09:34:29 [HTTP   ] [0mGET /api/v1/analytics/dept-rate?month=5&year=2026 [36m304[0m 7.885 ms - -[0m
+2026-05-30 09:34:29 [HTTP   ] [0mGET /api/v1/analytics/dashboard [32m200[0m 9.739 ms - 903[0m
+2026-05-30 09:34:29 [HTTP   ] [0mGET /api/v1/analytics/trend?days=30 [32m200[0m 24.378 ms - 2122[0m
+2026-05-30 09:34:38 [HTTP   ] [0mGET /api/v1/analytics/dashboard [32m200[0m 3.254 ms - 902[0m
+2026-05-30 09:34:38 [HTTP   ] [0mGET /api/v1/attendance/today [36m304[0m 4.395 ms - -[0m
+2026-05-30 09:34:38 [HTTP   ] [0mGET /api/v1/analytics/trend?days=30 [32m200[0m 4.446 ms - 2121[0m
+2026-05-30 09:34:38 [HTTP   ] [0mGET /api/v1/analytics/dept-rate?month=5&year=2026 [36m304[0m 5.661 ms - -[0m
+2026-05-30 09:35:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-05-30 09:35:03 [HTTP   ] [0mGET /api/v1/employees/departments [36m304[0m 2.691 ms - -[0m
+2026-05-30 09:35:03 [HTTP   ] [0mGET /api/v1/attendance/daily?date=2026-05-30&page=1&limit=50 [36m304[0m 6.136 ms - -[0m
+2026-05-30 09:35:06 [HTTP   ] [0mGET /api/v1/attendance/daily?date=2026-04-30&page=1&limit=50 [36m304[0m 6.838 ms - -[0m
+2026-05-30 09:40:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-05-30 09:45:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-05-30 09:50:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-05-30 09:55:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-05-30 09:55:02 [INFO   ] User login success  {"email":"hr@steelplant.in","role":"HR_ADMIN"}
+2026-05-30 09:55:02 [HTTP   ] [0mPOST /api/v1/auth/login [32m200[0m 70.773 ms - 467[0m
+2026-05-30 09:55:03 [HTTP   ] [0mGET /api/v1/attendance/today [36m304[0m 3.874 ms - -[0m
+2026-05-30 09:55:03 [HTTP   ] [0mGET /api/v1/analytics/dept-rate?month=5&year=2026 [36m304[0m 3.788 ms - -[0m
+2026-05-30 09:55:03 [HTTP   ] [0mGET /api/v1/analytics/trend?days=30 [32m200[0m 21.029 ms - 2122[0m
+2026-05-30 09:55:03 [HTTP   ] [0mGET /api/v1/analytics/dashboard [32m200[0m 184.240 ms - 923[0m
+2026-05-30 10:00:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-05-30 10:00:00 [INFO   ] [scheduler] ▶ Starting: leave_sync
+2026-05-30 10:00:00 [INFO   ] [scheduler] ▶ Starting: shift_sync
+2026-05-30 10:05:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-05-30 10:10:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-05-30 10:15:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-05-30 10:20:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-05-30 10:24:30 [INFO   ] User login success  {"email":"admin@steelplant.in","role":"IT_ADMIN"}
+2026-05-30 10:24:30 [HTTP   ] [0mPOST /api/v1/auth/login [32m200[0m 75.167 ms - 474[0m
+2026-05-30 10:24:30 [HTTP   ] [0mGET /api/v1/analytics/dept-rate?month=5&year=2026 [36m304[0m 4.670 ms - -[0m
+2026-05-30 10:24:30 [HTTP   ] [0mGET /api/v1/attendance/today [36m304[0m 2.504 ms - -[0m
+2026-05-30 10:24:30 [HTTP   ] [0mGET /api/v1/analytics/dashboard [32m200[0m 29.318 ms - 914[0m
+2026-05-30 10:24:30 [HTTP   ] [0mGET /api/v1/analytics/trend?days=30 [36m304[0m 47.657 ms - -[0m
+2026-05-30 10:25:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-05-30 10:29:24 [HTTP   ] [0mGET /api/v1/employees/departments [36m304[0m 3.885 ms - -[0m
+2026-05-30 10:29:24 [HTTP   ] [0mGET /api/v1/attendance/daily?date=2026-05-30&page=1&limit=50 [36m304[0m 4.689 ms - -[0m
+2026-05-30 10:29:28 [HTTP   ] [0mGET /api/v1/attendance/monthly?month=5&year=2026&page=1&limit=50 [32m200[0m 5.018 ms - 13173[0m
+2026-05-30 10:29:29 [HTTP   ] [0mGET /api/v1/attendance/miss-punch?dateFrom=2026-05-23&dateTo=2026-05-30&page=1&limit=50 [32m200[0m 4.158 ms - 1957[0m
+2026-05-30 10:29:35 [HTTP   ] [0mGET /api/v1/attendance/today [36m304[0m 63.495 ms - -[0m
+2026-05-30 10:29:35 [HTTP   ] [0mGET /api/v1/analytics/dept-rate?month=5&year=2026 [36m304[0m 65.341 ms - -[0m
+2026-05-30 10:29:35 [HTTP   ] [0mGET /api/v1/analytics/trend?days=30 [32m200[0m 4.268 ms - 2121[0m
+2026-05-30 10:29:35 [HTTP   ] [0mGET /api/v1/analytics/dashboard [32m200[0m 96.670 ms - 925[0m
+2026-05-30 10:29:46 [HTTP   ] [0mGET /api/v1/attendance/overtime?dateFrom=2026-04-30&dateTo=2026-05-30&page=1&limit=50 [32m200[0m 19.927 ms - 26[0m
+2026-05-30 10:29:50 [HTTP   ] [0mGET /api/v1/attendance/overtime?dateFrom=2026-04-02&dateTo=2026-05-30&page=1&limit=50 [32m200[0m 2.513 ms - 26[0m
+2026-05-30 10:29:53 [HTTP   ] [0mGET /api/v1/attendance/overtime?dateFrom=2026-03-02&dateTo=2026-05-30&page=1&limit=50 [32m200[0m 2.749 ms - 26[0m
+2026-05-30 10:29:55 [HTTP   ] [0mGET /api/v1/attendance/overtime?dateFrom=2026-03-23&dateTo=2026-05-30&page=1&limit=50 [32m200[0m 2.358 ms - 26[0m
+2026-05-30 10:29:57 [HTTP   ] [0mGET /api/v1/attendance/overtime?dateFrom=2026-03-30&dateTo=2026-05-30&page=1&limit=50 [32m200[0m 2.562 ms - 26[0m
+2026-05-30 10:30:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-05-30 10:30:00 [INFO   ] [scheduler] ▶ Starting: leave_sync
+2026-05-30 10:30:05 [HTTP   ] [0mGET /api/v1/attendance/miss-punch?dateFrom=2026-04-23&dateTo=2026-05-30&page=1&limit=50 [32m200[0m 4.430 ms - 8985[0m
+2026-05-30 10:30:07 [HTTP   ] [0mGET /api/v1/attendance/miss-punch?dateFrom=2026-03-23&dateTo=2026-05-30&page=1&limit=50 [32m200[0m 5.614 ms - 25537[0m
+2026-05-30 10:30:07 [HTTP   ] [0mGET /api/v1/attendance/miss-punch?dateFrom=2026-02-23&dateTo=2026-05-30&page=1&limit=50 [32m200[0m 5.334 ms - 31916[0m
+2026-05-30 10:30:08 [HTTP   ] [0mGET /api/v1/attendance/miss-punch?dateFrom=2026-01-23&dateTo=2026-05-30&page=1&limit=50 [32m200[0m 4.883 ms - 31916[0m
+2026-05-30 10:30:08 [HTTP   ] [0mGET /api/v1/attendance/miss-punch?dateFrom=2025-12-23&dateTo=2026-05-30&page=1&limit=50 [32m200[0m 37.137 ms - 31916[0m
+2026-05-30 10:30:08 [HTTP   ] [0mGET /api/v1/attendance/miss-punch?dateFrom=2025-11-23&dateTo=2026-05-30&page=1&limit=50 [32m200[0m 6.131 ms - 31916[0m
+2026-05-30 10:30:09 [HTTP   ] [0mGET /api/v1/attendance/miss-punch?dateFrom=2025-10-23&dateTo=2026-05-30&page=1&limit=50 [32m200[0m 4.577 ms - 31916[0m
+2026-05-30 10:30:09 [HTTP   ] [0mGET /api/v1/attendance/miss-punch?dateFrom=2025-09-23&dateTo=2026-05-30&page=1&limit=50 [32m200[0m 26.425 ms - 31916[0m
+2026-05-30 10:30:10 [HTTP   ] [0mGET /api/v1/attendance/miss-punch?dateFrom=2025-08-23&dateTo=2026-05-30&page=1&limit=50 [32m200[0m 5.751 ms - 31916[0m
+2026-05-30 10:30:14 [HTTP   ] [0mGET /api/v1/analytics/dept-rate?month=5&year=2026 [36m304[0m 3.452 ms - -[0m
+2026-05-30 10:30:14 [HTTP   ] [0mGET /api/v1/analytics/shift-breakdown?month=5&year=2026 [32m200[0m 5.045 ms - 173[0m
+2026-05-30 10:30:26 [HTTP   ] [0mGET /api/v1/employees?page=1&limit=50 [32m200[0m 2.732 ms - 12823[0m
+2026-05-30 10:33:49 [INFO   ] User login success  {"email":"admin@steelplant.in","role":"IT_ADMIN"}
+2026-05-30 10:33:49 [HTTP   ] [0mPOST /api/v1/auth/login [32m200[0m 70.957 ms - 474[0m
+2026-05-30 10:33:49 [HTTP   ] [0mGET /api/v1/attendance/today [36m304[0m 5.874 ms - -[0m
+2026-05-30 10:33:49 [HTTP   ] [0mGET /api/v1/analytics/trend?days=30 [36m304[0m 4.602 ms - -[0m
+2026-05-30 10:33:49 [HTTP   ] [0mGET /api/v1/analytics/dept-rate?month=5&year=2026 [36m304[0m 5.931 ms - -[0m
+2026-05-30 10:33:49 [HTTP   ] [0mGET /api/v1/analytics/dashboard [32m200[0m 13.657 ms - 915[0m
+2026-05-30 10:33:57 [HTTP   ] [0mGET /api/v1/employees/departments [36m304[0m 2.376 ms - -[0m
+2026-05-30 10:33:57 [HTTP   ] [0mGET /api/v1/attendance/daily?date=2026-05-30&page=1&limit=50 [36m304[0m 3.310 ms - -[0m
+2026-05-30 10:33:59 [HTTP   ] [0mGET /api/v1/attendance/monthly?month=5&year=2026&page=1&limit=50 [36m304[0m 3.970 ms - -[0m
+2026-05-30 10:34:04 [HTTP   ] [0mGET /api/v1/attendance/miss-punch?dateFrom=2026-05-23&dateTo=2026-05-30&page=1&limit=50 [36m304[0m 3.357 ms - -[0m
+2026-05-30 10:34:06 [HTTP   ] [0mGET /api/v1/attendance/overtime?dateFrom=2026-04-30&dateTo=2026-05-30&page=1&limit=50 [36m304[0m 3.608 ms - -[0m
+2026-05-30 10:34:08 [HTTP   ] [0mGET /api/v1/analytics/shift-breakdown?month=5&year=2026 [36m304[0m 3.848 ms - -[0m
+2026-05-30 10:34:08 [HTTP   ] [0mGET /api/v1/analytics/dept-rate?month=5&year=2026 [36m304[0m 4.370 ms - -[0m
+2026-05-30 10:34:24 [HTTP   ] [0mGET /api/v1/employees?page=1&limit=50 [36m304[0m 3.031 ms - -[0m
+2026-05-30 10:34:30 [HTTP   ] [0mGET /api/v1/employees?search=suni&page=1&limit=50 [32m200[0m 187.992 ms - 626[0m
+2026-05-30 10:34:42 [HTTP   ] [0mGET /api/v1/employees?department=IT&page=1&limit=50 [32m200[0m 20.672 ms - 590[0m
+2026-05-30 10:34:45 [HTTP   ] [0mGET /api/v1/employees?department=Power+Plant&page=1&limit=50 [32m200[0m 2.448 ms - 1610[0m
+2026-05-30 10:34:47 [HTTP   ] [0mGET /api/v1/employees?department=Rolling+Mill&page=1&limit=50 [32m200[0m 3.124 ms - 2148[0m
+2026-05-30 10:34:49 [HTTP   ] [0mGET /api/v1/employees?department=Safety&page=1&limit=50 [32m200[0m 2.710 ms - 604[0m
+2026-05-30 10:34:52 [HTTP   ] [0mGET /api/v1/employees?department=Steel+Melting+Shop&page=1&limit=50 [32m200[0m 2.539 ms - 2177[0m
+2026-05-30 10:34:55 [HTTP   ] [0mGET /api/v1/employees?department=Finance&page=1&limit=50 [32m200[0m 2.339 ms - 602[0m
+2026-05-30 10:34:57 [HTTP   ] [0mGET /api/v1/employees?department=Blast+Furnace&page=1&limit=50 [32m200[0m 2.490 ms - 2168[0m
+2026-05-30 10:34:59 [HTTP   ] [0mGET /api/v1/employees?department=HR+%26+Admin&page=1&limit=50 [32m200[0m 2.307 ms - 1116[0m
+2026-05-30 10:35:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-05-30 10:35:16 [HTTP   ] [0mGET /api/v1/employees?department=Quality+Control&page=1&limit=50 [32m200[0m 2.490 ms - 1123[0m
+2026-05-30 10:35:19 [HTTP   ] [0mGET /api/v1/employees?department=Maintenance&page=1&limit=50 [32m200[0m 2.524 ms - 1638[0m
+2026-05-30 10:40:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-05-30 10:45:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-05-30 10:50:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-05-30 10:50:39 [INFO   ] User login success  {"email":"hr@steelplant.in","role":"HR_ADMIN"}
+2026-05-30 10:50:39 [HTTP   ] [0mPOST /api/v1/auth/login [32m200[0m 77.707 ms - 467[0m
+2026-05-30 10:50:40 [HTTP   ] [0mGET /api/v1/attendance/today [36m304[0m 4.575 ms - -[0m
+2026-05-30 10:50:40 [HTTP   ] [0mGET /api/v1/analytics/dept-rate?month=5&year=2026 [36m304[0m 6.931 ms - -[0m
+2026-05-30 10:50:40 [HTTP   ] [0mGET /api/v1/analytics/dashboard [32m200[0m 24.353 ms - 913[0m
+2026-05-30 10:50:40 [HTTP   ] [0mGET /api/v1/analytics/trend?days=30 [32m200[0m 33.936 ms - 2122[0m
+2026-05-30 10:50:49 [INFO   ] User login success  {"email":"admin@steelplant.in","role":"IT_ADMIN"}
+2026-05-30 10:50:49 [HTTP   ] [0mPOST /api/v1/auth/login [32m200[0m 74.884 ms - 474[0m
+2026-05-30 10:55:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-05-30 11:00:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-05-30 11:00:00 [INFO   ] [scheduler] ▶ Starting: leave_sync
+2026-05-30 11:05:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-05-30 12:59:34 [INFO   ] MongoDB connected → localhost / UKG
+2026-05-30 12:59:34 [INFO   ] Indexes ensured — 5 created/verified across 10 collections
+2026-05-30 12:59:34 [INFO   ] [scheduler] ✔ Registered: attendance_live_sync  (*/5 * * * *)
+2026-05-30 12:59:34 [INFO   ] [scheduler] ✔ Registered: leave_sync  (*/30 * * * *)
+2026-05-30 12:59:34 [INFO   ] [scheduler] ✔ Registered: shift_sync  (0 * * * *)
+2026-05-30 12:59:34 [INFO   ] [scheduler] ✔ Registered: employee_sync  (0 1 * * *)
+2026-05-30 12:59:34 [INFO   ] [scheduler] 4 jobs active
+2026-05-30 12:59:34 [INFO   ] ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2026-05-30 12:59:34 [INFO   ]   HR Analytics API  —  http://localhost:5000
+2026-05-30 12:59:34 [INFO   ]   Environment  : development
+2026-05-30 12:59:34 [INFO   ]   MongoDB      : localhost
+2026-05-30 12:59:34 [INFO   ]   UKG API      : 🟡 SEED MODE
+2026-05-30 12:59:34 [INFO   ] ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2026-05-30 13:00:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-05-30 13:00:00 [INFO   ] [scheduler] ▶ Starting: leave_sync
+2026-05-30 13:00:00 [INFO   ] [scheduler] ▶ Starting: shift_sync
+2026-05-30 13:05:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-05-30 13:10:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-05-30 13:15:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-05-30 13:20:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-05-30 13:25:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-05-30 13:30:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-05-30 13:30:00 [INFO   ] [scheduler] ▶ Starting: leave_sync
+2026-05-30 13:35:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-05-30 13:40:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-05-30 13:45:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-05-30 13:50:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-05-30 13:55:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-05-30 14:00:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-05-30 14:00:00 [INFO   ] [scheduler] ▶ Starting: leave_sync
+2026-05-30 14:00:00 [INFO   ] [scheduler] ▶ Starting: shift_sync
+2026-05-30 14:05:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-05-30 14:10:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-05-30 14:15:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-05-30 14:20:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-05-30 14:25:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-05-30 14:27:50 [INFO   ] User login success  {"email":"admin@steelplant.in","role":"IT_ADMIN"}
+2026-05-30 14:27:50 [HTTP   ] [0mPOST /api/v1/auth/login [32m200[0m 199.406 ms - 474[0m
+2026-05-30 14:27:52 [HTTP   ] [0mGET /api/v1/attendance/today [36m304[0m 223.592 ms - -[0m
+2026-05-30 14:27:52 [HTTP   ] [0mGET /api/v1/analytics/dept-rate?month=5&year=2026 [36m304[0m 263.705 ms - -[0m
+2026-05-30 14:27:52 [HTTP   ] [0mGET /api/v1/analytics/dashboard [32m200[0m 316.163 ms - 923[0m
+2026-05-30 14:27:52 [HTTP   ] [0mGET /api/v1/analytics/trend?days=30 [36m304[0m 320.911 ms - -[0m
+2026-05-30 14:30:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-05-30 14:30:00 [INFO   ] [scheduler] ▶ Starting: leave_sync
+2026-05-30 14:30:01 [INFO   ] User login success  {"email":"admin@steelplant.in","role":"IT_ADMIN"}
+2026-05-30 14:30:01 [HTTP   ] [0mPOST /api/v1/auth/login [32m200[0m 87.552 ms - 474[0m
+2026-05-30 14:32:46 [INFO   ] User login success  {"email":"admin@steelplant.in","role":"IT_ADMIN"}
+2026-05-30 14:32:46 [HTTP   ] [0mPOST /api/v1/auth/login [32m200[0m 72.226 ms - 474[0m
+2026-05-30 14:32:51 [HTTP   ] [0mGET /api/v1/analytics/dept-rate?month=5&year=2026 [36m304[0m 7.070 ms - -[0m
+2026-05-30 14:32:51 [HTTP   ] [0mGET /api/v1/analytics/shift-breakdown?month=5&year=2026 [36m304[0m 4.337 ms - -[0m
+2026-05-30 14:32:54 [HTTP   ] [0mGET /api/v1/attendance/daily?date=2026-05-30&page=1&limit=50 [36m304[0m 118.353 ms - -[0m
+2026-05-30 14:32:54 [HTTP   ] [0mGET /api/v1/employees/departments [36m304[0m 126.926 ms - -[0m
+2026-05-30 14:32:55 [HTTP   ] [0mGET /api/v1/attendance/monthly?month=5&year=2026&page=1&limit=50 [36m304[0m 29.478 ms - -[0m
+2026-05-30 14:32:57 [HTTP   ] [0mGET /api/v1/attendance/today [36m304[0m 36.783 ms - -[0m
+2026-05-30 14:32:57 [HTTP   ] [0mGET /api/v1/analytics/trend?days=30 [32m200[0m 4.366 ms - 2121[0m
+2026-05-30 14:32:57 [HTTP   ] [0mGET /api/v1/analytics/dept-rate?month=5&year=2026 [36m304[0m 16.665 ms - -[0m
+2026-05-30 14:32:57 [HTTP   ] [0mGET /api/v1/analytics/dashboard [32m200[0m 55.537 ms - 913[0m
+2026-05-30 14:35:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-05-30 14:40:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-05-30 14:45:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-05-30 14:50:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-05-30 14:55:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-05-30 15:00:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-05-30 15:00:00 [INFO   ] [scheduler] ▶ Starting: leave_sync
+2026-05-30 15:00:00 [INFO   ] [scheduler] ▶ Starting: shift_sync
+2026-05-30 15:05:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-05-30 15:10:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-05-30 15:15:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-05-30 15:20:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-05-30 15:25:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-05-30 15:30:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-05-30 15:30:00 [INFO   ] [scheduler] ▶ Starting: leave_sync
+2026-05-30 15:35:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-05-30 15:40:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-05-30 15:45:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-05-30 15:50:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-05-30 15:55:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-05-30 16:00:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-05-30 16:00:00 [INFO   ] [scheduler] ▶ Starting: leave_sync
+2026-05-30 16:00:00 [INFO   ] [scheduler] ▶ Starting: shift_sync
+2026-05-30 16:05:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-05-30 16:10:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-05-30 16:15:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-05-30 16:20:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-05-30 16:25:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-05-30 16:30:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-05-30 16:30:00 [INFO   ] [scheduler] ▶ Starting: leave_sync
+2026-05-30 16:35:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-05-30 16:40:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-05-30 16:45:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-05-30 16:50:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-05-30 16:55:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-05-30 17:00:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-05-30 17:00:00 [INFO   ] [scheduler] ▶ Starting: leave_sync
+2026-05-30 17:00:00 [INFO   ] [scheduler] ▶ Starting: shift_sync
+2026-05-30 17:05:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-05-30 17:10:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-05-30 17:15:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-05-30 17:20:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-05-30 17:25:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-05-30 17:30:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-05-30 17:30:00 [INFO   ] [scheduler] ▶ Starting: leave_sync
+2026-05-30 17:35:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-05-30 17:40:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-05-30 17:45:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-05-30 17:50:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-05-30 17:55:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-05-30 18:00:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-05-30 18:00:00 [INFO   ] [scheduler] ▶ Starting: leave_sync

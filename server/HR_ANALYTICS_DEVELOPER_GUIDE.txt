@@ -1,0 +1,497 @@
+═══════════════════════════════════════════════════════════════════════════════
+  HR ANALYTICS SYSTEM — DEVELOPER GUIDE
+  Iron & Steel Plant | Internal LAN Deployment
+═══════════════════════════════════════════════════════════════════════════════
+
+  Keep this file. It covers everything from first setup to going live.
+
+───────────────────────────────────────────────────────────────────────────────
+  SECTION 1 — PREREQUISITES
+───────────────────────────────────────────────────────────────────────────────
+
+  Install these before anything else:
+
+  1. Node.js v18 or higher
+     Download: https://nodejs.org
+     Verify:   node --version
+
+  2. MongoDB Community Edition (local server)
+     Download: https://www.mongodb.com/try/download/community
+     Verify:   mongod --version
+     The DB server must be running before you start the app.
+
+  3. Git (optional but recommended)
+     Download: https://git-scm.com
+
+  4. VS Code (recommended editor)
+     Download: https://code.visualstudio.com
+
+───────────────────────────────────────────────────────────────────────────────
+  SECTION 2 — PROJECT STRUCTURE
+───────────────────────────────────────────────────────────────────────────────
+
+  UKG/
+  ├── server/          ← Express + MongoDB backend  (YOU ARE HERE)
+  └── client/          ← React + Vite frontend      (coming next)
+
+───────────────────────────────────────────────────────────────────────────────
+  SECTION 3 — FIRST TIME SETUP (DO THIS ONCE)
+───────────────────────────────────────────────────────────────────────────────
+
+  Step 1 — Start MongoDB
+  ─────────────────────
+  Windows:  Open Services → find "MongoDB" → Start
+            OR run:  net start MongoDB
+
+  macOS:    brew services start mongodb-community
+  Linux:    sudo systemctl start mongod
+
+  Verify MongoDB is running:
+    mongosh
+    > show dbs
+    > exit
+
+  ─────────────────────────────────────────────────────────────────────────────
+
+  Step 2 — Install backend dependencies
+  ──────────────────────────────────────
+  Open a terminal, navigate to the server folder:
+
+    cd UKG/server
+    npm install
+
+  This installs: Express, Mongoose, Winston, ExcelJS, PDFMake,
+  JWT, bcrypt, node-cron, Zod, Helmet, and all other dependencies.
+
+  ─────────────────────────────────────────────────────────────────────────────
+
+  Step 3 — Configure environment variables
+  ─────────────────────────────────────────
+  The file server/.env already exists with development defaults.
+  Open it and verify these values:
+
+    NODE_ENV=development
+    PORT=5000
+    MONGO_URI=mongodb://localhost:27017/hr_analytics
+    JWT_SECRET=your_super_secret_jwt_key_change_in_production
+    JWT_EXPIRES_IN=8h
+    UKG_API_AVAILABLE=false        ← KEEP THIS FALSE until real API is ready
+    LOG_LEVEL=info
+    LOG_DIR=./src/logs
+    EXPORT_DIR=./src/exports
+    BACKUP_DIR=./src/backups
+
+  IMPORTANT: Do NOT change UKG_API_AVAILABLE to true until you have
+  real UKG API credentials. The system works perfectly with seeded data.
+
+  ─────────────────────────────────────────────────────────────────────────────
+
+  Step 4 — Run the seed script
+  ────────────────────────────
+  This creates 25 employees with 90 days of realistic attendance data.
+  Run it ONCE. Running again with --reset will wipe and re-seed.
+
+    cd UKG/server
+
+    # First time (creates data):
+    npm run seed
+
+    # If you want to wipe everything and start fresh:
+    npm run seed:reset
+
+  What the seed script creates:
+    ✔ 3 system users (HR, IT Admin, Time Office)
+    ✔ 25 employees across all departments and shifts
+    ✔ ~2,700 daily attendance records (25 emp × 90 days)
+    ✔ ~4,000+ punch records (IN/OUT with realistic jitter + duplicates)
+    ✔ Monthly attendance summaries
+    ✔ Leave records (1-3 per employee)
+    ✔ Holidays within the date range
+    ✔ 1 seed job log entry
+
+  Seed output will look like:
+    🌱  HR Analytics — Seed Script
+    ================================
+    📅  Seeding 90 days: 2024-09-18 → 2024-12-16
+    👤  Creating system users...
+       Created 3 users
+       Credentials → email / password: Admin@123 (all users)
+    🎉  Creating holidays...
+    👷  Creating employees...
+    🏖️   Creating leave records...
+    ⏰  Building attendance records...
+    📊  Building monthly summaries...
+    ✅  Seed complete!
+
+  ─────────────────────────────────────────────────────────────────────────────
+
+  Step 5 — Start the backend server
+  ──────────────────────────────────
+    cd UKG/server
+    npm run dev          ← development mode with auto-restart (nodemon)
+    # OR
+    npm start            ← production mode (no auto-restart)
+
+  Server startup output:
+    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+      HR Analytics API  —  http://localhost:5000
+      Environment  : development
+      MongoDB      : localhost
+      UKG API      : 🟡 SEED MODE
+    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  If you see this → backend is running correctly.
+
+───────────────────────────────────────────────────────────────────────────────
+  SECTION 4 — LOGIN CREDENTIALS (DEVELOPMENT)
+───────────────────────────────────────────────────────────────────────────────
+
+  ┌─────────────────────────────────────────────────────────────────────────┐
+  │  Role          Email                          Password                  │
+  ├─────────────────────────────────────────────────────────────────────────┤
+  │  IT Admin      admin@steelplant.in            Admin@123                 │
+  │  HR Admin      hr@steelplant.in               Admin@123                 │
+  │  Time Office   timeoffice@steelplant.in       Admin@123                 │
+  └─────────────────────────────────────────────────────────────────────────┘
+
+  Change these passwords before going live (see Section 7).
+
+───────────────────────────────────────────────────────────────────────────────
+  SECTION 5 — TESTING THE API
+───────────────────────────────────────────────────────────────────────────────
+
+  Use Postman, Insomnia, or curl to test the endpoints.
+
+  ── Health check (no auth needed) ──────────────────────────────────────────
+
+    GET http://localhost:5000/ping
+    Expected: { "ok": true, "ts": "...", "env": "development" }
+
+  ── Login ───────────────────────────────────────────────────────────────────
+
+    POST http://localhost:5000/api/v1/auth/login
+    Body (JSON):
+    {
+      "email": "admin@steelplant.in",
+      "password": "Admin@123"
+    }
+    Expected: { "success": true, "data": { "token": "eyJ...", "user": {...} } }
+
+    Copy the token value — you need it for all other requests.
+
+  ── Authenticated requests ───────────────────────────────────────────────────
+
+    Add this header to every request after login:
+      Authorization: Bearer <your_token_here>
+
+  ── Key endpoints to test ────────────────────────────────────────────────────
+
+    GET  /api/v1/auth/me
+    GET  /api/v1/analytics/dashboard
+    GET  /api/v1/analytics/trend?days=30
+    GET  /api/v1/analytics/dept-rate
+    GET  /api/v1/analytics/shift-breakdown
+    GET  /api/v1/attendance/today
+    GET  /api/v1/attendance/daily?date=2024-12-01
+    GET  /api/v1/attendance/daily?dateFrom=2024-11-01&dateTo=2024-11-30
+    GET  /api/v1/attendance/daily?department=Blast Furnace
+    GET  /api/v1/attendance/daily?status=Miss Punch
+    GET  /api/v1/attendance/monthly?month=12&year=2024
+    GET  /api/v1/attendance/miss-punch?dateFrom=2024-12-01&dateTo=2024-12-16
+    GET  /api/v1/attendance/overtime?dateFrom=2024-12-01&dateTo=2024-12-16
+    GET  /api/v1/employees
+    GET  /api/v1/employees/departments
+    GET  /api/v1/employees/EMP1001
+    GET  /api/v1/monitoring/health
+    GET  /api/v1/monitoring/jobs
+    GET  /api/v1/monitoring/job-logs
+    GET  /api/v1/monitoring/audit-logs
+
+  ── Export endpoints (returns downloadable file) ────────────────────────────
+
+    GET  /api/v1/exports/monthly-attendance?month=12&year=2024
+    GET  /api/v1/exports/monthly-attendance?month=12&year=2024&department=Blast Furnace
+    GET  /api/v1/exports/overtime?dateFrom=2024-12-01&dateTo=2024-12-16
+
+    In Postman: Click "Send and Download" to get the Excel file.
+
+  ── Manual job trigger (IT Admin only) ──────────────────────────────────────
+
+    POST /api/v1/monitoring/jobs/trigger/attendance-live
+    POST /api/v1/monitoring/jobs/trigger/employees
+    POST /api/v1/monitoring/jobs/trigger/leaves
+    POST /api/v1/monitoring/jobs/trigger/shifts
+
+    These fire the sync job immediately.
+    Since UKG_API_AVAILABLE=false, they will log as 'skipped' — that is correct.
+
+───────────────────────────────────────────────────────────────────────────────
+  SECTION 6 — UNDERSTANDING THE CRON JOBS
+───────────────────────────────────────────────────────────────────────────────
+
+  Jobs start automatically when the server starts.
+  With UKG_API_AVAILABLE=false, every job runs on schedule but logs 'skipped'.
+  This is intentional — it keeps job_logs populated with real schedule data.
+
+  ┌────────────────────────────┬─────────────────┬──────────────────────────┐
+  │  Job Name                  │  Schedule       │  What it does            │
+  ├────────────────────────────┼─────────────────┼──────────────────────────┤
+  │  attendance_live_sync      │  Every 5 min    │  Pulls punch records     │
+  │  leave_sync                │  Every 30 min   │  Pulls leave requests    │
+  │  shift_sync                │  Every hour     │  Pulls shift schedules   │
+  │  employee_sync             │  Daily at 01:00 │  Pulls employee master   │
+  └────────────────────────────┴─────────────────┴──────────────────────────┘
+
+  Check job status any time:
+    GET /api/v1/monitoring/jobs
+
+───────────────────────────────────────────────────────────────────────────────
+  SECTION 7 — COMMON ERRORS AND FIXES
+───────────────────────────────────────────────────────────────────────────────
+
+  Error: "MongoServerSelectionError: connect ECONNREFUSED"
+  Fix:   MongoDB is not running. Start it (see Section 3, Step 1).
+
+  Error: "Cannot find module '...'"
+  Fix:   Run npm install in the server/ folder.
+
+  Error: "JWT_SECRET is not set" or token errors
+  Fix:   Check that server/.env exists and has JWT_SECRET value.
+
+  Error: Seed fails with "duplicate key error"
+  Fix:   Data already exists. Either:
+         a) Run npm run seed:reset  (wipes and re-seeds)
+         b) Do nothing — existing data is fine
+
+  Error: "EACCES: permission denied" on exports folder
+  Fix:   The exports/ folder needs write permission.
+         mkdir -p server/src/exports/attendance
+         mkdir -p server/src/exports/overtime
+         mkdir -p server/src/exports/temp
+
+  Error: Export endpoint returns 404 "No data found"
+  Fix:   The date/month/year in your query has no seeded data.
+         Use dates within the last 90 days.
+         Check today's date and use month/year accordingly.
+
+  Error: 403 Forbidden on a route
+  Fix:   Your user role does not have access to that route.
+         Use the IT Admin account (admin@steelplant.in) for full access.
+
+───────────────────────────────────────────────────────────────────────────────
+  SECTION 8 — FILE STRUCTURE REFERENCE
+───────────────────────────────────────────────────────────────────────────────
+
+  server/src/
+  ├── config/
+  │   ├── connection.js     Mongoose pool settings and URI
+  │   ├── constants.js      Shifts, statuses, roles, job names
+  │   ├── cors.js           CORS origin rules
+  │   ├── env.js            Environment variable loader
+  │   └── index.js          Barrel export
+  │
+  ├── database/
+  │   ├── connection.js     connect() / disconnect() functions
+  │   └── indexes.js        Creates all MongoDB indexes at startup
+  │
+  ├── logger/
+  │   ├── index.js          Winston logger instance
+  │   └── streams.js        Morgan HTTP stream adapter
+  │
+  ├── middleware/
+  │   ├── authenticate.js   JWT verification
+  │   ├── authorize.js      Role-based access control
+  │   ├── errorHandler.js   Global error + 404 handler
+  │   └── index.js          Barrel export
+  │
+  ├── models/
+  │   ├── Attendance.js     PunchRaw, AttendanceDaily, AttendanceMonthly
+  │   ├── AuditLog.js       Audit log schema
+  │   ├── Employee.js       Employee schema
+  │   └── index.js          Leave, ShiftSchedule, Holiday, User, JobLog, DashboardCache
+  │
+  ├── services/
+  │   ├── analytics/
+  │   │   ├── cache.js      Dashboard cache read/write/invalidate
+  │   │   ├── kpis.js       KPI computation functions
+  │   │   └── index.js      Public API (getDashboardKPIs, getTrend, etc.)
+  │   │
+  │   ├── attendance/
+  │   │   ├── normalizer.js  Punch deduplication and IN/OUT resolution
+  │   │   ├── shiftResolver.js  Resolves shift for employee+date
+  │   │   └── index.js      Public API (getDailyAttendance, getMonthlySummary, etc.)
+  │   │
+  │   ├── auth/
+  │   │   ├── tokens.js     JWT sign and verify
+  │   │   └── index.js      Public API (login, getMe)
+  │   │
+  │   ├── exports/
+  │   │   ├── excel.js      ExcelJS report builders
+  │   │   ├── pdf.js        PDFMake report builders
+  │   │   └── index.js      Public API (exportMonthlyAttendanceExcel, etc.)
+  │   │
+  │   ├── monitoring/
+  │   │   ├── backupRunner.js  mongodump backup + cleanup
+  │   │   ├── healthCheck.js   MongoDB/memory/disk health checks
+  │   │   └── index.js      Public API (getSystemHealth, getJobsOverview, etc.)
+  │   │
+  │   └── sync/
+  │       ├── hasher.js     SHA-256 record change detection
+  │       ├── ukgClient.js  UKG API HTTP client (stub until API ready)
+  │       └── index.js      Public API (syncEmployees, syncAttendanceLive, etc.)
+  │
+  ├── controllers/          Thin HTTP handlers — call services, return responses
+  │   ├── analytics.js
+  │   ├── attendance.js
+  │   ├── auth.js
+  │   ├── employees.js
+  │   ├── exports.js
+  │   └── monitoring.js
+  │
+  ├── routes/               Express routers — auth guards + validation wired here
+  │   ├── analytics.js
+  │   ├── attendance.js
+  │   ├── auth.js
+  │   ├── employees.js
+  │   ├── exports.js
+  │   ├── monitoring.js
+  │   └── index.js          Mounts all routes under /api/v1
+  │
+  ├── scheduler/
+  │   ├── registry.js       Job definitions (name, cron expression, function)
+  │   └── index.js          Cron runner — reads registry, starts jobs
+  │
+  ├── scripts/
+  │   └── seed.js           Development data seeder
+  │
+  ├── utils/
+  │   ├── date.js           Date helpers (toDateStr, startOfDay, minutesToHHMM, etc.)
+  │   ├── paginate.js       Pagination (paginate, paginateMeta)
+  │   ├── response.js       Response envelope (ok, created, noContent)
+  │   └── index.js          Barrel export
+  │
+  ├── validators/
+  │   ├── attendance.schema.js  Zod schemas for attendance endpoints
+  │   ├── export.schema.js      Zod schemas for export endpoints
+  │   └── index.js          validate() middleware factory + all schemas
+  │
+  ├── exports/              Generated export files (auto-created)
+  │   ├── attendance/       Monthly attendance Excel files
+  │   ├── overtime/         Overtime report Excel files
+  │   └── temp/             Temp files (PDF, in-progress)
+  │
+  ├── logs/                 Auto-created by Winston
+  │   ├── app-YYYY-MM-DD.log
+  │   ├── error-YYYY-MM-DD.log
+  │   └── http-YYYY-MM-DD.log
+  │
+  ├── backups/              Auto-created by backup job
+  │   └── backup_YYYY-MM-DDTHH-MM-SS/
+  │
+  ├── app.js                Express app setup (middleware, routes)
+  └── server.js             Entry point (DB connect → indexes → jobs → listen)
+
+───────────────────────────────────────────────────────────────────────────────
+  SECTION 9 — WHEN UKG API BECOMES AVAILABLE
+───────────────────────────────────────────────────────────────────────────────
+
+  Only 3 files need changes. Nothing else in the system changes.
+
+  1. server/.env
+     Change:  UKG_API_AVAILABLE=false
+     To:      UKG_API_AVAILABLE=true
+     Also set: UKG_BASE_URL, UKG_CLIENT_ID, UKG_CLIENT_SECRET, UKG_COMPANY_ID
+
+  2. server/src/services/sync/ukgClient.js
+     The file has TODO comments in each method.
+     Implement the axios calls in fetchEmployees(), fetchPunches(),
+     fetchLeaves(), fetchShiftSchedules().
+     The token caching in getAccessToken() is already wired up.
+
+  3. server/src/services/sync/index.js
+     Map the API response fields to your model field names if they differ.
+     The upsert logic (hashRecord + hasChanged) is already in place.
+
+  That is all. No controller, route, model, or any other file needs changes.
+
+───────────────────────────────────────────────────────────────────────────────
+  SECTION 10 — PRODUCTION CHECKLIST (BEFORE GOING LIVE)
+───────────────────────────────────────────────────────────────────────────────
+
+  Security:
+    □ Change JWT_SECRET to a long random string (32+ characters)
+    □ Change all user passwords from Admin@123 to strong passwords
+    □ Set NODE_ENV=production in .env
+    □ Restrict CORS to your actual LAN IP range in config/cors.js
+    □ Enable firewall on the server — only allow LAN traffic on port 5000
+
+  MongoDB:
+    □ Enable MongoDB authentication (create DB user with password)
+    □ Update MONGO_URI with credentials:
+        mongodb://dbuser:dbpassword@localhost:27017/hr_analytics
+    □ Set up automatic daily backup (backup job runs at 01:00 by default)
+    □ Test restore from backup before going live
+
+  Server:
+    □ Use PM2 to run the server as a background process:
+        npm install -g pm2
+        cd server
+        pm2 start src/server.js --name "hr-analytics"
+        pm2 save
+        pm2 startup
+    □ Set up log rotation (already handled by Winston daily rotate)
+    □ Monitor disk space — exports and backups grow over time
+
+  Application:
+    □ Verify all 3 user accounts have correct roles
+    □ Test all export endpoints and verify Excel files open correctly
+    □ Test the login flow with each user role
+    □ Confirm job schedule is running (GET /api/v1/monitoring/jobs)
+
+───────────────────────────────────────────────────────────────────────────────
+  SECTION 11 — DAILY OPERATIONS REFERENCE
+───────────────────────────────────────────────────────────────────────────────
+
+  Check if server is running:
+    curl http://localhost:5000/ping
+
+  View live logs:
+    tail -f server/src/logs/app-$(date +%Y-%m-%d).log
+
+  View error logs:
+    tail -f server/src/logs/error-$(date +%Y-%m-%d).log
+
+  Restart server (with PM2):
+    pm2 restart hr-analytics
+
+  Check job status via API:
+    curl -H "Authorization: Bearer <token>" http://localhost:5000/api/v1/monitoring/jobs
+
+  Trigger manual backup:
+    POST /api/v1/monitoring/backup  (IT Admin only — add this route when needed)
+
+  Re-seed development data:
+    npm run seed:reset
+
+═══════════════════════════════════════════════════════════════════════════════
+  END OF DEVELOPER GUIDE
+  For questions, refer to the inline comments in each source file.
+  Every file has a block comment at the top explaining its purpose.
+═══════════════════════════════════════════════════════════════════════════════
+
+# Step 1 — Make sure MongoDB is running
+mongosh                  # if this opens, MongoDB is up
+exit
+
+# Step 2 — Seed the database
+cd server
+npm run seed
+
+# Step 3 — Verify the database
+npm run check:db         # shows collection counts and index status
+
+# Step 4 — Start the server
+npm start                # or npm run dev
+
+# Step 5 — Run all diagnostics together (any time)
+npm run check:all        # imports + exports + routes in one command

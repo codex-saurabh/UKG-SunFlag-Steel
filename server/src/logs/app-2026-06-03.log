@@ -1,0 +1,44 @@
+2026-06-03 10:11:19 [INFO   ] MongoDB connected → localhost / UKG
+2026-06-03 10:11:19 [INFO   ] Indexes ensured — 5 created/verified across 10 collections
+2026-06-03 10:11:19 [INFO   ] [scheduler] ✔ Registered: attendance_live_sync  (*/5 * * * *)
+2026-06-03 10:11:19 [INFO   ] [scheduler] ✔ Registered: leave_sync  (*/30 * * * *)
+2026-06-03 10:11:19 [INFO   ] [scheduler] ✔ Registered: shift_sync  (0 * * * *)
+2026-06-03 10:11:19 [INFO   ] [scheduler] ✔ Registered: employee_sync  (0 1 * * *)
+2026-06-03 10:11:19 [INFO   ] [scheduler] ✔ Registered: consecutive_absence_scan  (0 2 * * *)
+2026-06-03 10:11:19 [INFO   ] [scheduler] ✔ Registered: sync_health_check  (*/15 * * * *)
+2026-06-03 10:11:19 [INFO   ] [scheduler] Running on startup: sync_health_check
+2026-06-03 10:11:19 [INFO   ] [scheduler] 6 jobs active
+2026-06-03 10:11:19 [INFO   ] ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2026-06-03 10:11:19 [INFO   ]   HR Analytics API  —  http://localhost:5000
+2026-06-03 10:11:19 [INFO   ]   Environment  : development
+2026-06-03 10:11:19 [INFO   ]   MongoDB      : localhost
+2026-06-03 10:11:19 [INFO   ]   UKG API      : 🟡 SEED MODE
+2026-06-03 10:11:19 [INFO   ] ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2026-06-03 10:15:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-06-03 10:15:00 [INFO   ] [scheduler] ▶ Starting: sync_health_check
+2026-06-03 10:22:49 [INFO   ] MongoDB connected → localhost / UKG
+2026-06-03 10:22:49 [INFO   ] Indexes ensured — 5 created/verified across 10 collections
+2026-06-03 10:22:49 [INFO   ] [scheduler] ✔ Registered: attendance_live_sync  (*/5 * * * *)
+2026-06-03 10:22:49 [INFO   ] [scheduler] ✔ Registered: leave_sync  (*/30 * * * *)
+2026-06-03 10:22:49 [INFO   ] [scheduler] ✔ Registered: shift_sync  (0 * * * *)
+2026-06-03 10:22:49 [INFO   ] [scheduler] ✔ Registered: employee_sync  (0 1 * * *)
+2026-06-03 10:22:49 [INFO   ] [scheduler] ✔ Registered: consecutive_absence_scan  (0 2 * * *)
+2026-06-03 10:22:49 [INFO   ] [scheduler] ✔ Registered: sync_health_check  (*/15 * * * *)
+2026-06-03 10:22:49 [INFO   ] [scheduler] Running on startup: sync_health_check
+2026-06-03 10:22:49 [INFO   ] [scheduler] 6 jobs active
+2026-06-03 10:22:49 [INFO   ] ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2026-06-03 10:22:49 [INFO   ]   HR Analytics API  —  http://localhost:5000
+2026-06-03 10:22:49 [INFO   ]   Environment  : development
+2026-06-03 10:22:49 [INFO   ]   MongoDB      : localhost
+2026-06-03 10:22:49 [INFO   ]   UKG API      : 🟡 SEED MODE
+2026-06-03 10:22:49 [INFO   ] ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2026-06-03 10:25:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-06-03 10:30:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-06-03 10:30:00 [INFO   ] [scheduler] ▶ Starting: leave_sync
+2026-06-03 10:30:00 [INFO   ] [scheduler] ▶ Starting: sync_health_check
+2026-06-03 10:35:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-06-03 10:35:04 [INFO   ] User login success  {"email":"hr@steelplant.in","role":"HR_ADMIN"}
+2026-06-03 10:40:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-06-03 10:45:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-06-03 10:45:00 [INFO   ] [scheduler] ▶ Starting: sync_health_check
+2026-06-03 10:50:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync

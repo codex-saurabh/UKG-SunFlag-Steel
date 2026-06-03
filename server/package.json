@@ -1,0 +1,38 @@
+{
+  "name": "hr-analytics-server",
+  "version": "1.0.0",
+  "description": "Enterprise HR Analytics Backend — Iron & Steel Plant",
+  "main": "src/server.js",
+  "type": "commonjs",
+  "scripts": {
+    "start":             "node src/server.js",
+    "dev":               "nodemon src/server.js",
+    "seed":              "node src/scripts/seed.js",
+    "seed:reset":        "node src/scripts/seed.js --reset",
+    "check:imports":     "node src/scripts/diagnostics/check-imports.js",
+    "check:exports":     "node src/scripts/diagnostics/check-exports.js",
+    "check:db":          "node src/scripts/diagnostics/check-db.js",
+    "check:routes":      "node src/scripts/diagnostics/check-routes.js",
+    "check:all":         "npm run check:imports && npm run check:exports && npm run check:routes"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "exceljs": "^4.4.0",
+    "express": "^4.19.2",
+    "express-rate-limit": "^7.3.1",
+    "helmet": "^7.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.5.1",
+    "morgan": "^1.10.0",
+    "node-cron": "^3.0.3",
+    "pdfmake": "^0.2.10",
+    "winston": "^3.13.0",
+    "winston-daily-rotate-file": "^5.0.0",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.4"
+  }
+}

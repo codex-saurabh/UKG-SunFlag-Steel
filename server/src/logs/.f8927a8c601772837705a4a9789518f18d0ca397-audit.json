@@ -1,0 +1,20 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 30
+    },
+    "auditLog": "E:\\Saurabh\\Z_Main\\Project\\Ongoing Project\\UKG\\server\\src\\logs\\.f8927a8c601772837705a4a9789518f18d0ca397-audit.json",
+    "files": [
+        {
+            "date": 1779854052670,
+            "name": "E:\\Saurabh\\Z_Main\\Project\\Ongoing Project\\UKG\\server\\src\\logs\\error-2026-05-27.log",
+            "hash": "453a0c65703d0afd8a32cc0c20637b53144472d2c67439cc50a5fe95325386a0"
+        },
+        {
+            "date": 1779940334209,
+            "name": "E:\\Saurabh\\Z_Main\\Project\\Ongoing Project\\UKG\\server\\src\\logs\\error-2026-05-28.log",
+            "hash": "4b6b1259209782877329abb44199d8e3119b37f7b7ab916e8d9bc06a31534b2f"
+        }
+    ],
+    "hashType": "sha256"
+}

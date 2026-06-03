@@ -1,0 +1,40 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 30
+    },
+    "auditLog": "E:\\Saurabh\\Z_Main\\Project\\Ongoing Project\\UKG\\server\\src\\logs\\.42dad8cc119dc4562f7e27a99b7904e3ce6d2443-audit.json",
+    "files": [
+        {
+            "date": 1779946398650,
+            "name": "E:\\Saurabh\\Z_Main\\Project\\Ongoing Project\\UKG\\server\\src\\logs\\app-2026-05-28.log",
+            "hash": "842da0154e699063c18ba47d67694ed88d10a591cd3a7f83d012fdc35e2bfa40"
+        },
+        {
+            "date": 1780026694668,
+            "name": "E:\\Saurabh\\Z_Main\\Project\\Ongoing Project\\UKG\\server\\src\\logs\\app-2026-05-29.log",
+            "hash": "b2b890405ca53aebbe29dd520cd3c4ad4c047b8e188435599ca5860f119254b3"
+        },
+        {
+            "date": 1780112222043,
+            "name": "E:\\Saurabh\\Z_Main\\Project\\Ongoing Project\\UKG\\server\\src\\logs\\app-2026-05-30.log",
+            "hash": "40d08669429da061f085946b03bee870246b3aea331508e306eb7dd2d2401b51"
+        },
+        {
+            "date": 1780288054061,
+            "name": "E:\\Saurabh\\Z_Main\\Project\\Ongoing Project\\UKG\\server\\src\\logs\\app-2026-06-01.log",
+            "hash": "bb90c5b67a3e434dbdf44906ea95d801979dc62d438cd83654f92001df14bcf0"
+        },
+        {
+            "date": 1780371525362,
+            "name": "E:\\Saurabh\\Z_Main\\Project\\Ongoing Project\\UKG\\server\\src\\logs\\app-2026-06-02.log",
+            "hash": "84a58efe78a31c1f029a51852dceeda7aecf4dbdcddb526c56b6b0949e2fa249"
+        },
+        {
+            "date": 1780461634602,
+            "name": "E:\\Saurabh\\Z_Main\\Project\\Ongoing Project\\UKG\\server\\src\\logs\\app-2026-06-03.log",
+            "hash": "1bc8beb109835f9aa1e82d1f844879c94c0f4a0897a6ce124a917e12431da84c"
+        }
+    ],
+    "hashType": "sha256"
+}

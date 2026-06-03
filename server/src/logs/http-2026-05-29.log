@@ -1,0 +1,285 @@
+2026-05-29 09:23:10 [INFO   ] MongoDB connected → localhost / UKG
+2026-05-29 09:23:10 [INFO   ] Indexes ensured — 5 created/verified across 10 collections
+2026-05-29 09:23:10 [INFO   ] [scheduler] ✔ Registered: attendance_live_sync  (*/5 * * * *)
+2026-05-29 09:23:10 [INFO   ] [scheduler] ✔ Registered: leave_sync  (*/30 * * * *)
+2026-05-29 09:23:10 [INFO   ] [scheduler] ✔ Registered: shift_sync  (0 * * * *)
+2026-05-29 09:23:10 [INFO   ] [scheduler] ✔ Registered: employee_sync  (0 1 * * *)
+2026-05-29 09:23:10 [INFO   ] [scheduler] 4 jobs active
+2026-05-29 09:23:10 [INFO   ] ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2026-05-29 09:23:10 [INFO   ]   HR Analytics API  —  http://localhost:5000
+2026-05-29 09:23:10 [INFO   ]   Environment  : development
+2026-05-29 09:23:10 [INFO   ]   MongoDB      : localhost
+2026-05-29 09:23:10 [INFO   ]   UKG API      : 🟡 SEED MODE
+2026-05-29 09:23:10 [INFO   ] ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2026-05-29 09:25:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-05-29 09:30:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-05-29 09:30:00 [INFO   ] [scheduler] ▶ Starting: leave_sync
+2026-05-29 09:35:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-05-29 09:40:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-05-29 09:45:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-05-29 09:50:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-05-29 09:55:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-05-29 10:00:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-05-29 10:00:00 [INFO   ] [scheduler] ▶ Starting: leave_sync
+2026-05-29 10:00:00 [INFO   ] [scheduler] ▶ Starting: shift_sync
+2026-05-29 10:05:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-05-29 10:10:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-05-29 10:15:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-05-29 10:20:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-05-29 10:25:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-05-29 10:30:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-05-29 10:30:00 [INFO   ] [scheduler] ▶ Starting: leave_sync
+2026-05-29 10:35:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-05-29 10:40:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-05-29 10:45:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-05-29 10:50:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-05-29 10:55:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-05-29 11:00:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-05-29 11:00:00 [INFO   ] [scheduler] ▶ Starting: leave_sync
+2026-05-29 11:00:00 [INFO   ] [scheduler] ▶ Starting: shift_sync
+2026-05-29 11:05:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-05-29 11:10:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-05-29 11:15:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-05-29 11:20:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-05-29 11:25:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-05-29 11:30:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-05-29 11:30:00 [INFO   ] [scheduler] ▶ Starting: leave_sync
+2026-05-29 11:35:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-05-29 11:40:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-05-29 11:45:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-05-29 11:50:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-05-29 11:55:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-05-29 12:00:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-05-29 12:00:00 [INFO   ] [scheduler] ▶ Starting: leave_sync
+2026-05-29 12:00:00 [INFO   ] [scheduler] ▶ Starting: shift_sync
+2026-05-29 12:05:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-05-29 12:10:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-05-29 12:15:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-05-29 12:20:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-05-29 17:06:33 [INFO   ] MongoDB connected → localhost / UKG
+2026-05-29 17:06:33 [INFO   ] Indexes ensured — 5 created/verified across 10 collections
+2026-05-29 17:06:33 [INFO   ] [scheduler] ✔ Registered: attendance_live_sync  (*/5 * * * *)
+2026-05-29 17:06:33 [INFO   ] [scheduler] ✔ Registered: leave_sync  (*/30 * * * *)
+2026-05-29 17:06:33 [INFO   ] [scheduler] ✔ Registered: shift_sync  (0 * * * *)
+2026-05-29 17:06:33 [INFO   ] [scheduler] ✔ Registered: employee_sync  (0 1 * * *)
+2026-05-29 17:06:33 [INFO   ] [scheduler] 4 jobs active
+2026-05-29 17:06:33 [INFO   ] ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2026-05-29 17:06:33 [INFO   ]   HR Analytics API  —  http://localhost:5000
+2026-05-29 17:06:33 [INFO   ]   Environment  : development
+2026-05-29 17:06:33 [INFO   ]   MongoDB      : localhost
+2026-05-29 17:06:33 [INFO   ]   UKG API      : 🟡 SEED MODE
+2026-05-29 17:06:33 [INFO   ] ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2026-05-29 17:07:13 [HTTP   ] [0mPOST /api/v1/auth/login [33m401[0m 1314.197 ms - 87[0m
+2026-05-29 17:07:41 [HTTP   ] [0mPOST /api/v1/auth/login [33m401[0m 72.390 ms - 87[0m
+2026-05-29 17:07:43 [HTTP   ] [0mPOST /api/v1/auth/login [33m401[0m 72.087 ms - 87[0m
+2026-05-29 17:10:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-05-29 17:15:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-05-29 17:15:05 [INFO   ] User login success  {"email":"admin@steelplant.in","role":"IT_ADMIN"}
+2026-05-29 17:15:05 [HTTP   ] [0mPOST /api/v1/auth/login [32m200[0m 106.855 ms - 474[0m
+2026-05-29 17:15:07 [HTTP   ] [0mGET /api/v1/analytics/dept-rate?month=5&year=2026 [32m200[0m 923.380 ms - 1005[0m
+2026-05-29 17:15:07 [HTTP   ] [0mGET /api/v1/attendance/today [32m200[0m 977.200 ms - 139[0m
+2026-05-29 17:15:07 [HTTP   ] [0mGET /api/v1/analytics/trend?days=30 [32m200[0m 947.724 ms - 2199[0m
+2026-05-29 17:15:07 [HTTP   ] [0mGET /api/v1/analytics/dashboard [32m200[0m 1052.705 ms - 924[0m
+2026-05-29 17:15:27 [HTTP   ] [0mGET /api/v1/analytics/dashboard [32m200[0m 3.759 ms - 923[0m
+2026-05-29 17:15:27 [HTTP   ] [0mGET /api/v1/analytics/trend?days=30 [32m200[0m 6.087 ms - 2198[0m
+2026-05-29 17:15:27 [HTTP   ] [0mGET /api/v1/analytics/dept-rate?month=5&year=2026 [36m304[0m 7.399 ms - -[0m
+2026-05-29 17:15:27 [HTTP   ] [0mGET /api/v1/attendance/today [36m304[0m 26.868 ms - -[0m
+2026-05-29 17:15:28 [HTTP   ] [0mGET /api/v1/analytics/dashboard [36m304[0m 4.593 ms - -[0m
+2026-05-29 17:15:28 [HTTP   ] [0mGET /api/v1/attendance/today [36m304[0m 4.707 ms - -[0m
+2026-05-29 17:15:28 [HTTP   ] [0mGET /api/v1/analytics/trend?days=30 [36m304[0m 4.730 ms - -[0m
+2026-05-29 17:15:28 [HTTP   ] [0mGET /api/v1/analytics/dept-rate?month=5&year=2026 [36m304[0m 5.753 ms - -[0m
+2026-05-29 17:15:29 [HTTP   ] [0mGET /api/v1/analytics/dashboard [36m304[0m 4.869 ms - -[0m
+2026-05-29 17:15:29 [HTTP   ] [0mGET /api/v1/attendance/today [36m304[0m 4.858 ms - -[0m
+2026-05-29 17:15:29 [HTTP   ] [0mGET /api/v1/analytics/trend?days=30 [36m304[0m 4.469 ms - -[0m
+2026-05-29 17:15:29 [HTTP   ] [0mGET /api/v1/analytics/dept-rate?month=5&year=2026 [36m304[0m 5.266 ms - -[0m
+2026-05-29 17:16:41 [HTTP   ] [0mGET /api/v1/analytics/dashboard [36m304[0m 5.649 ms - -[0m
+2026-05-29 17:16:41 [HTTP   ] [0mGET /api/v1/attendance/today [36m304[0m 5.495 ms - -[0m
+2026-05-29 17:16:41 [HTTP   ] [0mGET /api/v1/analytics/trend?days=30 [36m304[0m 5.478 ms - -[0m
+2026-05-29 17:16:41 [HTTP   ] [0mGET /api/v1/analytics/dept-rate?month=5&year=2026 [36m304[0m 6.473 ms - -[0m
+2026-05-29 17:16:45 [HTTP   ] [0mGET /api/v1/attendance/today [36m304[0m 4.579 ms - -[0m
+2026-05-29 17:16:45 [HTTP   ] [0mGET /api/v1/analytics/dashboard [36m304[0m 4.189 ms - -[0m
+2026-05-29 17:16:45 [HTTP   ] [0mGET /api/v1/analytics/trend?days=30 [36m304[0m 3.571 ms - -[0m
+2026-05-29 17:16:45 [HTTP   ] [0mGET /api/v1/analytics/dept-rate?month=5&year=2026 [36m304[0m 5.740 ms - -[0m
+2026-05-29 17:16:48 [HTTP   ] [0mGET /api/v1/analytics/dashboard [36m304[0m 3.646 ms - -[0m
+2026-05-29 17:16:48 [HTTP   ] [0mGET /api/v1/attendance/today [36m304[0m 3.936 ms - -[0m
+2026-05-29 17:16:48 [HTTP   ] [0mGET /api/v1/analytics/trend?days=30 [36m304[0m 3.936 ms - -[0m
+2026-05-29 17:16:48 [HTTP   ] [0mGET /api/v1/analytics/dept-rate?month=5&year=2026 [36m304[0m 4.679 ms - -[0m
+2026-05-29 17:16:54 [HTTP   ] [0mGET /api/v1/analytics/dashboard [36m304[0m 4.790 ms - -[0m
+2026-05-29 17:16:54 [HTTP   ] [0mGET /api/v1/attendance/today [36m304[0m 3.620 ms - -[0m
+2026-05-29 17:16:54 [HTTP   ] [0mGET /api/v1/analytics/trend?days=30 [36m304[0m 3.346 ms - -[0m
+2026-05-29 17:16:54 [HTTP   ] [0mGET /api/v1/analytics/dept-rate?month=5&year=2026 [36m304[0m 7.002 ms - -[0m
+2026-05-29 17:16:56 [HTTP   ] [0mGET /api/v1/analytics/dashboard [36m304[0m 5.214 ms - -[0m
+2026-05-29 17:16:56 [HTTP   ] [0mGET /api/v1/attendance/today [36m304[0m 5.249 ms - -[0m
+2026-05-29 17:16:56 [HTTP   ] [0mGET /api/v1/analytics/trend?days=30 [36m304[0m 4.908 ms - -[0m
+2026-05-29 17:16:56 [HTTP   ] [0mGET /api/v1/analytics/dept-rate?month=5&year=2026 [36m304[0m 6.085 ms - -[0m
+2026-05-29 17:16:57 [HTTP   ] [0mGET /api/v1/analytics/dashboard [36m304[0m 3.750 ms - -[0m
+2026-05-29 17:16:57 [HTTP   ] [0mGET /api/v1/attendance/today [36m304[0m 3.690 ms - -[0m
+2026-05-29 17:16:57 [HTTP   ] [0mGET /api/v1/analytics/trend?days=30 [36m304[0m 3.610 ms - -[0m
+2026-05-29 17:16:57 [HTTP   ] [0mGET /api/v1/analytics/dept-rate?month=5&year=2026 [36m304[0m 5.001 ms - -[0m
+2026-05-29 17:16:58 [HTTP   ] [0mGET /api/v1/analytics/dashboard [36m304[0m 6.270 ms - -[0m
+2026-05-29 17:16:58 [HTTP   ] [0mGET /api/v1/attendance/today [36m304[0m 4.823 ms - -[0m
+2026-05-29 17:16:58 [HTTP   ] [0mGET /api/v1/analytics/trend?days=30 [36m304[0m 4.232 ms - -[0m
+2026-05-29 17:16:58 [HTTP   ] [0mGET /api/v1/analytics/dept-rate?month=5&year=2026 [36m304[0m 9.175 ms - -[0m
+2026-05-29 17:17:02 [HTTP   ] [0mGET /api/v1/analytics/dashboard [36m304[0m 3.063 ms - -[0m
+2026-05-29 17:17:02 [HTTP   ] [0mGET /api/v1/analytics/trend?days=30 [36m304[0m 4.189 ms - -[0m
+2026-05-29 17:17:02 [HTTP   ] [0mGET /api/v1/attendance/today [36m304[0m 4.665 ms - -[0m
+2026-05-29 17:17:02 [HTTP   ] [0mGET /api/v1/analytics/dept-rate?month=5&year=2026 [36m304[0m 5.046 ms - -[0m
+2026-05-29 17:17:03 [HTTP   ] [0mGET /api/v1/analytics/dashboard [36m304[0m 4.830 ms - -[0m
+2026-05-29 17:17:03 [HTTP   ] [0mGET /api/v1/attendance/today [36m304[0m 5.230 ms - -[0m
+2026-05-29 17:17:03 [HTTP   ] [0mGET /api/v1/analytics/trend?days=30 [36m304[0m 5.466 ms - -[0m
+2026-05-29 17:17:03 [HTTP   ] [0mGET /api/v1/analytics/dept-rate?month=5&year=2026 [36m304[0m 6.735 ms - -[0m
+2026-05-29 17:17:05 [HTTP   ] [0mGET /api/v1/analytics/dashboard [36m304[0m 3.473 ms - -[0m
+2026-05-29 17:17:05 [HTTP   ] [0mGET /api/v1/attendance/today [36m304[0m 3.167 ms - -[0m
+2026-05-29 17:17:05 [HTTP   ] [0mGET /api/v1/analytics/trend?days=30 [36m304[0m 3.142 ms - -[0m
+2026-05-29 17:17:05 [HTTP   ] [0mGET /api/v1/analytics/dept-rate?month=5&year=2026 [36m304[0m 6.468 ms - -[0m
+2026-05-29 17:17:09 [HTTP   ] [0mGET /api/v1/analytics/dashboard [36m304[0m 3.447 ms - -[0m
+2026-05-29 17:17:09 [HTTP   ] [0mGET /api/v1/attendance/today [36m304[0m 3.962 ms - -[0m
+2026-05-29 17:17:09 [HTTP   ] [0mGET /api/v1/analytics/trend?days=30 [36m304[0m 4.222 ms - -[0m
+2026-05-29 17:17:09 [HTTP   ] [0mGET /api/v1/analytics/dept-rate?month=5&year=2026 [36m304[0m 5.794 ms - -[0m
+2026-05-29 17:19:08 [HTTP   ] [0mGET /api/v1/analytics/dept-rate?month=5&year=2026 [36m304[0m 4.213 ms - -[0m
+2026-05-29 17:19:09 [HTTP   ] [0mGET /api/v1/analytics/dept-rate?month=5&year=2026 [36m304[0m 5.371 ms - -[0m
+2026-05-29 17:19:48 [HTTP   ] [0mGET /api/v1/analytics/dashboard [36m304[0m 4.114 ms - -[0m
+2026-05-29 17:19:48 [HTTP   ] [0mGET /api/v1/attendance/today [36m304[0m 7.747 ms - -[0m
+2026-05-29 17:19:48 [HTTP   ] [0mGET /api/v1/analytics/trend?days=30 [36m304[0m 4.399 ms - -[0m
+2026-05-29 17:19:48 [HTTP   ] [0mGET /api/v1/analytics/dept-rate?month=5&year=2026 [36m304[0m 5.012 ms - -[0m
+2026-05-29 17:19:51 [HTTP   ] [0mGET /api/v1/analytics/dashboard [36m304[0m 5.327 ms - -[0m
+2026-05-29 17:19:51 [HTTP   ] [0mGET /api/v1/attendance/today [36m304[0m 6.327 ms - -[0m
+2026-05-29 17:19:51 [HTTP   ] [0mGET /api/v1/analytics/trend?days=30 [36m304[0m 6.516 ms - -[0m
+2026-05-29 17:19:51 [HTTP   ] [0mGET /api/v1/analytics/dept-rate?month=5&year=2026 [36m304[0m 6.959 ms - -[0m
+2026-05-29 17:19:58 [HTTP   ] [0mGET /api/v1/analytics/dashboard [36m304[0m 3.427 ms - -[0m
+2026-05-29 17:19:58 [HTTP   ] [0mGET /api/v1/attendance/today [36m304[0m 3.980 ms - -[0m
+2026-05-29 17:19:58 [HTTP   ] [0mGET /api/v1/analytics/trend?days=30 [36m304[0m 4.478 ms - -[0m
+2026-05-29 17:19:58 [HTTP   ] [0mGET /api/v1/analytics/dept-rate?month=5&year=2026 [36m304[0m 5.829 ms - -[0m
+2026-05-29 17:20:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-05-29 17:25:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-05-29 17:26:44 [HTTP   ] [0mGET /api/v1/attendance/today [36m304[0m 5.236 ms - -[0m
+2026-05-29 17:26:44 [HTTP   ] [0mGET /api/v1/analytics/dept-rate?month=5&year=2026 [36m304[0m 6.832 ms - -[0m
+2026-05-29 17:26:44 [HTTP   ] [0mGET /api/v1/analytics/dashboard [32m200[0m 13.516 ms - 925[0m
+2026-05-29 17:26:44 [HTTP   ] [0mGET /api/v1/analytics/trend?days=30 [32m200[0m 14.334 ms - 2199[0m
+2026-05-29 17:27:19 [HTTP   ] [0mGET /api/v1/analytics/dashboard [32m200[0m 3.787 ms - 924[0m
+2026-05-29 17:27:19 [HTTP   ] [0mGET /api/v1/attendance/today [36m304[0m 4.087 ms - -[0m
+2026-05-29 17:27:19 [HTTP   ] [0mGET /api/v1/analytics/trend?days=30 [32m200[0m 4.354 ms - 2198[0m
+2026-05-29 17:27:19 [HTTP   ] [0mGET /api/v1/analytics/dept-rate?month=5&year=2026 [36m304[0m 7.431 ms - -[0m
+2026-05-29 17:29:02 [HTTP   ] [0mGET /api/v1/analytics/trend?days=7 [32m200[0m 17.804 ms - 435[0m
+2026-05-29 17:30:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-05-29 17:30:00 [INFO   ] [scheduler] ▶ Starting: leave_sync
+2026-05-29 17:35:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-05-29 17:36:46 [INFO   ] User login success  {"email":"hr@steelplant.in","role":"HR_ADMIN"}
+2026-05-29 17:36:46 [HTTP   ] [0mPOST /api/v1/auth/login [32m200[0m 71.582 ms - 467[0m
+2026-05-29 17:36:46 [HTTP   ] [0mGET /api/v1/attendance/today [36m304[0m 3.658 ms - -[0m
+2026-05-29 17:36:46 [HTTP   ] [0mGET /api/v1/analytics/dept-rate?month=5&year=2026 [36m304[0m 4.704 ms - -[0m
+2026-05-29 17:36:46 [HTTP   ] [0mGET /api/v1/analytics/dashboard [32m200[0m 15.591 ms - 914[0m
+2026-05-29 17:36:46 [HTTP   ] [0mGET /api/v1/analytics/trend?days=30 [32m200[0m 11.336 ms - 2199[0m
+2026-05-29 17:36:54 [INFO   ] User login success  {"email":"timeoffice@steelplant.in","role":"TIME_OFFICE"}
+2026-05-29 17:36:54 [HTTP   ] [0mPOST /api/v1/auth/login [32m200[0m 71.773 ms - 493[0m
+2026-05-29 17:37:02 [WARN   ] Unauthorized access attempt  {"user":"timeoffice@steelplant.in","role":"TIME_OFFICE","required":["IT_ADMIN","HR_ADMIN"],"path":"/api/v1/analytics/trend?days=7","method":"GET"}
+2026-05-29 17:37:02 [HTTP   ] [0mGET /api/v1/analytics/trend?days=7 [33m403[0m 0.839 ms - 109[0m
+2026-05-29 17:37:03 [WARN   ] Unauthorized access attempt  {"user":"timeoffice@steelplant.in","role":"TIME_OFFICE","required":["IT_ADMIN","HR_ADMIN"],"path":"/api/v1/analytics/trend?days=7","method":"GET"}
+2026-05-29 17:37:03 [HTTP   ] [0mGET /api/v1/analytics/trend?days=7 [33m403[0m 0.789 ms - 109[0m
+2026-05-29 17:37:05 [WARN   ] Unauthorized access attempt  {"user":"timeoffice@steelplant.in","role":"TIME_OFFICE","required":["IT_ADMIN","HR_ADMIN"],"path":"/api/v1/analytics/dashboard","method":"GET"}
+2026-05-29 17:37:05 [HTTP   ] [0mGET /api/v1/analytics/dashboard [33m403[0m 1.469 ms - 109[0m
+2026-05-29 17:37:05 [WARN   ] Unauthorized access attempt  {"user":"timeoffice@steelplant.in","role":"TIME_OFFICE","required":["IT_ADMIN","HR_ADMIN"],"path":"/api/v1/analytics/trend?days=30","method":"GET"}
+2026-05-29 17:37:05 [HTTP   ] [0mGET /api/v1/analytics/trend?days=30 [33m403[0m 1.245 ms - 109[0m
+2026-05-29 17:37:05 [WARN   ] Unauthorized access attempt  {"user":"timeoffice@steelplant.in","role":"TIME_OFFICE","required":["IT_ADMIN","HR_ADMIN"],"path":"/api/v1/analytics/dept-rate?month=5&year=2026","method":"GET"}
+2026-05-29 17:37:05 [HTTP   ] [0mGET /api/v1/analytics/dept-rate?month=5&year=2026 [33m403[0m 1.068 ms - 109[0m
+2026-05-29 17:37:05 [HTTP   ] [0mGET /api/v1/attendance/today [36m304[0m 7.058 ms - -[0m
+2026-05-29 17:37:06 [WARN   ] Unauthorized access attempt  {"user":"timeoffice@steelplant.in","role":"TIME_OFFICE","required":["IT_ADMIN","HR_ADMIN"],"path":"/api/v1/analytics/dashboard","method":"GET"}
+2026-05-29 17:37:06 [HTTP   ] [0mGET /api/v1/analytics/dashboard [33m403[0m 0.984 ms - 109[0m
+2026-05-29 17:37:06 [WARN   ] Unauthorized access attempt  {"user":"timeoffice@steelplant.in","role":"TIME_OFFICE","required":["IT_ADMIN","HR_ADMIN"],"path":"/api/v1/analytics/trend?days=30","method":"GET"}
+2026-05-29 17:37:06 [HTTP   ] [0mGET /api/v1/analytics/trend?days=30 [33m403[0m 0.740 ms - 109[0m
+2026-05-29 17:37:06 [WARN   ] Unauthorized access attempt  {"user":"timeoffice@steelplant.in","role":"TIME_OFFICE","required":["IT_ADMIN","HR_ADMIN"],"path":"/api/v1/analytics/dept-rate?month=5&year=2026","method":"GET"}
+2026-05-29 17:37:06 [HTTP   ] [0mGET /api/v1/analytics/dept-rate?month=5&year=2026 [33m403[0m 0.757 ms - 109[0m
+2026-05-29 17:37:10 [WARN   ] Unauthorized access attempt  {"user":"timeoffice@steelplant.in","role":"TIME_OFFICE","required":["IT_ADMIN","HR_ADMIN"],"path":"/api/v1/analytics/dashboard","method":"GET"}
+2026-05-29 17:37:10 [HTTP   ] [0mGET /api/v1/analytics/dashboard [33m403[0m 1.008 ms - 109[0m
+2026-05-29 17:37:10 [WARN   ] Unauthorized access attempt  {"user":"timeoffice@steelplant.in","role":"TIME_OFFICE","required":["IT_ADMIN","HR_ADMIN"],"path":"/api/v1/analytics/trend?days=30","method":"GET"}
+2026-05-29 17:37:10 [HTTP   ] [0mGET /api/v1/analytics/trend?days=30 [33m403[0m 0.871 ms - 109[0m
+2026-05-29 17:37:10 [WARN   ] Unauthorized access attempt  {"user":"timeoffice@steelplant.in","role":"TIME_OFFICE","required":["IT_ADMIN","HR_ADMIN"],"path":"/api/v1/analytics/dept-rate?month=5&year=2026","method":"GET"}
+2026-05-29 17:37:10 [HTTP   ] [0mGET /api/v1/analytics/dept-rate?month=5&year=2026 [33m403[0m 0.653 ms - 109[0m
+2026-05-29 17:37:10 [HTTP   ] [0mGET /api/v1/attendance/today [36m304[0m 5.494 ms - -[0m
+2026-05-29 17:37:11 [WARN   ] Unauthorized access attempt  {"user":"timeoffice@steelplant.in","role":"TIME_OFFICE","required":["IT_ADMIN","HR_ADMIN"],"path":"/api/v1/analytics/dashboard","method":"GET"}
+2026-05-29 17:37:11 [HTTP   ] [0mGET /api/v1/analytics/dashboard [33m403[0m 2.288 ms - 109[0m
+2026-05-29 17:37:11 [WARN   ] Unauthorized access attempt  {"user":"timeoffice@steelplant.in","role":"TIME_OFFICE","required":["IT_ADMIN","HR_ADMIN"],"path":"/api/v1/analytics/trend?days=30","method":"GET"}
+2026-05-29 17:37:11 [HTTP   ] [0mGET /api/v1/analytics/trend?days=30 [33m403[0m 2.304 ms - 109[0m
+2026-05-29 17:37:11 [WARN   ] Unauthorized access attempt  {"user":"timeoffice@steelplant.in","role":"TIME_OFFICE","required":["IT_ADMIN","HR_ADMIN"],"path":"/api/v1/analytics/dept-rate?month=5&year=2026","method":"GET"}
+2026-05-29 17:37:11 [HTTP   ] [0mGET /api/v1/analytics/dept-rate?month=5&year=2026 [33m403[0m 0.844 ms - 109[0m
+2026-05-29 17:37:19 [INFO   ] User login success  {"email":"timeoffice@steelplant.in","role":"TIME_OFFICE"}
+2026-05-29 17:37:19 [HTTP   ] [0mPOST /api/v1/auth/login [32m200[0m 72.185 ms - 493[0m
+2026-05-29 17:37:19 [WARN   ] Unauthorized access attempt  {"user":"timeoffice@steelplant.in","role":"TIME_OFFICE","required":["IT_ADMIN","HR_ADMIN"],"path":"/api/v1/analytics/dashboard","method":"GET"}
+2026-05-29 17:37:19 [HTTP   ] [0mGET /api/v1/analytics/dashboard [33m403[0m 0.856 ms - 109[0m
+2026-05-29 17:37:19 [WARN   ] Unauthorized access attempt  {"user":"timeoffice@steelplant.in","role":"TIME_OFFICE","required":["IT_ADMIN","HR_ADMIN"],"path":"/api/v1/analytics/dept-rate?month=5&year=2026","method":"GET"}
+2026-05-29 17:37:19 [HTTP   ] [0mGET /api/v1/analytics/dept-rate?month=5&year=2026 [33m403[0m 0.805 ms - 109[0m
+2026-05-29 17:37:19 [WARN   ] Unauthorized access attempt  {"user":"timeoffice@steelplant.in","role":"TIME_OFFICE","required":["IT_ADMIN","HR_ADMIN"],"path":"/api/v1/analytics/trend?days=30","method":"GET"}
+2026-05-29 17:37:19 [HTTP   ] [0mGET /api/v1/analytics/trend?days=30 [33m403[0m 0.865 ms - 109[0m
+2026-05-29 17:37:20 [WARN   ] Unauthorized access attempt  {"user":"timeoffice@steelplant.in","role":"TIME_OFFICE","required":["IT_ADMIN","HR_ADMIN"],"path":"/api/v1/analytics/dashboard","method":"GET"}
+2026-05-29 17:37:20 [HTTP   ] [0mGET /api/v1/analytics/dashboard [33m403[0m 0.710 ms - 109[0m
+2026-05-29 17:37:20 [WARN   ] Unauthorized access attempt  {"user":"timeoffice@steelplant.in","role":"TIME_OFFICE","required":["IT_ADMIN","HR_ADMIN"],"path":"/api/v1/analytics/dept-rate?month=5&year=2026","method":"GET"}
+2026-05-29 17:37:20 [HTTP   ] [0mGET /api/v1/analytics/dept-rate?month=5&year=2026 [33m403[0m 0.863 ms - 109[0m
+2026-05-29 17:37:20 [WARN   ] Unauthorized access attempt  {"user":"timeoffice@steelplant.in","role":"TIME_OFFICE","required":["IT_ADMIN","HR_ADMIN"],"path":"/api/v1/analytics/trend?days=30","method":"GET"}
+2026-05-29 17:37:20 [HTTP   ] [0mGET /api/v1/analytics/trend?days=30 [33m403[0m 0.827 ms - 109[0m
+2026-05-29 17:37:33 [INFO   ] User login success  {"email":"admin@steelplant.in","role":"IT_ADMIN"}
+2026-05-29 17:37:33 [HTTP   ] [0mPOST /api/v1/auth/login [32m200[0m 75.678 ms - 474[0m
+2026-05-29 17:37:33 [HTTP   ] [0mGET /api/v1/analytics/dashboard [32m200[0m 1.466 ms - 913[0m
+2026-05-29 17:37:33 [HTTP   ] [0mGET /api/v1/analytics/trend?days=30 [32m200[0m 2.904 ms - 2198[0m
+2026-05-29 17:37:33 [HTTP   ] [0mGET /api/v1/analytics/dept-rate?month=5&year=2026 [32m200[0m 5.659 ms - 1005[0m
+2026-05-29 17:37:35 [HTTP   ] [0mGET /api/v1/analytics/dashboard [36m304[0m 2.762 ms - -[0m
+2026-05-29 17:37:35 [HTTP   ] [0mGET /api/v1/attendance/today [36m304[0m 4.629 ms - -[0m
+2026-05-29 17:37:35 [HTTP   ] [0mGET /api/v1/analytics/trend?days=30 [36m304[0m 4.597 ms - -[0m
+2026-05-29 17:37:35 [HTTP   ] [0mGET /api/v1/analytics/dept-rate?month=5&year=2026 [36m304[0m 5.245 ms - -[0m
+2026-05-29 17:37:37 [HTTP   ] [0mGET /api/v1/analytics/dashboard [36m304[0m 4.827 ms - -[0m
+2026-05-29 17:37:37 [HTTP   ] [0mGET /api/v1/attendance/today [36m304[0m 4.574 ms - -[0m
+2026-05-29 17:37:37 [HTTP   ] [0mGET /api/v1/analytics/trend?days=30 [36m304[0m 4.405 ms - -[0m
+2026-05-29 17:37:37 [HTTP   ] [0mGET /api/v1/analytics/dept-rate?month=5&year=2026 [36m304[0m 4.913 ms - -[0m
+2026-05-29 17:37:39 [HTTP   ] [0mGET /api/v1/analytics/dashboard [36m304[0m 5.332 ms - -[0m
+2026-05-29 17:37:39 [HTTP   ] [0mGET /api/v1/attendance/today [36m304[0m 5.177 ms - -[0m
+2026-05-29 17:37:39 [HTTP   ] [0mGET /api/v1/analytics/trend?days=30 [36m304[0m 4.966 ms - -[0m
+2026-05-29 17:37:39 [HTTP   ] [0mGET /api/v1/analytics/dept-rate?month=5&year=2026 [36m304[0m 5.581 ms - -[0m
+2026-05-29 17:37:41 [HTTP   ] [0mGET /api/v1/analytics/dashboard [36m304[0m 3.047 ms - -[0m
+2026-05-29 17:37:41 [HTTP   ] [0mGET /api/v1/analytics/trend?days=30 [36m304[0m 4.561 ms - -[0m
+2026-05-29 17:37:41 [HTTP   ] [0mGET /api/v1/attendance/today [36m304[0m 5.071 ms - -[0m
+2026-05-29 17:37:41 [HTTP   ] [0mGET /api/v1/analytics/dept-rate?month=5&year=2026 [36m304[0m 4.529 ms - -[0m
+2026-05-29 17:37:43 [HTTP   ] [0mGET /api/v1/analytics/dashboard [36m304[0m 4.608 ms - -[0m
+2026-05-29 17:37:43 [HTTP   ] [0mGET /api/v1/attendance/today [36m304[0m 4.505 ms - -[0m
+2026-05-29 17:37:43 [HTTP   ] [0mGET /api/v1/analytics/trend?days=30 [36m304[0m 4.299 ms - -[0m
+2026-05-29 17:37:43 [HTTP   ] [0mGET /api/v1/analytics/dept-rate?month=5&year=2026 [36m304[0m 5.156 ms - -[0m
+2026-05-29 17:37:45 [HTTP   ] [0mGET /api/v1/analytics/dashboard [36m304[0m 3.451 ms - -[0m
+2026-05-29 17:37:45 [HTTP   ] [0mGET /api/v1/attendance/today [36m304[0m 3.732 ms - -[0m
+2026-05-29 17:37:45 [HTTP   ] [0mGET /api/v1/analytics/trend?days=30 [36m304[0m 3.870 ms - -[0m
+2026-05-29 17:37:45 [HTTP   ] [0mGET /api/v1/analytics/dept-rate?month=5&year=2026 [36m304[0m 4.785 ms - -[0m
+2026-05-29 17:37:46 [HTTP   ] [0mGET /api/v1/analytics/dashboard [36m304[0m 5.642 ms - -[0m
+2026-05-29 17:37:46 [HTTP   ] [0mGET /api/v1/attendance/today [36m304[0m 5.113 ms - -[0m
+2026-05-29 17:37:46 [HTTP   ] [0mGET /api/v1/analytics/trend?days=30 [36m304[0m 4.835 ms - -[0m
+2026-05-29 17:37:46 [HTTP   ] [0mGET /api/v1/analytics/dept-rate?month=5&year=2026 [36m304[0m 5.671 ms - -[0m
+2026-05-29 17:37:47 [HTTP   ] [0mGET /api/v1/analytics/dashboard [36m304[0m 3.455 ms - -[0m
+2026-05-29 17:37:47 [HTTP   ] [0mGET /api/v1/analytics/trend?days=30 [36m304[0m 5.171 ms - -[0m
+2026-05-29 17:37:47 [HTTP   ] [0mGET /api/v1/attendance/today [36m304[0m 5.546 ms - -[0m
+2026-05-29 17:37:47 [HTTP   ] [0mGET /api/v1/analytics/dept-rate?month=5&year=2026 [36m304[0m 4.625 ms - -[0m
+2026-05-29 17:37:52 [INFO   ] User login success  {"email":"hr@steelplant.in","role":"HR_ADMIN"}
+2026-05-29 17:37:52 [HTTP   ] [0mPOST /api/v1/auth/login [32m200[0m 72.491 ms - 467[0m
+2026-05-29 17:37:54 [HTTP   ] [0mGET /api/v1/analytics/dashboard [36m304[0m 4.909 ms - -[0m
+2026-05-29 17:37:54 [HTTP   ] [0mGET /api/v1/attendance/today [36m304[0m 5.750 ms - -[0m
+2026-05-29 17:37:54 [HTTP   ] [0mGET /api/v1/analytics/trend?days=30 [36m304[0m 4.824 ms - -[0m
+2026-05-29 17:37:54 [HTTP   ] [0mGET /api/v1/analytics/dept-rate?month=5&year=2026 [36m304[0m 4.597 ms - -[0m
+2026-05-29 17:38:11 [HTTP   ] [0mGET /api/v1/employees/departments [32m200[0m 62.914 ms - 160[0m
+2026-05-29 17:38:18 [INFO   ] [exports] Monthly attendance Excel: attendance_2026_05_1780056498537.xlsx (25 records)
+2026-05-29 17:38:18 [HTTP   ] [0mGET /api/v1/exports/monthly-attendance?month=5&year=2026 [32m200[0m 451.086 ms - 9634[0m
+2026-05-29 17:39:54 [HTTP   ] [0mGET /api/v1/analytics/dashboard [36m304[0m 8.966 ms - -[0m
+2026-05-29 17:39:54 [HTTP   ] [0mGET /api/v1/attendance/today [36m304[0m 8.438 ms - -[0m
+2026-05-29 17:39:54 [HTTP   ] [0mGET /api/v1/analytics/trend?days=30 [36m304[0m 7.989 ms - -[0m
+2026-05-29 17:39:54 [HTTP   ] [0mGET /api/v1/analytics/dept-rate?month=5&year=2026 [36m304[0m 8.119 ms - -[0m
+2026-05-29 17:40:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-05-29 17:40:14 [HTTP   ] [0mGET /api/v1/analytics/dashboard [36m304[0m 4.892 ms - -[0m
+2026-05-29 17:40:14 [HTTP   ] [0mGET /api/v1/analytics/trend?days=30 [36m304[0m 5.696 ms - -[0m
+2026-05-29 17:40:14 [HTTP   ] [0mGET /api/v1/attendance/today [36m304[0m 5.459 ms - -[0m
+2026-05-29 17:40:14 [HTTP   ] [0mGET /api/v1/analytics/dept-rate?month=5&year=2026 [36m304[0m 4.229 ms - -[0m
+2026-05-29 17:40:15 [HTTP   ] [0mGET /api/v1/analytics/dashboard [36m304[0m 3.091 ms - -[0m
+2026-05-29 17:40:15 [HTTP   ] [0mGET /api/v1/attendance/today [36m304[0m 5.923 ms - -[0m
+2026-05-29 17:40:15 [HTTP   ] [0mGET /api/v1/analytics/trend?days=30 [36m304[0m 5.117 ms - -[0m
+2026-05-29 17:40:15 [HTTP   ] [0mGET /api/v1/analytics/dept-rate?month=5&year=2026 [36m304[0m 6.201 ms - -[0m
+2026-05-29 17:45:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-05-29 17:50:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-05-29 17:55:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-05-29 17:58:46 [HTTP   ] [0mGET /ping [32m200[0m 0.295 ms - 63[0m
+2026-05-29 18:00:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-05-29 18:00:00 [INFO   ] [scheduler] ▶ Starting: leave_sync
+2026-05-29 18:00:00 [INFO   ] [scheduler] ▶ Starting: shift_sync
+2026-05-29 18:05:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync

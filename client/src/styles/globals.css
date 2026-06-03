@@ -1,0 +1,141 @@
+/* src/styles/globals.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    font-family: 'Inter', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    background-color: #F5F6FA;
+    color: #0F172A;
+    margin: 0;
+    padding: 0;
+  }
+
+  :root {
+    /* Sidebar */
+    --sidebar-bg: #12183A;
+    --sidebar-width: 200px;
+    --sidebar-collapsed-width: 60px;
+    --topbar-height: 52px;
+
+    /* Brand */
+    --brand-500: #3B82F6;
+    --brand-600: #2563EB;
+    --brand-700: #1D4ED8;
+
+    /* Status colors */
+    --status-present-bg:   #DCFCE7;
+    --status-present-text: #15803D;
+    --status-absent-bg:    #FEE2E2;
+    --status-absent-text:  #B91C1C;
+    --status-misspunch-bg: #FEF9C3;
+    --status-misspunch-text: #92400E;
+    --status-leave-bg:     #DBEAFE;
+    --status-leave-text:   #1D4ED8;
+    --status-ot-bg:        #F3E8FF;
+    --status-ot-text:      #7C3AED;
+    --status-holiday-bg:   #F0FDF4;
+    --status-holiday-text: #166534;
+    --status-weekoff-bg:   #F8FAFC;
+    --status-weekoff-text: #64748B;
+
+    /* Surfaces */
+    --surface-page:   #F5F6FA;
+    --surface-card:   #FFFFFF;
+    --surface-border: #E8EAF0;
+    --surface-input:  #F8FAFC;
+
+    /* Text */
+    --text-primary:   #0F172A;
+    --text-secondary: #64748B;
+    --text-muted:     #94A3B8;
+  }
+}
+
+@layer components {
+  /* Card base */
+  .card {
+    @apply bg-white border border-[#E8EAF0] rounded-[12px];
+  }
+
+  /* Table styles */
+  .data-table {
+    @apply w-full border-collapse text-sm;
+  }
+  .data-table thead tr {
+    @apply bg-[#F8FAFC];
+  }
+  .data-table th {
+    @apply px-3 py-2 text-left text-[10.5px] font-semibold text-[#64748B] uppercase tracking-[0.05em] border-b border-[#F1F5F9];
+  }
+  .data-table td {
+    @apply px-3 py-2.5 text-[#334155] text-[11.5px] border-b border-[#F8FAFC];
+  }
+  .data-table tbody tr:hover {
+    @apply bg-[#FAFBFD];
+  }
+  .data-table tbody tr:last-child td {
+    @apply border-b-0;
+  }
+
+  /* Form inputs */
+  .form-input {
+    @apply w-full h-9 px-3 text-sm border border-[#E2E8F0] rounded-lg bg-white
+           focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-opacity-20 focus:border-brand-500
+           placeholder:text-[#94A3B8] text-[#0F172A] transition-colors;
+  }
+  .form-select {
+    @apply form-input appearance-none cursor-pointer;
+  }
+
+  /* Buttons */
+  .btn-primary {
+    @apply inline-flex items-center gap-2 px-4 py-2 bg-brand-500 hover:bg-brand-600
+           text-white text-sm font-medium rounded-lg transition-colors;
+  }
+  .btn-secondary {
+    @apply inline-flex items-center gap-2 px-4 py-2 bg-white hover:bg-[#F8FAFC]
+           text-[#334155] text-sm font-medium rounded-lg border border-[#E2E8F0] transition-colors;
+  }
+  .btn-ghost {
+    @apply inline-flex items-center gap-2 px-3 py-1.5 text-[#64748B] hover:text-[#0F172A]
+           hover:bg-[#F1F5F9] text-sm rounded-lg transition-colors;
+  }
+
+  /* Page layout */
+  .page-content {
+    @apply flex-1 overflow-y-auto p-5;
+  }
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #CBD5E1; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #94A3B8; }
+
+/* Skeleton animation */
+@keyframes skeleton-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+.skeleton {
+  background: #E2E8F0;
+  border-radius: 4px;
+  animation: skeleton-pulse 1.5s ease-in-out infinite;
+}
+
+/* Smooth transitions for interactive elements */
+button, a, input, select {
+  transition: all 0.15s ease;
+}

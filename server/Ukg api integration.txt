@@ -1,0 +1,405 @@
+═══════════════════════════════════════════════════════════════════════════════
+  UKG API INTEGRATION PLAN
+  HR Analytics System — Iron & Steel Plant
+  Pre-planned action guide — read this BEFORE the API credentials arrive
+═══════════════════════════════════════════════════════════════════════════════
+
+  This document answers: "UKG API is ready. Now what exactly do we do?"
+  Follow it step by step. Do not skip sections.
+
+───────────────────────────────────────────────────────────────────────────────
+  SECTION 1 — WHAT YOU NEED FROM THE UKG TEAM BEFORE STARTING
+───────────────────────────────────────────────────────────────────────────────
+
+  Do NOT start integration until you have ALL of these confirmed in writing:
+
+  Authentication:
+    □ Auth method: OAuth2 client credentials / API key / Basic auth / SAML
+    □ Token endpoint URL
+    □ client_id
+    □ client_secret
+    □ company_id or tenant_id
+    □ Token expiry duration (e.g. 3600 seconds)
+    □ Rate limits (requests per minute / per hour)
+
+  API Details:
+    □ Base URL (e.g. https://yourcompany.ukg.net/api)
+    □ API version being used (v1, v2, etc.)
+    □ Is it UKG Pro, UKG Ready, or UKG Dimensions/Workforce Central?
+      (They have completely different API structures)
+
+  Employee API:
+    □ Endpoint path for employee list
+    □ Sample raw JSON response for 1 employee
+    □ Field name for employee ID (is it personNumber? employeeId? id?)
+    □ Pagination structure (page/limit? cursor? offset?)
+    □ Does it return inactive employees too? How to filter active only?
+
+  Attendance / Punch API:
+    □ Endpoint path for punch data
+    □ Sample raw JSON response for 1 punch record
+    □ Field name for IN vs OUT punch type
+    □ How is punch time represented? (ISO string? Unix timestamp?)
+    □ Does it return punches for a date range? What is the max date range?
+    □ How are manual corrections flagged?
+
+  Leave API:
+    □ Endpoint path for leave requests
+    □ Sample raw JSON response for 1 leave record
+    □ Field names for fromDate, toDate, leaveType, status
+    □ Are leave types fixed or dynamic?
+
+  Shift Schedule API:
+    □ Endpoint path for shift schedules
+    □ Sample raw JSON response for 1 schedule record
+    □ How is shift code represented? (A/B/C or numeric or name?)
+
+  Webhooks (ask even if not needed immediately):
+    □ Does UKG support webhooks for real-time punch events?
+    □ If yes, what events are available?
+
+  IMPORTANT: Get a Postman collection or API documentation PDF from UKG.
+  Most UKG implementations come with one. Ask for it explicitly.
+
+───────────────────────────────────────────────────────────────────────────────
+  SECTION 2 — FILES TO MODIFY (ONLY THESE FILES CHANGE)
+───────────────────────────────────────────────────────────────────────────────
+
+  The entire integration is confined to 3 files. No other file changes.
+
+  FILE 1:  server/.env
+  ─────────────────────────────────────────────────────────────────────────────
+  Change these values:
+
+    UKG_API_AVAILABLE=true              ← flip this
+    UKG_BASE_URL=https://your-company.ukg.net/api
+    UKG_CLIENT_ID=your_client_id
+    UKG_CLIENT_SECRET=your_client_secret
+    UKG_COMPANY_ID=your_company_id
+
+  FILE 2:  server/src/services/sync/ukgClient.js
+  ─────────────────────────────────────────────────────────────────────────────
+  This file has 4 TODO functions. Implement each one.
+  Every function has comments showing exactly what to add.
+
+  FILE 3:  server/src/services/sync/index.js
+  ─────────────────────────────────────────────────────────────────────────────
+  Map UKG response field names to our model field names.
+  Example: UKG returns { personNumber: 'EMP001' }
+           Our model expects { employeeCode: 'EMP001' }
+           You add the mapping in the sync function.
+
+───────────────────────────────────────────────────────────────────────────────
+  SECTION 3 — STEP-BY-STEP IMPLEMENTATION
+───────────────────────────────────────────────────────────────────────────────
+
+  STEP 1 — Test the UKG connection first, nothing else
+  ─────────────────────────────────────────────────────
+  Before writing any sync code, verify the token endpoint works.
+  Open Postman and test this manually:
+
+    POST <UKG_BASE_URL>/api/authentication/access_token
+    Body: {
+      "client_id": "your_client_id",
+      "client_secret": "your_client_secret",
+      "grant_type": "client_credentials",
+      "auth_chain": "OAuthLdapService"
+    }
+
+  If you get a token back → proceed.
+  If you get 401/403 → fix credentials before touching any code.
+
+  ─────────────────────────────────────────────────────────────────────────────
+
+  STEP 2 — Implement getAccessToken() in ukgClient.js
+  ─────────────────────────────────────────────────────
+  File: server/src/services/sync/ukgClient.js
+
+  Find the getAccessToken() function (around line 25).
+  Uncomment and fill in the axios call.
+  Test it in isolation:
+
+    node -e "require('./src/services/sync/ukgClient').fetchEmployees().then(console.log).catch(console.error)"
+
+  Expected: empty array [] until you implement fetchEmployees.
+  If it throws "UKG API not configured" → UKG_API_AVAILABLE is not true in .env.
+
+  ─────────────────────────────────────────────────────────────────────────────
+
+  STEP 3 — Implement fetchEmployees() first
+  ─────────────────────────────────────────────────────────────────────────────
+  Employees are the foundation — every other record joins to employee codes.
+  Always sync employees before syncing any other data.
+
+  In ukgClient.js, implement fetchEmployees():
+    - Make the API call
+    - Handle pagination if the endpoint is paginated
+    - Return a flat array of raw employee objects
+
+  Then in sync/index.js syncEmployees(), add the field mapping:
+    {
+      ukgId:        r.personNumber,     ← UKG field name may differ
+      employeeCode: r.employeeNumber,   ← map to our field name
+      name:         `${r.firstName} ${r.lastName}`,
+      department:   r.orgUnit?.name,
+      designation:  r.jobTitle,
+      defaultShift: r.workRule?.code || 'G',
+      status:       r.employmentStatus === 'A' ? 'Active' : 'Inactive',
+    }
+
+  Adjust field names based on the actual UKG response you received.
+
+  ─────────────────────────────────────────────────────────────────────────────
+
+  STEP 4 — Implement fetchPunches()
+  ─────────────────────────────────────────────────────────────────────────────
+  This is the most critical sync — it runs every 5 minutes.
+
+  Key things to handle:
+    a) Date range — UKG may limit to 24h or 7 days per request
+       If limited, the sync window in sync/index.js already fetches
+       only the last 2 hours, which is safe.
+
+    b) Punch type mapping — UKG may use:
+       "IN" / "OUT", or "1" / "2", or "PUNCH_IN" / "PUNCH_OUT"
+       Map whatever UKG uses to our 'IN' / 'OUT' constants.
+
+    c) Timestamp format — convert to Date object before storing.
+
+  Field mapping example:
+    {
+      employeeCode: r.employee.personNumber,
+      punchTime:    new Date(r.punchDateTime),
+      punchType:    r.punchType === 'IN' ? 'IN' : 'OUT',
+      deviceId:     r.deviceId || null,
+      isManual:     r.isManual || false,
+    }
+
+  ─────────────────────────────────────────────────────────────────────────────
+
+  STEP 5 — Implement fetchLeaves()
+  ─────────────────────────────────────────────────────────────────────────────
+  Leave sync runs every 30 minutes.
+  Map UKG leave type codes to our leave type codes (CL, SL, EL, etc.)
+  if they differ. Add a mapping object in sync/index.js.
+
+  Example mapping:
+    const LEAVE_TYPE_MAP = {
+      'CASUAL':   'CL',
+      'SICK':     'SL',
+      'EARNED':   'EL',
+      'MEDICAL':  'ML',
+      'LWP':      'LWP',
+    };
+
+  ─────────────────────────────────────────────────────────────────────────────
+
+  STEP 6 — Implement fetchShiftSchedules()
+  ─────────────────────────────────────────────────────────────────────────────
+  Shift sync runs hourly.
+  Map UKG shift codes/names to our A/B/C/G codes.
+
+  Example mapping:
+    const SHIFT_MAP = {
+      'Morning':  'A',
+      'Evening':  'B',
+      'Night':    'C',
+      'General':  'G',
+      'DAY':      'G',
+    };
+
+  ─────────────────────────────────────────────────────────────────────────────
+
+  STEP 7 — Run first live sync manually
+  ─────────────────────────────────────────────────────────────────────────────
+  Do NOT enable automatic cron jobs yet.
+  First trigger each sync manually and verify the data:
+
+    # With server running, use Postman:
+    POST /api/v1/monitoring/jobs/trigger/employees
+    # Check MongoDB — employees_raw collection should update
+
+    POST /api/v1/monitoring/jobs/trigger/attendance-live
+    # Check MongoDB — punches_raw collection should have new records
+
+    POST /api/v1/monitoring/jobs/trigger/leaves
+    POST /api/v1/monitoring/jobs/trigger/shifts
+
+  After each trigger, check the job log:
+    GET /api/v1/monitoring/job-logs?status=failed
+    If any failed → fix before proceeding.
+
+  ─────────────────────────────────────────────────────────────────────────────
+
+  STEP 8 — Verify data quality before enabling cron
+  ─────────────────────────────────────────────────────────────────────────────
+  Run these checks after the first successful sync:
+
+    node src/scripts/diagnostics/check-db.js
+    # Verify document counts increased from seeded values
+
+  Also manually check in MongoDB Compass or mongosh:
+    use UKG
+    db.employees_raw.findOne({ syncSource: 'ukg_api' })
+    db.punches_raw.findOne({ syncSource: 'ukg_api' })
+
+  Verify:
+    □ Employee codes match between UKG and your existing records
+    □ Punch times are in the correct timezone
+    □ Shift C punches cross midnight correctly (OUT time is next day)
+    □ No employees show as both 'ukg_api' and 'seed' for same date
+
+  ─────────────────────────────────────────────────────────────────────────────
+
+  STEP 9 — Handle historical data migration
+  ─────────────────────────────────────────────────────────────────────────────
+  Question to answer: How far back does HR need attendance data?
+  Typical answer: 1 financial year (April to March).
+
+  If UKG API supports historical date ranges:
+    - Write a one-time backfill script (similar to seed.js but pulls from UKG)
+    - Run it for each month, oldest first
+    - Monitor job logs for failures
+    - Run check-db.js after each month to verify counts
+
+  If UKG API does NOT support historical data:
+    - Keep the seeded data for development
+    - Live data will accumulate naturally from go-live date
+    - Inform HR that historical reports will only cover post-go-live dates
+
+  ─────────────────────────────────────────────────────────────────────────────
+
+  STEP 10 — Enable cron jobs
+  ─────────────────────────────────────────────────────────────────────────────
+  Only after Steps 7-9 are verified successfully.
+
+  The cron jobs are already registered in scheduler/registry.js.
+  They will start automatically when the server starts.
+  Nothing to change — just restart the server and monitor:
+
+    GET /api/v1/monitoring/jobs
+    # Watch lastRunAt timestamps update every 5 minutes for attendance
+
+───────────────────────────────────────────────────────────────────────────────
+  SECTION 4 — COMMON UKG API ISSUES AND HOW TO HANDLE THEM
+───────────────────────────────────────────────────────────────────────────────
+
+  Issue: Token expires during a long sync
+  Fix:   getAccessToken() in ukgClient.js already caches the token and
+         refreshes it 60 seconds before expiry. No action needed.
+
+  Issue: UKG returns paginated results (100 per page)
+  Fix:   Add a pagination loop in the fetch function:
+           let page = 1, allRecords = [];
+           while (true) {
+             const res = await axios.get(url, { params: { page, limit: 100 } });
+             allRecords.push(...res.data.data);
+             if (res.data.data.length < 100) break;
+             page++;
+           }
+           return allRecords;
+
+  Issue: UKG rate limit hit (429 response)
+  Fix:   Add a delay between paginated requests:
+           await new Promise(r => setTimeout(r, 200)); // 200ms between pages
+         Reduce sync frequency if needed in scheduler/registry.js.
+
+  Issue: Employee in UKG but not in our DB (foreign key mismatch)
+  Fix:   Always run employee sync before punch/leave sync.
+         The cron order in registry.js handles this automatically:
+         employee_sync runs daily at 01:00, before other syncs.
+
+  Issue: Duplicate punches coming from UKG
+  Fix:   Already handled. PunchRaw has a unique index on
+         (employeeCode + punchTime + punchType). Duplicates are silently
+         ignored with the ordered:false insert option.
+
+  Issue: Timezone mismatch (UKG sends UTC, we need IST)
+  Fix:   Convert in ukgClient.js during field mapping:
+           punchTime: new Date(r.punchDateTime) // JS Date handles UTC internally
+         MongoDB stores UTC — the frontend displays in IST via formatting.
+         Do NOT manually add +5:30 offset — this causes double conversion.
+
+  Issue: UKG field names change after an update
+  Fix:   Changes are isolated to sync/index.js field mapping section.
+         Add a comment noting the change date and old vs new field name.
+
+───────────────────────────────────────────────────────────────────────────────
+  SECTION 5 — TESTING CHECKLIST AFTER FULL INTEGRATION
+───────────────────────────────────────────────────────────────────────────────
+
+  Run these after live UKG data is flowing:
+
+  Functional:
+    □ GET /api/v1/attendance/today — shows real today data
+    □ GET /api/v1/attendance/daily?date=<today> — real punch times visible
+    □ GET /api/v1/attendance/miss-punch — catches employees with IN but no OUT
+    □ GET /api/v1/monitoring/jobs — all jobs show status 'success' not 'skipped'
+    □ Export Excel — real employee names and attendance data in file
+
+  Data quality:
+    □ Employee count in DB matches UKG headcount
+    □ No employee appears twice (different ukgId, same employeeCode)
+    □ Shift C records — OUT time is correctly on next calendar day
+    □ Late minutes > 0 for employees who punched in late
+    □ OT minutes > 0 for employees who punched out late
+
+  Performance:
+    □ Dashboard KPI endpoint responds under 500ms
+    □ Monthly summary query (25 employees) responds under 1 second
+    □ Export of 25-employee monthly Excel completes under 5 seconds
+
+───────────────────────────────────────────────────────────────────────────────
+  SECTION 6 — WHAT TO DO IF UKG API IS UNAVAILABLE / DOWN
+───────────────────────────────────────────────────────────────────────────────
+
+  The system is designed to degrade gracefully.
+
+  If UKG API is temporarily down:
+    - Sync jobs will log as 'failed' in job_logs
+    - The rest of the system (attendance reports, analytics, exports)
+      continues working with the last successfully synced data
+    - No data is lost
+    - IT Admin will see failed jobs on the monitoring dashboard
+    - When UKG comes back up, the next scheduled sync resumes automatically
+
+  If UKG API is down for more than a day:
+    - The attendance_live_sync job will have many 'failed' entries
+    - When API comes back, manually trigger:
+        POST /api/v1/monitoring/jobs/trigger/attendance-live
+    - This will catch up on missed punches IF UKG stores historical punch data
+    - If punches are missed permanently, Time Office will need to do
+      manual corrections in UKG (which is the existing process anyway)
+
+───────────────────────────────────────────────────────────────────────────────
+  SECTION 7 — QUESTIONS TO FINALIZE BEFORE GO-LIVE
+───────────────────────────────────────────────────────────────────────────────
+
+  These need answers from HR and Time Office before the system goes live:
+
+  □ What is the official cut-off time for monthly attendance?
+    (Last day of month? 25th? Used for payroll lock)
+
+  □ Which leave types map to which UKG leave codes?
+    (Get the complete list from HR)
+
+  □ What is the definition of "late" for each shift?
+    (Grace period: 5 min? 10 min? Different per shift?)
+
+  □ What is the minimum punch gap to count as a valid IN-OUT pair?
+    (If someone punches IN and OUT within 5 minutes, is that valid?)
+
+  □ Does OT require prior approval, or is it auto-computed from punch data?
+
+  □ Which departments need separate Excel reports vs combined reports?
+
+  □ What is the report format HR submits to payroll? Excel columns, order?
+
+  □ Who is the backup IT Admin if the primary is unavailable?
+
+═══════════════════════════════════════════════════════════════════════════════
+  END OF UKG INTEGRATION PLAN
+  Total files to change when API arrives: 3 (env, ukgClient.js, sync/index.js)
+  Everything else is already built and waiting.
+═══════════════════════════════════════════════════════════════════════════════
+
