@@ -47,3 +47,336 @@
 2026-06-03 10:45:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
 2026-06-03 10:45:00 [INFO   ] [scheduler] ▶ Starting: sync_health_check
 2026-06-03 10:50:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-06-03 12:24:13 [INFO   ] MongoDB connected → localhost / UKG
+2026-06-03 12:24:13 [INFO   ] Indexes ensured — 5 created/verified across 10 collections
+2026-06-03 12:24:13 [INFO   ] [scheduler] ✔ Registered: attendance_live_sync  (*/5 * * * *)
+2026-06-03 12:24:13 [INFO   ] [scheduler] ✔ Registered: leave_sync  (*/30 * * * *)
+2026-06-03 12:24:13 [INFO   ] [scheduler] ✔ Registered: shift_sync  (0 * * * *)
+2026-06-03 12:24:13 [INFO   ] [scheduler] ✔ Registered: employee_sync  (0 1 * * *)
+2026-06-03 12:24:13 [INFO   ] [scheduler] ✔ Registered: consecutive_absence_scan  (0 2 * * *)
+2026-06-03 12:24:13 [INFO   ] [scheduler] ✔ Registered: sync_health_check  (*/15 * * * *)
+2026-06-03 12:24:13 [INFO   ] [scheduler] Running on startup: sync_health_check
+2026-06-03 12:24:13 [INFO   ] [scheduler] 6 jobs active
+2026-06-03 12:24:13 [INFO   ] ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2026-06-03 12:24:13 [INFO   ]   HR Analytics API  —  http://localhost:5000
+2026-06-03 12:24:13 [INFO   ]   Environment  : development
+2026-06-03 12:24:13 [INFO   ]   MongoDB      : localhost
+2026-06-03 12:24:13 [INFO   ]   UKG API      : 🟡 SEED MODE
+2026-06-03 12:24:13 [INFO   ] ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2026-06-03 12:24:42 [INFO   ] SIGINT received — shutting down gracefully
+2026-06-03 12:24:58 [HTTP   ] [0mGET /ping [32m200[0m 19.335 ms - 63[0m
+2026-06-03 12:24:58 [HTTP   ] [0mPOST /api/v1/auth/login [33m400[0m 4.239 ms - 183[0m
+2026-06-03 12:24:58 [HTTP   ] [0mGET /api/v1/auth/me [33m401[0m 0.670 ms - 81[0m
+2026-06-03 12:24:58 [HTTP   ] [0mGET /api/v1/attendance/today [33m401[0m 0.509 ms - 81[0m
+2026-06-03 12:24:58 [HTTP   ] [0mGET /api/v1/attendance/daily [33m401[0m 0.466 ms - 81[0m
+2026-06-03 12:24:58 [HTTP   ] [0mGET /api/v1/attendance/monthly [33m401[0m 0.355 ms - 81[0m
+2026-06-03 12:24:58 [HTTP   ] [0mGET /api/v1/attendance/miss-punch [33m401[0m 0.327 ms - 81[0m
+2026-06-03 12:24:58 [HTTP   ] [0mGET /api/v1/attendance/overtime [33m401[0m 0.298 ms - 81[0m
+2026-06-03 12:24:58 [HTTP   ] [0mGET /api/v1/attendance/department-breakdown [33m401[0m 0.317 ms - 81[0m
+2026-06-03 12:24:58 [HTTP   ] [0mGET /api/v1/analytics/dashboard [33m401[0m 0.377 ms - 81[0m
+2026-06-03 12:24:58 [HTTP   ] [0mGET /api/v1/analytics/trend [33m401[0m 0.320 ms - 81[0m
+2026-06-03 12:24:58 [HTTP   ] [0mGET /api/v1/analytics/shift-breakdown [33m401[0m 0.238 ms - 81[0m
+2026-06-03 12:24:58 [HTTP   ] [0mGET /api/v1/analytics/dept-rate [33m401[0m 0.295 ms - 81[0m
+2026-06-03 12:24:58 [HTTP   ] [0mGET /api/v1/employees [33m401[0m 0.305 ms - 81[0m
+2026-06-03 12:24:58 [HTTP   ] [0mGET /api/v1/employees/departments [33m401[0m 0.377 ms - 81[0m
+2026-06-03 12:24:58 [HTTP   ] [0mGET /api/v1/employees/EMP1001 [33m401[0m 0.220 ms - 81[0m
+2026-06-03 12:24:58 [HTTP   ] [0mGET /api/v1/exports/monthly-attendance [33m401[0m 0.180 ms - 81[0m
+2026-06-03 12:24:58 [HTTP   ] [0mGET /api/v1/exports/overtime [33m401[0m 0.191 ms - 81[0m
+2026-06-03 12:24:58 [HTTP   ] [0mGET /api/v1/monitoring/health [33m401[0m 0.229 ms - 81[0m
+2026-06-03 12:24:58 [HTTP   ] [0mGET /api/v1/monitoring/jobs [33m401[0m 0.174 ms - 81[0m
+2026-06-03 12:24:58 [HTTP   ] [0mGET /api/v1/monitoring/job-logs [33m401[0m 0.154 ms - 81[0m
+2026-06-03 12:24:58 [HTTP   ] [0mGET /api/v1/monitoring/audit-logs [33m401[0m 0.136 ms - 81[0m
+2026-06-03 12:24:58 [HTTP   ] [0mPOST /api/v1/monitoring/jobs/trigger/attendance-live [33m401[0m 0.186 ms - 81[0m
+2026-06-03 12:24:58 [HTTP   ] [0mGET /api/v1/nonexistent [33m404[0m 0.307 ms - 98[0m
+2026-06-03 12:24:58 [HTTP   ] [0mGET /api/v2/anything [33m404[0m 0.162 ms - 95[0m
+2026-06-03 12:26:06 [INFO   ] MongoDB connected → localhost / UKG
+2026-06-03 12:26:06 [INFO   ] Indexes ensured — 5 created/verified across 10 collections
+2026-06-03 12:26:06 [INFO   ] [scheduler] ✔ Registered: attendance_live_sync  (*/5 * * * *)
+2026-06-03 12:26:06 [INFO   ] [scheduler] ✔ Registered: leave_sync  (*/30 * * * *)
+2026-06-03 12:26:06 [INFO   ] [scheduler] ✔ Registered: shift_sync  (0 * * * *)
+2026-06-03 12:26:06 [INFO   ] [scheduler] ✔ Registered: employee_sync  (0 1 * * *)
+2026-06-03 12:26:06 [INFO   ] [scheduler] ✔ Registered: consecutive_absence_scan  (0 2 * * *)
+2026-06-03 12:26:06 [INFO   ] [scheduler] ✔ Registered: sync_health_check  (*/15 * * * *)
+2026-06-03 12:26:06 [INFO   ] [scheduler] Running on startup: sync_health_check
+2026-06-03 12:26:06 [INFO   ] [scheduler] 6 jobs active
+2026-06-03 12:26:06 [INFO   ] ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2026-06-03 12:26:06 [INFO   ]   HR Analytics API  —  http://localhost:5000
+2026-06-03 12:26:06 [INFO   ]   Environment  : development
+2026-06-03 12:26:06 [INFO   ]   MongoDB      : localhost
+2026-06-03 12:26:06 [INFO   ]   UKG API      : 🟡 SEED MODE
+2026-06-03 12:26:06 [INFO   ] ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2026-06-03 12:30:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-06-03 12:30:00 [INFO   ] [scheduler] ▶ Starting: leave_sync
+2026-06-03 12:30:00 [INFO   ] [scheduler] ▶ Starting: sync_health_check
+2026-06-03 12:35:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-06-03 12:40:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-06-03 12:57:52 [INFO   ] MongoDB connected → localhost / UKG
+2026-06-03 12:57:52 [INFO   ] Indexes ensured — 5 created/verified across 10 collections
+2026-06-03 12:57:52 [INFO   ] [scheduler] ✔ Registered: attendance_live_sync  (*/5 * * * *)
+2026-06-03 12:57:52 [INFO   ] [scheduler] ✔ Registered: leave_sync  (*/30 * * * *)
+2026-06-03 12:57:52 [INFO   ] [scheduler] ✔ Registered: shift_sync  (0 * * * *)
+2026-06-03 12:57:52 [INFO   ] [scheduler] ✔ Registered: employee_sync  (0 1 * * *)
+2026-06-03 12:57:52 [INFO   ] [scheduler] ✔ Registered: consecutive_absence_scan  (0 2 * * *)
+2026-06-03 12:57:52 [INFO   ] [scheduler] ✔ Registered: sync_health_check  (*/15 * * * *)
+2026-06-03 12:57:52 [INFO   ] [scheduler] Running on startup: sync_health_check
+2026-06-03 12:57:52 [INFO   ] [scheduler] 6 jobs active
+2026-06-03 12:57:52 [INFO   ] ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2026-06-03 12:57:52 [INFO   ]   HR Analytics API  —  http://localhost:5000
+2026-06-03 12:57:52 [INFO   ]   Environment  : development
+2026-06-03 12:57:52 [INFO   ]   MongoDB      : localhost
+2026-06-03 12:57:52 [INFO   ]   UKG API      : 🟡 SEED MODE
+2026-06-03 12:57:52 [INFO   ] ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2026-06-03 13:00:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-06-03 13:00:00 [INFO   ] [scheduler] ▶ Starting: leave_sync
+2026-06-03 13:00:00 [INFO   ] [scheduler] ▶ Starting: shift_sync
+2026-06-03 13:00:00 [INFO   ] [scheduler] ▶ Starting: sync_health_check
+2026-06-03 13:05:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-06-03 13:10:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-06-03 13:15:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-06-03 13:15:00 [INFO   ] [scheduler] ▶ Starting: sync_health_check
+2026-06-03 13:20:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-06-03 13:25:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-06-03 13:30:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-06-03 13:30:00 [INFO   ] [scheduler] ▶ Starting: leave_sync
+2026-06-03 13:30:00 [INFO   ] [scheduler] ▶ Starting: sync_health_check
+2026-06-03 13:35:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-06-03 13:40:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-06-03 13:45:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-06-03 13:45:00 [INFO   ] [scheduler] ▶ Starting: sync_health_check
+2026-06-03 13:50:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-06-03 13:53:35 [HTTP   ] [0mGET /api/v1/intelligence/alerts [33m401[0m 195.750 ms - 101[0m
+2026-06-03 13:54:05 [INFO   ] User login success  {"email":"admin@steelplant.in","role":"IT_ADMIN"}
+2026-06-03 13:54:05 [HTTP   ] [0mPOST /api/v1/auth/login [32m200[0m 365.370 ms - 474[0m
+2026-06-03 13:54:11 [HTTP   ] [0mGET /api/v1/intelligence/alerts [32m200[0m 37.439 ms - 107[0m
+2026-06-03 13:54:19 [HTTP   ] [0mGET /api/v1/intelligence/sync-status [32m200[0m 16.986 ms - 693[0m
+2026-06-03 13:54:31 [HTTP   ] [0mPOST /api/v1/intelligence/run/sync-health [32m200[0m 0.733 ms - 64[0m
+2026-06-03 13:54:35 [HTTP   ] [0mPOST /api/v1/intelligence/run/consecutive-absence [32m200[0m 19.089 ms - 97[0m
+2026-06-03 13:54:35 [INFO   ] [intelligence] Consecutive absence scan complete — 0 created, 0 updated, 0 resolved
+2026-06-03 13:55:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-06-03 13:58:07 [HTTP   ] [0mPATCH /api/v1/intelligence/alerts/000000000000000000000000/dismiss [33m404[0m 30.973 ms - 77[0m
+2026-06-03 13:58:23 [HTTP   ] [0mPOST /api/v1/intelligence/run/consecutive-absence [32m200[0m 0.540 ms - 97[0m
+2026-06-03 13:58:23 [INFO   ] [intelligence] Consecutive absence scan complete — 0 created, 0 updated, 0 resolved
+2026-06-03 14:00:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-06-03 14:00:00 [INFO   ] [scheduler] ▶ Starting: leave_sync
+2026-06-03 14:00:00 [INFO   ] [scheduler] ▶ Starting: shift_sync
+2026-06-03 14:00:00 [INFO   ] [scheduler] ▶ Starting: sync_health_check
+2026-06-03 14:01:53 [HTTP   ] [0mPOST /api/v1/intelligence/run/sync-health [32m200[0m 0.881 ms - 64[0m
+2026-06-03 14:02:07 [HTTP   ] [0mPOST /api/v1/intelligence/run/consecutive-absence [32m200[0m 0.668 ms - 97[0m
+2026-06-03 14:02:07 [INFO   ] [intelligence] Consecutive absence scan complete — 0 created, 0 updated, 0 resolved
+2026-06-03 14:02:33 [HTTP   ] [0mGET /api/v1/intelligence/live-headcount [32m200[0m 202.535 ms - 3348[0m
+2026-06-03 14:03:00 [ERROR  ] CastError: Cast to ObjectId failed for value "{{alert_id}}" (type string) at path "_id" for model "Alert"
+    at SchemaObjectId.cast (E:\Saurabh\Z_Main\Project\Ongoing Project\UKG\server\node_modules\mongoose\lib\schema\objectId.js:253:11)
+    at SchemaType.applySetters (E:\Saurabh\Z_Main\Project\Ongoing Project\UKG\server\node_modules\mongoose\lib\schemaType.js:1288:12)
+    at SchemaType.castForQuery (E:\Saurabh\Z_Main\Project\Ongoing Project\UKG\server\node_modules\mongoose\lib\schemaType.js:1718:17)
+    at cast (E:\Saurabh\Z_Main\Project\Ongoing Project\UKG\server\node_modules\mongoose\lib\cast.js:390:32)
+    at Query.cast (E:\Saurabh\Z_Main\Project\Ongoing Project\UKG\server\node_modules\mongoose\lib\query.js:5060:12)
+    at Query._castConditions (E:\Saurabh\Z_Main\Project\Ongoing Project\UKG\server\node_modules\mongoose\lib\query.js:2374:10)
+    at model.Query._findOneAndUpdate (E:\Saurabh\Z_Main\Project\Ongoing Project\UKG\server\node_modules\mongoose\lib\query.js:3477:8)
+    at model.Query.exec (E:\Saurabh\Z_Main\Project\Ongoing Project\UKG\server\node_modules\mongoose\lib\query.js:4627:80)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async Object.dismissAlert (E:\Saurabh\Z_Main\Project\Ongoing Project\UKG\server\src\services\intelligence\index.js:90:17)
+    at async E:\Saurabh\Z_Main\Project\Ongoing Project\UKG\server\src\controllers\intelligence.js:38:17  {"path":"/api/v1/intelligence/alerts/%7B%7Balert_id%7D%7D/dismiss","method":"PATCH","user":"admin@steelplant.in","statusCode":500}
+2026-06-03 14:03:00 [HTTP   ] [0mPATCH /api/v1/intelligence/alerts/%7B%7Balert_id%7D%7D/dismiss [31m500[0m 110.028 ms - 162[0m
+2026-06-03 14:05:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-06-03 14:07:42 [HTTP   ] [0mPATCH /api/v1/intelligence/alerts/000000000000000000000000/dismiss [33m404[0m 1.529 ms - 77[0m
+2026-06-03 14:07:48 [HTTP   ] [0mGET /api/v1/intelligence/alerts/summary [32m200[0m 2.886 ms - 69[0m
+2026-06-03 14:08:33 [HTTP   ] [0mGET /api/v1/intelligence/alerts [32m200[0m 2.064 ms - 107[0m
+2026-06-03 14:09:02 [HTTP   ] [0mGET /?severity=critical [33m404[0m 0.174 ms - 98[0m
+2026-06-03 14:10:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-06-03 14:15:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-06-03 14:15:00 [INFO   ] [scheduler] ▶ Starting: sync_health_check
+2026-06-03 14:20:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-06-03 14:25:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-06-03 14:30:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-06-03 14:30:00 [INFO   ] [scheduler] ▶ Starting: leave_sync
+2026-06-03 14:30:00 [INFO   ] [scheduler] ▶ Starting: sync_health_check
+2026-06-03 14:35:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-06-03 14:40:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-06-03 14:45:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-06-03 14:45:00 [INFO   ] [scheduler] ▶ Starting: sync_health_check
+2026-06-03 14:50:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-06-03 14:55:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-06-03 15:00:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-06-03 15:00:00 [INFO   ] [scheduler] ▶ Starting: leave_sync
+2026-06-03 15:00:00 [INFO   ] [scheduler] ▶ Starting: shift_sync
+2026-06-03 15:00:00 [INFO   ] [scheduler] ▶ Starting: sync_health_check
+2026-06-03 15:05:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-06-03 15:10:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-06-03 15:15:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-06-03 15:15:00 [INFO   ] [scheduler] ▶ Starting: sync_health_check
+2026-06-03 15:20:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-06-03 15:25:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-06-03 15:30:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-06-03 15:30:00 [INFO   ] [scheduler] ▶ Starting: leave_sync
+2026-06-03 15:30:00 [INFO   ] [scheduler] ▶ Starting: sync_health_check
+2026-06-03 15:35:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-06-03 15:40:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-06-03 15:45:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-06-03 15:45:00 [INFO   ] [scheduler] ▶ Starting: sync_health_check
+2026-06-03 15:50:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-06-03 15:55:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-06-03 16:00:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-06-03 16:00:00 [INFO   ] [scheduler] ▶ Starting: leave_sync
+2026-06-03 16:00:00 [INFO   ] [scheduler] ▶ Starting: shift_sync
+2026-06-03 16:00:00 [INFO   ] [scheduler] ▶ Starting: sync_health_check
+2026-06-03 16:05:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-06-03 16:10:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-06-03 16:15:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-06-03 16:15:00 [INFO   ] [scheduler] ▶ Starting: sync_health_check
+2026-06-03 16:16:13 [INFO   ] User login success  {"email":"admin@steelplant.in","role":"IT_ADMIN"}
+2026-06-03 16:16:13 [HTTP   ] [0mPOST /api/v1/auth/login [32m200[0m 357.853 ms - 474[0m
+2026-06-03 16:16:15 [HTTP   ] [0mGET /api/v1/attendance/today [36m304[0m 499.565 ms - -[0m
+2026-06-03 16:16:15 [HTTP   ] [0mGET /api/v1/analytics/dept-rate?month=6&year=2026 [36m304[0m 175.788 ms - -[0m
+2026-06-03 16:16:16 [HTTP   ] [0mGET /api/v1/analytics/dashboard [32m200[0m 1239.616 ms - 1382[0m
+2026-06-03 16:16:16 [HTTP   ] [0mGET /api/v1/analytics/trend?days=30 [36m304[0m 1190.526 ms - -[0m
+2026-06-03 16:16:22 [HTTP   ] [0mGET /api/v1/attendance/daily?date=2026-06-03&page=1&limit=50 [32m200[0m 323.890 ms - 107[0m
+2026-06-03 16:16:22 [HTTP   ] [0mGET /api/v1/employees/departments [36m304[0m 291.261 ms - -[0m
+2026-06-03 16:16:26 [HTTP   ] [0mGET /api/v1/attendance/daily?date=2026-05-03&page=1&limit=50 [32m200[0m 435.131 ms - 15477[0m
+2026-06-03 16:16:28 [HTTP   ] [0mGET /api/v1/attendance/daily?date=2026-04-03&page=1&limit=50 [32m200[0m 29.700 ms - 16503[0m
+2026-06-03 16:16:30 [HTTP   ] [0mGET /api/v1/attendance/daily?date=2026-03-03&page=1&limit=50 [32m200[0m 48.523 ms - 16531[0m
+2026-06-03 16:16:38 [HTTP   ] [0mGET /api/v1/attendance/daily?date=2026-02-03&page=1&limit=50 [32m200[0m 17.669 ms - 107[0m
+2026-06-03 16:16:39 [HTTP   ] [0mGET /api/v1/attendance/daily?date=2026-01-03&page=1&limit=50 [32m200[0m 11.261 ms - 107[0m
+2026-06-03 16:16:48 [HTTP   ] [0mGET /api/v1/attendance/daily?date=2026-03-03&status=Absent&page=1&limit=50 [32m200[0m 425.392 ms - 723[0m
+2026-06-03 16:16:52 [HTTP   ] [0mGET /api/v1/attendance/daily?date=2026-03-03&department=IT&page=1&limit=50 [32m200[0m 230.356 ms - 747[0m
+2026-06-03 16:20:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-06-03 16:25:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-06-03 16:25:32 [HTTP   ] [0mGET /api/v1/employees/departments [36m304[0m 93.925 ms - -[0m
+2026-06-03 16:25:32 [HTTP   ] [0mGET /api/v1/attendance/daily?date=2026-06-03&page=1&limit=50 [36m304[0m 36.191 ms - -[0m
+2026-06-03 16:25:36 [HTTP   ] [0mGET /api/v1/attendance/daily?date=2026-05-03&page=1&limit=50 [36m304[0m 26.887 ms - -[0m
+2026-06-03 16:29:54 [HTTP   ] [0mGET /api/v1/attendance/monthly?month=6&year=2026&page=1&limit=50 [36m304[0m 91.538 ms - -[0m
+2026-06-03 16:29:55 [HTTP   ] [0mGET /api/v1/attendance/miss-punch?dateFrom=2026-05-27&dateTo=2026-06-03&page=1&limit=50 [32m200[0m 50.851 ms - 26[0m
+2026-06-03 16:29:59 [HTTP   ] [0mGET /api/v1/attendance/miss-punch?dateFrom=2026-04-27&dateTo=2026-06-03&page=1&limit=50 [32m200[0m 11.347 ms - 8344[0m
+2026-06-03 16:30:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-06-03 16:30:00 [INFO   ] [scheduler] ▶ Starting: leave_sync
+2026-06-03 16:30:00 [INFO   ] [scheduler] ▶ Starting: sync_health_check
+2026-06-03 16:30:05 [HTTP   ] [0mGET /api/v1/attendance/today [36m304[0m 15.948 ms - -[0m
+2026-06-03 16:30:05 [HTTP   ] [0mGET /api/v1/analytics/dept-rate?month=6&year=2026 [36m304[0m 76.906 ms - -[0m
+2026-06-03 16:30:05 [HTTP   ] [0mGET /api/v1/analytics/dashboard [32m200[0m 256.589 ms - 1397[0m
+2026-06-03 16:30:05 [HTTP   ] [0mGET /api/v1/analytics/trend?days=30 [36m304[0m 256.317 ms - -[0m
+2026-06-03 16:30:54 [HTTP   ] [0mGET /api/v1/employees/departments [36m304[0m 2.114 ms - -[0m
+2026-06-03 16:30:54 [HTTP   ] [0mGET /api/v1/attendance/daily?date=2026-06-03&page=1&limit=50 [36m304[0m 48.638 ms - -[0m
+2026-06-03 16:31:01 [HTTP   ] [0mGET /api/v1/attendance/daily?date=2026-05-03&page=1&limit=50 [36m304[0m 37.161 ms - -[0m
+2026-06-03 16:31:12 [HTTP   ] [0mGET /api/v1/attendance/daily?date=2026-05-03&page=1&limit=50 [36m304[0m 20.020 ms - -[0m
+2026-06-03 16:31:12 [HTTP   ] [0mGET /api/v1/attendance/daily?date=2026-05-03&page=1&limit=50 [36m304[0m 26.291 ms - -[0m
+2026-06-03 16:35:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-06-03 16:40:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-06-03 16:45:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-06-03 16:45:00 [INFO   ] [scheduler] ▶ Starting: sync_health_check
+2026-06-03 16:48:48 [HTTP   ] [0mGET /api/v1/employees/departments [36m304[0m 1.907 ms - -[0m
+2026-06-03 16:48:48 [HTTP   ] [0mGET /api/v1/attendance/monthly?month=6&year=2026&page=1&limit=50 [36m304[0m 2.974 ms - -[0m
+2026-06-03 16:48:51 [HTTP   ] [0mGET /api/v1/attendance/monthly?month=3&year=2026&page=1&limit=50 [32m200[0m 59.193 ms - 13214[0m
+2026-06-03 16:48:59 [HTTP   ] [0mGET /api/v1/attendance/monthly?month=3&year=2026&department=Blast+Furnace&page=1&limit=50 [32m200[0m 48.934 ms - 2159[0m
+2026-06-03 16:49:01 [HTTP   ] [0mGET /api/v1/attendance/miss-punch?dateFrom=2026-05-27&dateTo=2026-06-03&page=1&limit=50 [36m304[0m 3.902 ms - -[0m
+2026-06-03 16:49:04 [HTTP   ] [0mGET /api/v1/attendance/miss-punch?dateFrom=2026-04-27&dateTo=2026-06-03&page=1&limit=50 [36m304[0m 3.285 ms - -[0m
+2026-06-03 16:49:14 [HTTP   ] [0mGET /api/v1/attendance/overtime?dateFrom=2026-05-04&dateTo=2026-06-03&page=1&limit=50 [32m200[0m 132.713 ms - 26[0m
+2026-06-03 16:49:17 [HTTP   ] [0mGET /api/v1/attendance/overtime?dateFrom=2026-04-04&dateTo=2026-06-03&page=1&limit=50 [32m200[0m 11.594 ms - 26[0m
+2026-06-03 16:49:18 [HTTP   ] [0mGET /api/v1/attendance/overtime?dateFrom=2026-03-04&dateTo=2026-06-03&page=1&limit=50 [32m200[0m 12.462 ms - 26[0m
+2026-06-03 16:49:21 [HTTP   ] [0mGET /api/v1/attendance/overtime?dateFrom=2026-02-04&dateTo=2026-06-03&page=1&limit=50 [32m200[0m 3.558 ms - 26[0m
+2026-06-03 16:49:22 [HTTP   ] [0mGET /api/v1/attendance/overtime?dateFrom=2026-01-04&dateTo=2026-06-03&page=1&limit=50 [32m200[0m 2.972 ms - 26[0m
+2026-06-03 16:49:23 [HTTP   ] [0mGET /api/v1/attendance/overtime?dateFrom=2025-12-04&dateTo=2026-06-03&page=1&limit=50 [32m200[0m 117.709 ms - 26[0m
+2026-06-03 16:49:24 [HTTP   ] [0mGET /api/v1/attendance/overtime?dateFrom=2025-11-04&dateTo=2026-06-03&page=1&limit=50 [32m200[0m 3.383 ms - 26[0m
+2026-06-03 16:49:27 [HTTP   ] [0mGET /api/v1/analytics/dept-rate?month=6&year=2026 [36m304[0m 1.821 ms - -[0m
+2026-06-03 16:49:27 [HTTP   ] [0mGET /api/v1/analytics/trend?days=30 [36m304[0m 243.357 ms - -[0m
+2026-06-03 16:49:27 [HTTP   ] [0mGET /api/v1/analytics/shift-breakdown?month=6&year=2026 [36m304[0m 376.892 ms - -[0m
+2026-06-03 16:49:34 [HTTP   ] [0mGET /api/v1/employees?page=1&limit=50 [36m304[0m 219.618 ms - -[0m
+2026-06-03 16:49:38 [HTTP   ] [0mGET /api/v1/employees/EMP1009 [32m200[0m 194.115 ms - 532[0m
+2026-06-03 16:49:52 [HTTP   ] [0mGET /api/v1/monitoring/health [32m200[0m 883.605 ms - 573[0m
+2026-06-03 16:49:55 [HTTP   ] [0mGET /api/v1/monitoring/job-logs [32m200[0m 142.838 ms - 19474[0m
+2026-06-03 16:49:56 [HTTP   ] [0mGET /api/v1/monitoring/jobs [32m200[0m 384.175 ms - 1410[0m
+2026-06-03 16:50:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-06-03 16:50:03 [HTTP   ] [0mGET /api/v1/monitoring/audit-logs [32m200[0m 105.617 ms - 448[0m
+2026-06-03 16:51:06 [HTTP   ] [0mGET /api/v1/attendance/today [36m304[0m 131.830 ms - -[0m
+2026-06-03 16:51:06 [HTTP   ] [0mGET /api/v1/analytics/trend?days=30 [32m200[0m 200.384 ms - 1815[0m
+2026-06-03 16:51:06 [HTTP   ] [0mGET /api/v1/analytics/dept-rate?month=6&year=2026 [36m304[0m 204.029 ms - -[0m
+2026-06-03 16:51:06 [HTTP   ] [0mGET /api/v1/analytics/dashboard [32m200[0m 244.992 ms - 1395[0m
+2026-06-03 16:51:12 [HTTP   ] [0mGET /api/v1/analytics/dashboard [32m200[0m 5.125 ms - 1394[0m
+2026-06-03 16:51:12 [HTTP   ] [0mGET /api/v1/attendance/today [36m304[0m 7.239 ms - -[0m
+2026-06-03 16:51:12 [HTTP   ] [0mGET /api/v1/analytics/trend?days=30 [36m304[0m 6.584 ms - -[0m
+2026-06-03 16:51:13 [HTTP   ] [0mGET /api/v1/analytics/dept-rate?month=6&year=2026 [36m304[0m 72.551 ms - -[0m
+2026-06-03 16:52:49 [HTTP   ] [0mGET /api/v1/employees/departments [36m304[0m 39.033 ms - -[0m
+2026-06-03 16:52:49 [HTTP   ] [0mGET /api/v1/attendance/daily?date=2026-06-03&page=1&limit=50 [36m304[0m 11.098 ms - -[0m
+2026-06-03 16:52:52 [HTTP   ] [0mGET /api/v1/attendance/daily?date=2026-05-03&page=1&limit=50 [36m304[0m 26.666 ms - -[0m
+2026-06-03 16:53:45 [HTTP   ] [0mGET /api/v1/analytics/dashboard [36m304[0m 2.751 ms - -[0m
+2026-06-03 16:53:45 [HTTP   ] [0mGET /api/v1/attendance/today [36m304[0m 14.251 ms - -[0m
+2026-06-03 16:53:45 [HTTP   ] [0mGET /api/v1/analytics/trend?days=30 [36m304[0m 14.022 ms - -[0m
+2026-06-03 16:53:45 [HTTP   ] [0mGET /api/v1/analytics/dept-rate?month=6&year=2026 [36m304[0m 14.760 ms - -[0m
+2026-06-03 16:53:57 [HTTP   ] [0mGET /api/v1/attendance/daily?date=2026-05-31&page=1&limit=50 [32m200[0m 25.186 ms - 107[0m
+2026-06-03 16:53:59 [HTTP   ] [0mGET /api/v1/attendance/daily?date=2026-05-22&page=1&limit=50 [32m200[0m 22.939 ms - 16456[0m
+2026-06-03 16:54:10 [HTTP   ] [0mGET /api/v1/attendance/daily?date=2026-05-22&status=Absent&page=1&limit=50 [32m200[0m 16.460 ms - 1330[0m
+2026-06-03 16:55:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-06-03 16:56:27 [HTTP   ] [0mPOST /api/v1/auth/login [33m401[0m 25.900 ms - 87[0m
+2026-06-03 16:56:37 [HTTP   ] [0mPOST /api/v1/auth/login [33m401[0m 1.562 ms - 87[0m
+2026-06-03 16:56:38 [HTTP   ] [0mPOST /api/v1/auth/login [33m401[0m 1.212 ms - 87[0m
+2026-06-03 16:56:52 [INFO   ] User login success  {"email":"admin@steelplant.in","role":"IT_ADMIN"}
+2026-06-03 16:56:52 [HTTP   ] [0mPOST /api/v1/auth/login [32m200[0m 73.532 ms - 474[0m
+2026-06-03 16:57:29 [HTTP   ] [0mGET /api/v1/attendance/monthly?month=6&year=2026&page=1&limit=50 [36m304[0m 2.547 ms - -[0m
+2026-06-03 16:57:58 [HTTP   ] [0mGET /api/v1/attendance/monthly?month=6&year=2026&page=1&limit=50 [36m304[0m 5.364 ms - -[0m
+2026-06-03 17:00:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-06-03 17:00:00 [INFO   ] [scheduler] ▶ Starting: leave_sync
+2026-06-03 17:00:00 [INFO   ] [scheduler] ▶ Starting: shift_sync
+2026-06-03 17:00:00 [INFO   ] [scheduler] ▶ Starting: sync_health_check
+2026-06-03 17:05:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-06-03 17:10:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-06-03 17:14:52 [INFO   ] User login success  {"email":"admin@steelplant.in","role":"IT_ADMIN"}
+2026-06-03 17:14:52 [HTTP   ] [0mPOST /api/v1/auth/login [32m200[0m 96.200 ms - 474[0m
+2026-06-03 17:14:53 [HTTP   ] [0mGET /api/v1/intelligence/alerts/summary [32m200[0m 113.237 ms - 69[0m
+2026-06-03 17:14:53 [HTTP   ] [0mGET /api/v1/attendance/today [36m304[0m 46.959 ms - -[0m
+2026-06-03 17:14:53 [HTTP   ] [0mGET /api/v1/analytics/dept-rate?month=6&year=2026 [36m304[0m 3.258 ms - -[0m
+2026-06-03 17:14:53 [HTTP   ] [0mGET /api/v1/analytics/dashboard [32m200[0m 122.916 ms - 1381[0m
+2026-06-03 17:14:53 [HTTP   ] [0mGET /api/v1/analytics/trend?days=30 [32m200[0m 78.363 ms - 1816[0m
+2026-06-03 17:15:00 [INFO   ] [scheduler] ▶ Starting: sync_health_check
+2026-06-03 17:15:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-06-03 17:17:40 [HTTP   ] [0mGET /api/v1/intelligence/alerts/summary [36m304[0m 2.413 ms - -[0m
+2026-06-03 17:17:41 [HTTP   ] [0mGET /api/v1/attendance/today [36m304[0m 8.526 ms - -[0m
+2026-06-03 17:17:41 [HTTP   ] [0mGET /api/v1/analytics/dashboard [32m200[0m 7.000 ms - 1380[0m
+2026-06-03 17:17:41 [HTTP   ] [0mGET /api/v1/analytics/trend?days=30 [32m200[0m 6.655 ms - 1815[0m
+2026-06-03 17:17:41 [HTTP   ] [0mGET /api/v1/analytics/dept-rate?month=6&year=2026 [36m304[0m 6.211 ms - -[0m
+2026-06-03 17:17:51 [HTTP   ] [0mGET /api/v1/intelligence/sync-status [32m200[0m 3.907 ms - 694[0m
+2026-06-03 17:18:05 [HTTP   ] [0mGET /api/v1/intelligence/live-headcount [32m200[0m 130.475 ms - 3345[0m
+2026-06-03 17:18:18 [HTTP   ] [0mGET /api/v1/intelligence/alerts [32m200[0m 10.579 ms - 107[0m
+2026-06-03 17:18:21 [HTTP   ] [0mGET /api/v1/intelligence/alerts?severity=critical [32m200[0m 13.412 ms - 107[0m
+2026-06-03 17:18:40 [HTTP   ] [0mGET /api/v1/intelligence/alerts/summary [36m304[0m 5.476 ms - -[0m
+2026-06-03 17:19:04 [HTTP   ] [0mPOST /api/v1/intelligence/run/sync-health [32m200[0m 0.517 ms - 64[0m
+2026-06-03 17:19:07 [HTTP   ] [0mGET /api/v1/intelligence/alerts/summary [36m304[0m 33.516 ms - -[0m
+2026-06-03 17:19:07 [HTTP   ] [0mGET /api/v1/intelligence/sync-status [32m200[0m 36.322 ms - 694[0m
+2026-06-03 17:19:08 [HTTP   ] [0mGET /api/v1/intelligence/sync-status [36m304[0m 5.285 ms - -[0m
+2026-06-03 17:19:11 [HTTP   ] [0mPOST /api/v1/intelligence/run/sync-health [32m200[0m 0.548 ms - 64[0m
+2026-06-03 17:19:14 [HTTP   ] [0mGET /api/v1/intelligence/alerts/summary [36m304[0m 4.230 ms - -[0m
+2026-06-03 17:19:14 [HTTP   ] [0mGET /api/v1/intelligence/sync-status [36m304[0m 8.072 ms - -[0m
+2026-06-03 17:19:14 [HTTP   ] [0mGET /api/v1/intelligence/sync-status [36m304[0m 3.485 ms - -[0m
+2026-06-03 17:19:33 [INFO   ] User login success  {"email":"hr@steelplant.in","role":"HR_ADMIN"}
+2026-06-03 17:19:33 [HTTP   ] [0mPOST /api/v1/auth/login [32m200[0m 89.567 ms - 467[0m
+2026-06-03 17:19:36 [HTTP   ] [0mGET /api/v1/intelligence/live-headcount [32m200[0m 5.107 ms - 3345[0m
+2026-06-03 17:19:38 [HTTP   ] [0mGET /api/v1/intelligence/alerts [36m304[0m 2.593 ms - -[0m
+2026-06-03 17:19:48 [INFO   ] User login success  {"email":"timeoffice@steelplant.in","role":"TIME_OFFICE"}
+2026-06-03 17:19:48 [HTTP   ] [0mPOST /api/v1/auth/login [32m200[0m 71.296 ms - 493[0m
+2026-06-03 17:19:48 [HTTP   ] [0mGET /api/v1/intelligence/alerts/summary [36m304[0m 1.864 ms - -[0m
+2026-06-03 17:20:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-06-03 17:20:00 [HTTP   ] [0mGET /api/v1/employees?page=1&limit=50 [36m304[0m 3.043 ms - -[0m
+2026-06-03 17:20:00 [HTTP   ] [0mGET /api/v1/employees/departments [36m304[0m 1.458 ms - -[0m
+2026-06-03 17:20:02 [HTTP   ] [0mGET /api/v1/attendance/miss-punch?dateFrom=2026-05-27&dateTo=2026-06-03&page=1&limit=50 [36m304[0m 2.795 ms - -[0m
+2026-06-03 17:20:03 [HTTP   ] [0mGET /api/v1/attendance/monthly?month=6&year=2026&page=1&limit=50 [36m304[0m 2.183 ms - -[0m
+2026-06-03 17:20:03 [HTTP   ] [0mGET /api/v1/attendance/daily?date=2026-06-03&page=1&limit=50 [36m304[0m 3.181 ms - -[0m
+2026-06-03 17:20:48 [HTTP   ] [0mGET /api/v1/intelligence/alerts/summary [36m304[0m 5.265 ms - -[0m
+2026-06-03 17:22:48 [HTTP   ] [0mGET /api/v1/intelligence/alerts/summary [36m304[0m 1.729 ms - -[0m
+2026-06-03 17:25:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-06-03 17:30:00 [INFO   ] [scheduler] ▶ Starting: sync_health_check
+2026-06-03 17:30:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-06-03 17:30:00 [INFO   ] [scheduler] ▶ Starting: leave_sync
+2026-06-03 17:30:03 [INFO   ] User login success  {"email":"admin@steelplant.in","role":"IT_ADMIN"}
+2026-06-03 17:30:03 [HTTP   ] [0mPOST /api/v1/auth/login [32m200[0m 71.830 ms - 474[0m
+2026-06-03 17:30:03 [HTTP   ] [0mGET /api/v1/intelligence/alerts/summary [36m304[0m 28.205 ms - -[0m
+2026-06-03 17:30:03 [HTTP   ] [0mGET /api/v1/attendance/today [36m304[0m 28.503 ms - -[0m
+2026-06-03 17:30:03 [HTTP   ] [0mGET /api/v1/analytics/dept-rate?month=6&year=2026 [36m304[0m 5.309 ms - -[0m
+2026-06-03 17:30:03 [HTTP   ] [0mGET /api/v1/analytics/dashboard [32m200[0m 41.905 ms - 1390[0m
+2026-06-03 17:30:03 [HTTP   ] [0mGET /api/v1/analytics/trend?days=30 [32m200[0m 68.709 ms - 1816[0m
+2026-06-03 17:31:03 [HTTP   ] [0mGET /api/v1/intelligence/alerts/summary [36m304[0m 5.496 ms - -[0m
+2026-06-03 17:32:03 [HTTP   ] [0mGET /api/v1/intelligence/alerts/summary [36m304[0m 1.583 ms - -[0m
+2026-06-03 17:32:10 [HTTP   ] [0mGET /api/v1/intelligence/sync-status [32m200[0m 6.193 ms - 692[0m
+2026-06-03 17:33:03 [HTTP   ] [0mGET /api/v1/intelligence/alerts/summary [36m304[0m 1.518 ms - -[0m
+2026-06-03 17:35:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-06-03 17:40:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-06-03 17:45:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-06-03 17:45:00 [INFO   ] [scheduler] ▶ Starting: sync_health_check
+2026-06-03 17:50:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-06-03 17:55:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync

@@ -35,6 +35,14 @@ export const queryKeys = {
     departments: ()        => ['employees', 'departments'],
   },
 
+  // Intelligence
+  intelligence: {
+    alerts:       (filters) => ['intelligence', 'alerts', filters],
+    summary:      ()        => ['intelligence', 'alerts', 'summary'],
+    liveHeadcount: ()       => ['intelligence', 'live-headcount'],
+    syncStatus:   ()        => ['intelligence', 'sync-status'],
+  },
+
   // Monitoring
   monitoring: {
     health:   () => ['monitoring', 'health'],
@@ -185,3 +193,45 @@ export const monitoringApi = {
     return data
   },
 }
+
+// ── Intelligence (new) ────────────────────────────────────────────────────
+export const intelligenceApi = {
+  alerts: async (filters = {}) => {
+    const params = Object.fromEntries(
+      Object.entries(filters).filter(([, v]) => v !== undefined && v !== null && v !== '')
+    )
+    const { data } = await apiClient.get('/intelligence/alerts', { params })
+    return data.data
+  },
+
+  alertsSummary: async () => {
+    const { data } = await apiClient.get('/intelligence/alerts/summary')
+    return data.data // { critical, warning, info, total }
+  },
+
+  dismissAlert: async (alertId) => {
+    const { data } = await apiClient.patch(`/intelligence/alerts/${alertId}/dismiss`)
+    return data
+  },
+
+  liveHeadcount: async () => {
+    const { data } = await apiClient.get('/intelligence/live-headcount')
+    return data.data // { asOf, overall, byShift, activeShifts }
+  },
+
+  syncStatus: async () => {
+    const { data } = await apiClient.get('/intelligence/sync-status')
+    return data.data // array of { jobName, lastStatus, isStale, staleMinutes }
+  },
+
+  runConsecutiveAbsence: async () => {
+    const { data } = await apiClient.post('/intelligence/run/consecutive-absence')
+    return data
+  },
+
+  runSyncHealth: async () => {
+    const { data } = await apiClient.post('/intelligence/run/sync-health')
+    return data
+  },
+}
+

@@ -1,0 +1,669 @@
+{
+  "info": {
+    "name": "UKG",
+    "description": "Complete Postman collection for HR Analytics backend.\nBase URL: http://localhost:5000\n\nHow to use:\n1. Run the 'Login — IT Admin' request first\n2. The token is automatically saved to the 'token' variable\n3. All other requests use that token automatically",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    { "key": "base_url", "value": "http://localhost:5000", "type": "string" },
+    { "key": "token",    "value": "", "type": "string" },
+    { "key": "emp_code", "value": "EMP1001", "type": "string" },
+    { "key": "month",    "value": "5", "type": "string" },
+    { "key": "year",     "value": "2026", "type": "string" }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [{ "key": "token", "value": "{{token}}", "type": "string" }]
+  },
+  "item": [
+    {
+      "name": "00 — Health",
+      "item": [
+        {
+          "name": "Ping — server alive",
+          "request": {
+            "method": "GET",
+            "url": "{{base_url}}/ping",
+            "description": "No auth required. Returns {ok:true} if server is running."
+          },
+          "event": [{
+            "listen": "test",
+            "script": { "exec": [
+              "pm.test('Server alive', () => pm.response.to.have.status(200));",
+              "pm.test('ok is true', () => pm.expect(pm.response.json().ok).to.be.true);"
+            ]}
+          }]
+        }
+      ]
+    },
+    {
+      "name": "01 — Auth",
+      "item": [
+        {
+          "name": "Login — IT Admin",
+          "request": {
+            "method": "POST",
+            "url": "{{base_url}}/api/v1/auth/login",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"admin@steelplant.in\",\n  \"password\": \"Admin@123\"\n}"
+            },
+            "description": "Login as IT Admin. Token is auto-saved to collection variable."
+          },
+          "event": [{
+            "listen": "test",
+            "script": { "exec": [
+              "pm.test('Status 200', () => pm.response.to.have.status(200));",
+              "pm.test('Has token', () => {",
+              "  const body = pm.response.json();",
+              "  pm.expect(body.data.token).to.be.a('string');",
+              "  pm.collectionVariables.set('token', body.data.token);",
+              "  console.log('Token saved:', body.data.token.slice(0,30)+'...');",
+              "});"
+            ]}
+          }]
+        },
+        {
+          "name": "Login — HR Admin",
+          "request": {
+            "method": "POST",
+            "url": "{{base_url}}/api/v1/auth/login",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"hr@steelplant.in\",\n  \"password\": \"Admin@123\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Login — Time Office",
+          "request": {
+            "method": "POST",
+            "url": "{{base_url}}/api/v1/auth/login",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"timeoffice@steelplant.in\",\n  \"password\": \"Admin@123\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Login — Wrong Password (expect 401)",
+          "request": {
+            "method": "POST",
+            "url": "{{base_url}}/api/v1/auth/login",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"admin@steelplant.in\",\n  \"password\": \"wrongpassword\"\n}"
+            },
+            "description": "Should return 401"
+          },
+          "event": [{
+            "listen": "test",
+            "script": { "exec": [
+              "pm.test('Rejects wrong password', () => pm.response.to.have.status(401));"
+            ]}
+          }]
+        },
+        {
+          "name": "Login — Missing Body (expect 400)",
+          "request": {
+            "method": "POST",
+            "url": "{{base_url}}/api/v1/auth/login",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{}" },
+            "description": "Should return 400 validation error"
+          },
+          "event": [{
+            "listen": "test",
+            "script": { "exec": [
+              "pm.test('Validation error 400', () => pm.response.to.have.status(400));"
+            ]}
+          }]
+        },
+        {
+          "name": "Get Me — current user",
+          "request": {
+            "method": "GET",
+            "url": "{{base_url}}/api/v1/auth/me",
+            "auth": { "type": "bearer", "bearer": [{ "key": "token", "value": "{{token}}" }] }
+          },
+          "event": [{
+            "listen": "test",
+            "script": { "exec": [
+              "pm.test('Status 200', () => pm.response.to.have.status(200));",
+              "pm.test('Has role', () => pm.expect(pm.response.json().data.role).to.be.a('string'));"
+            ]}
+          }]
+        },
+        {
+          "name": "Get Me — No Token (expect 401)",
+          "request": {
+            "method": "GET",
+            "url": "{{base_url}}/api/v1/auth/me",
+            "auth": { "type": "noauth" }
+          },
+          "event": [{
+            "listen": "test",
+            "script": { "exec": [
+              "pm.test('No token = 401', () => pm.response.to.have.status(401));"
+            ]}
+          }]
+        }
+      ]
+    },
+    {
+      "name": "02 — Analytics",
+      "item": [
+        {
+          "name": "Dashboard KPIs",
+          "request": {
+            "method": "GET",
+            "url": "{{base_url}}/api/v1/analytics/dashboard",
+            "description": "Main dashboard — today stats, current month totals, recent jobs"
+          },
+          "event": [{
+            "listen": "test",
+            "script": { "exec": [
+              "pm.test('Status 200', () => pm.response.to.have.status(200));",
+              "pm.test('Has today data', () => pm.expect(pm.response.json().data.today).to.exist);",
+              "pm.test('Has currentMonth', () => pm.expect(pm.response.json().data.currentMonth).to.exist);"
+            ]}
+          }]
+        },
+        {
+          "name": "Attendance Trend — 30 days",
+          "request": {
+            "method": "GET",
+            "url": { "raw": "{{base_url}}/api/v1/analytics/trend?days=30", "query": [{ "key": "days", "value": "30" }] }
+          }
+        },
+        {
+          "name": "Attendance Trend — 7 days",
+          "request": {
+            "method": "GET",
+            "url": { "raw": "{{base_url}}/api/v1/analytics/trend?days=7", "query": [{ "key": "days", "value": "7" }] }
+          }
+        },
+        {
+          "name": "Shift Breakdown — current month",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{base_url}}/api/v1/analytics/shift-breakdown?month={{month}}&year={{year}}",
+              "query": [{ "key": "month", "value": "{{month}}" }, { "key": "year", "value": "{{year}}" }]
+            }
+          }
+        },
+        {
+          "name": "Department Attendance Rate",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{base_url}}/api/v1/analytics/dept-rate?month={{month}}&year={{year}}",
+              "query": [{ "key": "month", "value": "{{month}}" }, { "key": "year", "value": "{{year}}" }]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "03 — Attendance",
+      "item": [
+        {
+          "name": "Today Summary",
+          "request": {
+            "method": "GET",
+            "url": "{{base_url}}/api/v1/attendance/today",
+            "description": "Count of Present/Absent/Leave/etc for today"
+          }
+        },
+        {
+          "name": "Daily — Today",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{base_url}}/api/v1/attendance/daily?date=2026-05-26",
+              "query": [{ "key": "date", "value": "2026-05-26" }]
+            },
+            "description": "All attendance records for a specific date"
+          }
+        },
+        {
+          "name": "Daily — Date Range",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{base_url}}/api/v1/attendance/daily?dateFrom=2026-05-01&dateTo=2026-05-26",
+              "query": [
+                { "key": "dateFrom", "value": "2026-05-01" },
+                { "key": "dateTo",   "value": "2026-05-26" }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Daily — Filter by Department",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{base_url}}/api/v1/attendance/daily?date=2026-05-26&department=Blast Furnace",
+              "query": [
+                { "key": "date",       "value": "2026-05-26" },
+                { "key": "department", "value": "Blast Furnace" }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Daily — Filter by Status (Absent)",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{base_url}}/api/v1/attendance/daily?dateFrom=2026-05-01&dateTo=2026-05-26&status=Absent",
+              "query": [
+                { "key": "dateFrom", "value": "2026-05-01" },
+                { "key": "dateTo",   "value": "2026-05-26" },
+                { "key": "status",   "value": "Absent" }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Daily — Filter by Status (Miss Punch)",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{base_url}}/api/v1/attendance/daily?dateFrom=2026-05-01&dateTo=2026-05-26&status=Miss Punch",
+              "query": [
+                { "key": "dateFrom", "value": "2026-05-01" },
+                { "key": "dateTo",   "value": "2026-05-26" },
+                { "key": "status",   "value": "Miss Punch" }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Daily — Filter by Shift",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{base_url}}/api/v1/attendance/daily?date=2026-05-26&shift=C",
+              "query": [
+                { "key": "date",  "value": "2026-05-26" },
+                { "key": "shift", "value": "C" }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Daily — Filter by Employee",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{base_url}}/api/v1/attendance/daily?employeeCode={{emp_code}}",
+              "query": [{ "key": "employeeCode", "value": "{{emp_code}}" }]
+            }
+          }
+        },
+        {
+          "name": "Daily — Pagination (page 2)",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{base_url}}/api/v1/attendance/daily?dateFrom=2026-02-26&dateTo=2026-05-26&page=2&limit=50",
+              "query": [
+                { "key": "dateFrom", "value": "2026-02-26" },
+                { "key": "dateTo",   "value": "2026-05-26" },
+                { "key": "page",     "value": "2" },
+                { "key": "limit",    "value": "50" }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Daily — Both date and dateFrom (expect 400)",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{base_url}}/api/v1/attendance/daily?date=2026-05-26&dateFrom=2026-05-01",
+              "query": [
+                { "key": "date",     "value": "2026-05-26" },
+                { "key": "dateFrom", "value": "2026-05-01" }
+              ]
+            },
+            "description": "Should return 400 — cannot use date AND dateFrom together"
+          },
+          "event": [{
+            "listen": "test",
+            "script": { "exec": ["pm.test('Validation error 400', () => pm.response.to.have.status(400));"] }
+          }]
+        },
+        {
+          "name": "Monthly Summary — current month",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{base_url}}/api/v1/attendance/monthly?month={{month}}&year={{year}}",
+              "query": [{ "key": "month", "value": "{{month}}" }, { "key": "year", "value": "{{year}}" }]
+            }
+          }
+        },
+        {
+          "name": "Monthly Summary — by department",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{base_url}}/api/v1/attendance/monthly?month={{month}}&year={{year}}&department=Rolling Mill",
+              "query": [
+                { "key": "month",      "value": "{{month}}" },
+                { "key": "year",       "value": "{{year}}" },
+                { "key": "department", "value": "Rolling Mill" }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Department Breakdown",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{base_url}}/api/v1/attendance/department-breakdown?month={{month}}&year={{year}}",
+              "query": [{ "key": "month", "value": "{{month}}" }, { "key": "year", "value": "{{year}}" }]
+            }
+          }
+        },
+        {
+          "name": "Miss Punch List — date range",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{base_url}}/api/v1/attendance/miss-punch?dateFrom=2026-05-01&dateTo=2026-05-26",
+              "query": [
+                { "key": "dateFrom", "value": "2026-05-01" },
+                { "key": "dateTo",   "value": "2026-05-26" }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Overtime List — date range",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{base_url}}/api/v1/attendance/overtime?dateFrom=2026-05-01&dateTo=2026-05-26",
+              "query": [
+                { "key": "dateFrom", "value": "2026-05-01" },
+                { "key": "dateTo",   "value": "2026-05-26" }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Overtime List — min 2 hours OT",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{base_url}}/api/v1/attendance/overtime?dateFrom=2026-05-01&dateTo=2026-05-26&minOtMinutes=120",
+              "query": [
+                { "key": "dateFrom",     "value": "2026-05-01" },
+                { "key": "dateTo",       "value": "2026-05-26" },
+                { "key": "minOtMinutes", "value": "120" }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "04 — Employees",
+      "item": [
+        {
+          "name": "All Employees",
+          "request": {
+            "method": "GET",
+            "url": "{{base_url}}/api/v1/employees"
+          }
+        },
+        {
+          "name": "Employees — by Department",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{base_url}}/api/v1/employees?department=Blast Furnace",
+              "query": [{ "key": "department", "value": "Blast Furnace" }]
+            }
+          }
+        },
+        {
+          "name": "Employees — Search by name",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{base_url}}/api/v1/employees?search=Rajesh",
+              "query": [{ "key": "search", "value": "Rajesh" }]
+            }
+          }
+        },
+        {
+          "name": "Employee Detail — by code",
+          "request": {
+            "method": "GET",
+            "url": "{{base_url}}/api/v1/employees/{{emp_code}}"
+          }
+        },
+        {
+          "name": "Employee Detail — not found (expect 404)",
+          "request": {
+            "method": "GET",
+            "url": "{{base_url}}/api/v1/employees/EMP9999"
+          },
+          "event": [{
+            "listen": "test",
+            "script": { "exec": ["pm.test('Not found 404', () => pm.response.to.have.status(404));"] }
+          }]
+        },
+        {
+          "name": "Departments List",
+          "request": {
+            "method": "GET",
+            "url": "{{base_url}}/api/v1/employees/departments"
+          }
+        }
+      ]
+    },
+    {
+      "name": "05 — Exports",
+      "item": [
+        {
+          "name": "Monthly Attendance Excel",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{base_url}}/api/v1/exports/monthly-attendance?month={{month}}&year={{year}}",
+              "query": [{ "key": "month", "value": "{{month}}" }, { "key": "year", "value": "{{year}}" }]
+            },
+            "description": "Downloads .xlsx file. In Postman click 'Send and Download'."
+          }
+        },
+        {
+          "name": "Monthly Attendance Excel — by Department",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{base_url}}/api/v1/exports/monthly-attendance?month={{month}}&year={{year}}&department=Blast Furnace",
+              "query": [
+                { "key": "month",      "value": "{{month}}" },
+                { "key": "year",       "value": "{{year}}" },
+                { "key": "department", "value": "Blast Furnace" }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Overtime Excel",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{base_url}}/api/v1/exports/overtime?dateFrom=2026-05-01&dateTo=2026-05-26",
+              "query": [
+                { "key": "dateFrom", "value": "2026-05-01" },
+                { "key": "dateTo",   "value": "2026-05-26" }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Export — Missing required params (expect 400)",
+          "request": {
+            "method": "GET",
+            "url": "{{base_url}}/api/v1/exports/monthly-attendance",
+            "description": "No month/year — should return 400"
+          },
+          "event": [{
+            "listen": "test",
+            "script": { "exec": ["pm.test('Validation 400', () => pm.response.to.have.status(400));"] }
+          }]
+        }
+      ]
+    },
+    {
+      "name": "06 — Monitoring",
+      "item": [
+        {
+          "name": "System Health",
+          "request": {
+            "method": "GET",
+            "url": "{{base_url}}/api/v1/monitoring/health",
+            "description": "MongoDB status, memory, disk, server uptime"
+          }
+        },
+        {
+          "name": "Jobs Overview",
+          "request": {
+            "method": "GET",
+            "url": "{{base_url}}/api/v1/monitoring/jobs",
+            "description": "Last run status of each scheduled job"
+          }
+        },
+        {
+          "name": "Job Logs — all",
+          "request": {
+            "method": "GET",
+            "url": "{{base_url}}/api/v1/monitoring/job-logs"
+          }
+        },
+        {
+          "name": "Job Logs — failed only",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{base_url}}/api/v1/monitoring/job-logs?status=failed",
+              "query": [{ "key": "status", "value": "failed" }]
+            }
+          }
+        },
+        {
+          "name": "Job Logs — skipped only",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{base_url}}/api/v1/monitoring/job-logs?status=skipped",
+              "query": [{ "key": "status", "value": "skipped" }]
+            }
+          }
+        },
+        {
+          "name": "Audit Logs",
+          "request": {
+            "method": "GET",
+            "url": "{{base_url}}/api/v1/monitoring/audit-logs"
+          }
+        },
+        {
+          "name": "Trigger Sync — attendance-live",
+          "request": {
+            "method": "POST",
+            "url": "{{base_url}}/api/v1/monitoring/jobs/trigger/attendance-live",
+            "description": "Manual job trigger. With UKG_API_AVAILABLE=false it will log as 'skipped' — correct."
+          }
+        },
+        {
+          "name": "Trigger Sync — employees",
+          "request": {
+            "method": "POST",
+            "url": "{{base_url}}/api/v1/monitoring/jobs/trigger/employees"
+          }
+        },
+        {
+          "name": "Trigger Sync — leaves",
+          "request": {
+            "method": "POST",
+            "url": "{{base_url}}/api/v1/monitoring/jobs/trigger/leaves"
+          }
+        },
+        {
+          "name": "Trigger Sync — shifts",
+          "request": {
+            "method": "POST",
+            "url": "{{base_url}}/api/v1/monitoring/jobs/trigger/shifts"
+          }
+        },
+        {
+          "name": "Trigger Sync — invalid job (expect 400)",
+          "request": {
+            "method": "POST",
+            "url": "{{base_url}}/api/v1/monitoring/jobs/trigger/nonexistent",
+            "description": "Should return 400 invalid job"
+          },
+          "event": [{
+            "listen": "test",
+            "script": { "exec": ["pm.test('Invalid job 400', () => pm.response.to.have.status(400));"] }
+          }]
+        }
+      ]
+    },
+    {
+      "name": "07 — Security Tests",
+      "item": [
+        {
+          "name": "No token — protected route (expect 401)",
+          "request": {
+            "method": "GET",
+            "url": "{{base_url}}/api/v1/analytics/dashboard",
+            "auth": { "type": "noauth" }
+          },
+          "event": [{
+            "listen": "test",
+            "script": { "exec": ["pm.test('No token = 401', () => pm.response.to.have.status(401));"] }
+          }]
+        },
+        {
+          "name": "Invalid token (expect 401)",
+          "request": {
+            "method": "GET",
+            "url": "{{base_url}}/api/v1/analytics/dashboard",
+            "auth": { "type": "bearer", "bearer": [{ "key": "token", "value": "invalid.token.here" }] }
+          },
+          "event": [{
+            "listen": "test",
+            "script": { "exec": ["pm.test('Bad token = 401', () => pm.response.to.have.status(401));"] }
+          }]
+        },
+        {
+          "name": "Unknown route (expect 404)",
+          "request": {
+            "method": "GET",
+            "url": "{{base_url}}/api/v1/doesnotexist"
+          },
+          "event": [{
+            "listen": "test",
+            "script": { "exec": ["pm.test('Unknown = 404', () => pm.response.to.have.status(404));"] }
+          }]
+        }
+      ]
+    }
+  ]
+}
