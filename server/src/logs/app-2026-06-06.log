@@ -1,0 +1,51 @@
+2026-06-06 09:08:19 [INFO   ] MongoDB connected → localhost / UKG
+2026-06-06 09:08:20 [INFO   ] Indexes ensured — 5 created/verified across 10 collections
+2026-06-06 09:08:20 [INFO   ] [scheduler] ✔ Registered: attendance_live_sync  (*/5 * * * *)
+2026-06-06 09:08:20 [INFO   ] [scheduler] ✔ Registered: leave_sync  (*/30 * * * *)
+2026-06-06 09:08:20 [INFO   ] [scheduler] ✔ Registered: shift_sync  (0 * * * *)
+2026-06-06 09:08:20 [INFO   ] [scheduler] ✔ Registered: employee_sync  (0 1 * * *)
+2026-06-06 09:08:20 [INFO   ] [scheduler] ✔ Registered: consecutive_absence_scan  (0 2 * * *)
+2026-06-06 09:08:20 [INFO   ] [scheduler] ✔ Registered: sync_health_check  (*/15 * * * *)
+2026-06-06 09:08:20 [INFO   ] [scheduler] Running on startup: sync_health_check
+2026-06-06 09:08:20 [INFO   ] [scheduler] 6 jobs active
+2026-06-06 09:08:20 [INFO   ] ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2026-06-06 09:08:20 [INFO   ]   HR Analytics API  —  http://localhost:5000
+2026-06-06 09:08:20 [INFO   ]   Environment  : development
+2026-06-06 09:08:20 [INFO   ]   MongoDB      : localhost
+2026-06-06 09:08:20 [INFO   ]   UKG API      : 🟡 SEED MODE
+2026-06-06 09:08:20 [INFO   ] ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2026-06-06 09:09:58 [INFO   ] User login success  {"email":"admin@steelplant.in","role":"IT_ADMIN"}
+2026-06-06 09:10:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-06-06 09:11:13 [INFO   ] [intelligence] Alert dismissed: 6a23962d34f14fd15b1f2008 by admin@steelplant.in
+2026-06-06 09:15:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-06-06 09:15:00 [INFO   ] [scheduler] ▶ Starting: sync_health_check
+2026-06-06 09:57:20 [INFO   ] MongoDB connected → localhost / UKG
+2026-06-06 09:57:20 [INFO   ] Indexes ensured — 5 created/verified across 10 collections
+2026-06-06 09:57:20 [INFO   ] [scheduler] ✔ Registered: attendance_live_sync  (*/5 * * * *)
+2026-06-06 09:57:20 [INFO   ] [scheduler] ✔ Registered: leave_sync  (*/30 * * * *)
+2026-06-06 09:57:20 [INFO   ] [scheduler] ✔ Registered: shift_sync  (0 * * * *)
+2026-06-06 09:57:20 [INFO   ] [scheduler] ✔ Registered: employee_sync  (0 1 * * *)
+2026-06-06 09:57:20 [INFO   ] [scheduler] ✔ Registered: consecutive_absence_scan  (0 2 * * *)
+2026-06-06 09:57:20 [INFO   ] [scheduler] ✔ Registered: sync_health_check  (*/15 * * * *)
+2026-06-06 09:57:20 [INFO   ] [scheduler] Running on startup: sync_health_check
+2026-06-06 09:57:20 [INFO   ] [scheduler] 6 jobs active
+2026-06-06 09:57:20 [INFO   ] ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2026-06-06 09:57:20 [INFO   ]   HR Analytics API  —  http://localhost:5000
+2026-06-06 09:57:20 [INFO   ]   Environment  : development
+2026-06-06 09:57:20 [INFO   ]   MongoDB      : localhost
+2026-06-06 09:57:20 [INFO   ]   UKG API      : 🟡 SEED MODE
+2026-06-06 09:57:20 [INFO   ] ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2026-06-06 09:58:01 [INFO   ] User login success  {"email":"admin@steelplant.in","role":"IT_ADMIN"}
+2026-06-06 09:58:09 [INFO   ] [intelligence] Alert dismissed: 6a23a1a8abc4904b76d40b9f by admin@steelplant.in
+2026-06-06 10:00:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-06-06 10:00:00 [INFO   ] [scheduler] ▶ Starting: leave_sync
+2026-06-06 10:00:00 [INFO   ] [scheduler] ▶ Starting: shift_sync
+2026-06-06 10:00:00 [INFO   ] [scheduler] ▶ Starting: sync_health_check
+2026-06-06 10:04:32 [INFO   ] User login success  {"email":"admin@steelplant.in","role":"IT_ADMIN"}
+2026-06-06 10:05:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-06-06 10:10:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-06-06 10:15:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-06-06 10:15:00 [INFO   ] [scheduler] ▶ Starting: sync_health_check
+2026-06-06 10:18:35 [INFO   ] User login success  {"email":"admin@steelplant.in","role":"IT_ADMIN"}
+2026-06-06 10:20:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-06-06 10:24:34 [INFO   ] SIGINT received — shutting down gracefully
