@@ -5,11 +5,12 @@
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
   },
   "variable": [
-    { "key": "base_url", "value": "http://localhost:5000", "type": "string" },
-    { "key": "token",    "value": "", "type": "string" },
-    { "key": "emp_code", "value": "EMP1001", "type": "string" },
-    { "key": "month",    "value": "5", "type": "string" },
-    { "key": "year",     "value": "2026", "type": "string" }
+    { "key": "base_url",  "value": "http://localhost:5000", "type": "string" },
+    { "key": "token",     "value": "",                      "type": "string" },
+    { "key": "emp_code",  "value": "EMP1001",               "type": "string" },
+    { "key": "month",     "value": "5",                     "type": "string" },
+    { "key": "year",      "value": "2026",                  "type": "string" },
+    { "key": "alert_id",  "value": "",                      "type": "string" }
   ],
   "auth": {
     "type": "bearer",
@@ -661,6 +662,246 @@
           "event": [{
             "listen": "test",
             "script": { "exec": ["pm.test('Unknown = 404', () => pm.response.to.have.status(404));"] }
+          }]
+        }
+      ]
+    },
+     {
+      "name": "08 — Intelligence",
+      "item": [
+        {
+          "name": "Alerts — Active list",
+          "request": {
+            "method": "GET",
+            "url": "{{base_url}}/api/v1/intelligence/alerts",
+            "auth": { "type": "bearer", "bearer": [{ "key": "token", "value": "{{token}}" }] },
+            "description": "Returns all active alerts. After first run the list will be empty until the consecutive_absence_scan job runs or you trigger it manually."
+          },
+          "event": [{
+            "listen": "test",
+            "script": { "exec": [
+              "pm.test('Status 200', () => pm.response.to.have.status(200));",
+              "pm.test('Has data array', () => pm.expect(pm.response.json().data).to.be.an('array'));",
+              "const alerts = pm.response.json().data;",
+              "if (alerts.length > 0) {",
+              "  pm.collectionVariables.set('alert_id', alerts[0]._id);",
+              "  console.log('alert_id saved:', alerts[0]._id);",
+              "}"
+            ]}
+          }]
+        },
+        {
+          "name": "Alerts — Filter by severity (critical)",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{base_url}}/api/v1/intelligence/alerts?severity=critical",
+              "query": [{ "key": "severity", "value": "critical" }]
+            },
+            "auth": { "type": "bearer", "bearer": [{ "key": "token", "value": "{{token}}" }] }
+          }
+        },
+        {
+          "name": "Alerts — Filter by type (consecutive_absence)",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{base_url}}/api/v1/intelligence/alerts?type=consecutive_absence",
+              "query": [{ "key": "type", "value": "consecutive_absence" }]
+            },
+            "auth": { "type": "bearer", "bearer": [{ "key": "token", "value": "{{token}}" }] }
+          }
+        },
+        {
+          "name": "Alerts — Filter by type (sync_stale)",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{base_url}}/api/v1/intelligence/alerts?type=sync_stale",
+              "query": [{ "key": "type", "value": "sync_stale" }]
+            },
+            "auth": { "type": "bearer", "bearer": [{ "key": "token", "value": "{{token}}" }] }
+          }
+        },
+        {
+          "name": "Alerts — Summary (dashboard badge counts)",
+          "request": {
+            "method": "GET",
+            "url": "{{base_url}}/api/v1/intelligence/alerts/summary",
+            "auth": { "type": "bearer", "bearer": [{ "key": "token", "value": "{{token}}" }] },
+            "description": "Returns { critical: N, warning: N, info: N, total: N }. Used to show badge counts on the dashboard header."
+          },
+          "event": [{
+            "listen": "test",
+            "script": { "exec": [
+              "pm.test('Status 200', () => pm.response.to.have.status(200));",
+              "pm.test('Has total count', () => pm.expect(pm.response.json().data.total).to.be.a('number'));"
+            ]}
+          }]
+        },
+        {
+          "name": "Alerts — Dismiss (requires alert_id variable)",
+          "request": {
+            "method": "PATCH",
+            "url": "{{base_url}}/api/v1/intelligence/alerts/{{alert_id}}/dismiss",
+            "auth": { "type": "bearer", "bearer": [{ "key": "token", "value": "{{token}}" }] },
+            "description": "Dismisses an alert. Run 'Alerts — Active list' first to populate the alert_id variable. HR Admin and IT Admin only."
+          },
+          "event": [{
+            "listen": "test",
+            "script": { "exec": [
+              "if (pm.collectionVariables.get('alert_id')) {",
+              "  pm.test('Status 200 or 404', () => {",
+              "    pm.expect([200, 404]).to.include(pm.response.code);",
+              "  });",
+              "} else {",
+              "  console.log('Skipped: no alert_id set. Run Alerts list first.');",
+              "}"
+            ]}
+          }]
+        },
+        {
+          "name": "Alerts — Dismiss invalid ID (expect 404)",
+          "request": {
+            "method": "PATCH",
+            "url": "{{base_url}}/api/v1/intelligence/alerts/000000000000000000000000/dismiss",
+            "auth": { "type": "bearer", "bearer": [{ "key": "token", "value": "{{token}}" }] }
+          },
+          "event": [{
+            "listen": "test",
+            "script": { "exec": ["pm.test('Not found 404', () => pm.response.to.have.status(404));"] }
+          }]
+        },
+        {
+          "name": "Live Headcount — all shifts",
+          "request": {
+            "method": "GET",
+            "url": "{{base_url}}/api/v1/intelligence/live-headcount",
+            "auth": { "type": "bearer", "bearer": [{ "key": "token", "value": "{{token}}" }] },
+            "description": "Returns real-time headcount per shift. asOf field shows when the data was computed. Reads from last 10 hours of punch data. With seeded data, employees will show as 'absent' since no live punches exist."
+          },
+          "event": [{
+            "listen": "test",
+            "script": { "exec": [
+              "pm.test('Status 200', () => pm.response.to.have.status(200));",
+              "const data = pm.response.json().data;",
+              "pm.test('Has asOf timestamp', () => pm.expect(data.asOf).to.exist);",
+              "pm.test('Has overall summary', () => pm.expect(data.overall.scheduled).to.be.a('number'));",
+              "pm.test('Has byShift breakdown', () => pm.expect(data.byShift).to.exist);",
+              "console.log('Overall:', data.overall);",
+              "console.log('Active shifts:', data.activeShifts);"
+            ]}
+          }]
+        },
+        {
+          "name": "Live Headcount — verify structure",
+          "request": {
+            "method": "GET",
+            "url": "{{base_url}}/api/v1/intelligence/live-headcount",
+            "auth": { "type": "bearer", "bearer": [{ "key": "token", "value": "{{token}}" }] }
+          },
+          "event": [{
+            "listen": "test",
+            "script": { "exec": [
+              "const data = pm.response.json().data;",
+              "const shifts = ['A', 'B', 'C', 'G'];",
+              "shifts.forEach(s => {",
+              "  pm.test(`Shift ${s} present in byShift`, () => pm.expect(data.byShift[s]).to.exist);",
+              "  pm.test(`Shift ${s} has presentList`, () => pm.expect(data.byShift[s].presentList).to.be.an('array'));",
+              "  pm.test(`Shift ${s} has absentList`,  () => pm.expect(data.byShift[s].absentList).to.be.an('array'));",
+              "});"
+            ]}
+          }]
+        },
+        {
+          "name": "Sync Status — all jobs",
+          "request": {
+            "method": "GET",
+            "url": "{{base_url}}/api/v1/intelligence/sync-status",
+            "auth": { "type": "bearer", "bearer": [{ "key": "token", "value": "{{token}}" }] },
+            "description": "Returns last success time and staleness in minutes for each sync job. isStale=true means the job hasn't succeeded in over 30 minutes. With UKG_API_AVAILABLE=false, status will be 'skipped' which is treated as healthy."
+          },
+          "event": [{
+            "listen": "test",
+            "script": { "exec": [
+              "pm.test('Status 200', () => pm.response.to.have.status(200));",
+              "const data = pm.response.json().data;",
+              "pm.test('Returns array of job statuses', () => pm.expect(data).to.be.an('array'));",
+              "pm.test('Has 4 jobs', () => pm.expect(data.length).to.equal(4));",
+              "const jobs = data.map(j => j.jobName);",
+              "pm.test('attendance_live_sync present', () => pm.expect(jobs).to.include('attendance_live_sync'));",
+              "data.forEach(job => {",
+              "  console.log(job.jobName, '→', job.lastStatus, '| stale:', job.isStale, '| minutes:', job.staleMinutes);",
+              "});"
+            ]}
+          }]
+        },
+        {
+          "name": "Dashboard — verify new fields (alerts + syncStatus)",
+          "request": {
+            "method": "GET",
+            "url": "{{base_url}}/api/v1/analytics/dashboard",
+            "auth": { "type": "bearer", "bearer": [{ "key": "token", "value": "{{token}}" }] },
+            "description": "Dashboard now includes two new top-level fields: 'alerts' (summary counts) and 'syncStatus' (freshness per job). This test verifies they exist."
+          },
+          "event": [{
+            "listen": "test",
+            "script": { "exec": [
+              "pm.test('Status 200', () => pm.response.to.have.status(200));",
+              "const data = pm.response.json().data;",
+              "pm.test('Has alerts field', () => pm.expect(data.alerts).to.exist);",
+              "pm.test('alerts has total', () => pm.expect(data.alerts.total).to.be.a('number'));",
+              "pm.test('alerts has critical', () => pm.expect(data.alerts.critical).to.be.a('number'));",
+              "pm.test('Has syncStatus field', () => pm.expect(data.syncStatus).to.be.an('array'));",
+              "pm.test('syncStatus has 4 entries', () => pm.expect(data.syncStatus.length).to.equal(4));",
+              "console.log('Alert summary:', data.alerts);",
+              "console.log('Sync status:', data.syncStatus.map(s => s.jobName + ': ' + (s.isStale ? 'STALE' : 'fresh')));"
+            ]}
+          }]
+        },
+        {
+          "name": "Trigger — Consecutive Absence Scan (IT Admin only)",
+          "request": {
+            "method": "POST",
+            "url": "{{base_url}}/api/v1/intelligence/run/consecutive-absence",
+            "auth": { "type": "bearer", "bearer": [{ "key": "token", "value": "{{token}}" }] },
+            "description": "Manually runs the consecutive absence detection job. Fires in background — returns immediately. Wait 2-3 seconds then check GET /alerts to see results. Login as IT Admin before running this."
+          },
+          "event": [{
+            "listen": "test",
+            "script": { "exec": [
+              "pm.test('Status 200', () => pm.response.to.have.status(200));",
+              "pm.test('Has message', () => pm.expect(pm.response.json().data.message).to.be.a('string'));",
+              "console.log('Scan triggered. Wait 3 seconds then run Alerts list to see results.');"
+            ]}
+          }]
+        },
+        {
+          "name": "Trigger — Sync Health Check (IT Admin only)",
+          "request": {
+            "method": "POST",
+            "url": "{{base_url}}/api/v1/intelligence/run/sync-health",
+            "auth": { "type": "bearer", "bearer": [{ "key": "token", "value": "{{token}}" }] },
+            "description": "Manually runs the sync health check. Checks for stale data and consecutive failures. Fires in background."
+          },
+          "event": [{
+            "listen": "test",
+            "script": { "exec": [
+              "pm.test('Status 200', () => pm.response.to.have.status(200));"
+            ]}
+          }]
+        },
+        {
+          "name": "Trigger — Consecutive Absence (HR Admin — expect 403)",
+          "request": {
+            "method": "POST",
+            "url": "{{base_url}}/api/v1/intelligence/run/consecutive-absence",
+            "auth": { "type": "bearer", "bearer": [{ "key": "token", "value": "{{token}}" }] },
+            "description": "Login as HR Admin first. This trigger is IT Admin only — should return 403."
+          },
+          "event": [{
+            "listen": "prerequest",
+            "script": { "exec": ["console.log('Login as HR Admin first for this test to be meaningful');"] }
           }]
         }
       ]
