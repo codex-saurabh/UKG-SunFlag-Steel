@@ -49,3 +49,80 @@
 2026-06-06 10:18:35 [INFO   ] User login success  {"email":"admin@steelplant.in","role":"IT_ADMIN"}
 2026-06-06 10:20:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
 2026-06-06 10:24:34 [INFO   ] SIGINT received — shutting down gracefully
+2026-06-06 11:01:27 [INFO   ] MongoDB connected → localhost / UKG
+2026-06-06 11:01:27 [INFO   ] Indexes ensured — 5 created/verified across 10 collections
+2026-06-06 11:01:27 [INFO   ] [scheduler] ✔ Registered: attendance_live_sync  (*/5 * * * *)
+2026-06-06 11:01:27 [INFO   ] [scheduler] ✔ Registered: leave_sync  (*/30 * * * *)
+2026-06-06 11:01:27 [INFO   ] [scheduler] ✔ Registered: shift_sync  (0 * * * *)
+2026-06-06 11:01:27 [INFO   ] [scheduler] ✔ Registered: employee_sync  (0 1 * * *)
+2026-06-06 11:01:27 [INFO   ] [scheduler] ✔ Registered: consecutive_absence_scan  (0 2 * * *)
+2026-06-06 11:01:27 [INFO   ] [scheduler] ✔ Registered: sync_health_check  (*/15 * * * *)
+2026-06-06 11:01:27 [INFO   ] [scheduler] Running on startup: sync_health_check
+2026-06-06 11:01:27 [INFO   ] [scheduler] 6 jobs active
+2026-06-06 11:01:27 [INFO   ] ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2026-06-06 11:01:27 [INFO   ]   HR Analytics API  —  http://localhost:5000
+2026-06-06 11:01:27 [INFO   ]   Environment  : development
+2026-06-06 11:01:27 [INFO   ]   MongoDB      : localhost
+2026-06-06 11:01:27 [INFO   ]   UKG API      : 🟡 SEED MODE
+2026-06-06 11:01:27 [INFO   ] ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2026-06-06 11:02:15 [INFO   ] User login success  {"email":"admin@steelplant.in","role":"IT_ADMIN"}
+2026-06-06 11:02:29 [INFO   ] [intelligence] Alert dismissed: 6a23b0af5f3833d0492d21ca by admin@steelplant.in
+2026-06-06 11:05:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-06-06 11:10:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-06-06 11:15:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-06-06 11:15:00 [INFO   ] [scheduler] ▶ Starting: sync_health_check
+2026-06-06 11:20:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-06-06 11:25:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-06-06 11:30:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-06-06 11:30:00 [INFO   ] [scheduler] ▶ Starting: leave_sync
+2026-06-06 11:30:00 [INFO   ] [scheduler] ▶ Starting: sync_health_check
+2026-06-06 11:35:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-06-06 11:40:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-06-06 11:45:00 [INFO   ] [scheduler] ▶ Starting: sync_health_check
+2026-06-06 11:45:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-06-06 11:50:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-06-06 11:55:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-06-06 12:00:00 [INFO   ] [scheduler] ▶ Starting: sync_health_check
+2026-06-06 12:00:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-06-06 12:00:00 [INFO   ] [scheduler] ▶ Starting: leave_sync
+2026-06-06 12:00:00 [INFO   ] [scheduler] ▶ Starting: shift_sync
+2026-06-06 12:05:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-06-06 12:10:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-06-06 12:10:53 [INFO   ] User login success  {"email":"admin@steelplant.in","role":"IT_ADMIN"}
+2026-06-06 12:15:00 [INFO   ] [scheduler] ▶ Starting: sync_health_check
+2026-06-06 12:15:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-06-06 12:20:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-06-06 12:25:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-06-06 12:30:00 [INFO   ] [scheduler] ▶ Starting: sync_health_check
+2026-06-06 12:30:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-06-06 12:30:00 [INFO   ] [scheduler] ▶ Starting: leave_sync
+2026-06-06 12:35:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-06-06 12:40:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-06-06 12:45:00 [INFO   ] [scheduler] ▶ Starting: sync_health_check
+2026-06-06 12:45:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-06-06 12:50:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-06-06 12:55:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-06-06 13:00:00 [INFO   ] [scheduler] ▶ Starting: sync_health_check
+2026-06-06 13:00:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-06-06 13:00:00 [INFO   ] [scheduler] ▶ Starting: leave_sync
+2026-06-06 13:00:00 [INFO   ] [scheduler] ▶ Starting: shift_sync
+2026-06-06 13:05:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-06-06 13:10:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-06-06 13:15:00 [INFO   ] [scheduler] ▶ Starting: sync_health_check
+2026-06-06 13:15:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-06-06 13:20:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-06-06 13:25:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-06-06 13:30:00 [INFO   ] [scheduler] ▶ Starting: leave_sync
+2026-06-06 13:30:00 [INFO   ] [scheduler] ▶ Starting: sync_health_check
+2026-06-06 13:30:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-06-06 13:35:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-06-06 13:40:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-06-06 13:45:00 [INFO   ] [scheduler] ▶ Starting: sync_health_check
+2026-06-06 13:45:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-06-06 13:50:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-06-06 13:55:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-06-06 14:00:00 [INFO   ] [scheduler] ▶ Starting: sync_health_check
+2026-06-06 14:00:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
+2026-06-06 14:00:00 [INFO   ] [scheduler] ▶ Starting: leave_sync
+2026-06-06 14:00:00 [INFO   ] [scheduler] ▶ Starting: shift_sync
+2026-06-06 14:05:00 [INFO   ] [scheduler] ▶ Starting: attendance_live_sync
